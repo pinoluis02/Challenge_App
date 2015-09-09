@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NewChallengeViewController : UIViewController
+- (IBAction)makeDonationSwith:(UISwitch *)sender;
 
 @end
