@@ -17,7 +17,7 @@
 #define didFinishAcceptChallengeRequestWithResult_ 8
 #define didFinishRejectChallengeRequestWithResult_ 9
 
-#define getAllChallenges_url "http://dev.fuzzproductions.com/MobileTest/test.json?user_id="
+#define getAllChallenges_url "http://dev.fuzzproductions.com/MobileTest/test.json"
 #define getLastChallenges_url ""
 #define getPopularChallenges_url ""
 #define getChallengesFromUser_url  ""
