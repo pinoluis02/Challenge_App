@@ -16,9 +16,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="gDR-RK-se0" kind="relationship" relationship="viewControllers" id="39j-VA-8WH"/>
-                        <segue destination="c31-8x-Wm0" kind="relationship" relationship="viewControllers" id="GZ1-Xa-Yj7"/>
+                        <segue destination="Aas-lC-jlf" kind="relationship" relationship="viewControllers" id="GZ1-Xa-Yj7"/>
                         <segue destination="6Z2-Wh-riS" kind="relationship" relationship="viewControllers" id="52z-y8-ofH"/>
-                        <segue destination="BKs-ED-vfI" kind="relationship" relationship="viewControllers" id="he0-Qn-mQN"/>
+                        <segue destination="pyG-fT-7NG" kind="relationship" relationship="viewControllers" id="he0-Qn-mQN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kn3-fW-l8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -29,11 +29,41 @@
         <scene sceneID="Tw2-tN-8fz">
             <objects>
                 <viewController id="c31-8x-Wm0" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="contacts icon" id="Z16-jX-ObI"/>
+                    <navigationItem key="navigationItem" id="I5g-kG-tWo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAi-5O-ViM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="369" y="448"/>
+            <point key="canvasLocation" x="441" y="1236"/>
+        </scene>
+        <!--New Challenge View Controller-->
+        <scene sceneID="XuS-88-408">
+            <objects>
+                <viewController id="VhZ-go-XnN" customClass="NewChallengeViewController" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="yrn-vS-mYT" kind="show" identifier="MakeDonationSegue" id="F9W-Oq-09j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJV-k1-tfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="1895"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="GjZ-CQ-pKM">
+            <objects>
+                <viewController id="yrn-vS-mYT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fZD-Ue-Bjk"/>
+                        <viewControllerLayoutGuide type="bottom" id="kmG-eV-Yxl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xbT-Ra-9o3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZGs-lc-K9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="2675"/>
         </scene>
         <!--Global Context Pseudo Tab Controller-->
         <scene sceneID="qxW-Uu-zXp">
@@ -43,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-sE-Q3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="448"/>
+            <point key="canvasLocation" x="1573" y="458"/>
         </scene>
         <!--User Context Pseudo Tab Controller-->
         <scene sceneID="EqS-NQ-BuQ">
@@ -53,17 +83,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIy-cV-0Kf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-277" y="448"/>
+            <point key="canvasLocation" x="-257" y="448"/>
         </scene>
         <!--Create New Challenge View Controller-->
         <scene sceneID="K04-qu-DXr">
             <objects>
                 <viewController id="BKs-ED-vfI" customClass="CreateNewChallengeViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="new challenge icon" id="5ZA-ZS-aWP"/>
+                    <navigationItem key="navigationItem" id="6M1-fe-sIP"/>
+                    <connections>
+                        <segue destination="VhZ-go-XnN" kind="show" identifier="NewChallengeSegue" id="GYS-MR-EX4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPE-ab-pwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1710" y="448"/>
+            <point key="canvasLocation" x="2522" y="1176"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9GF-sh-LOk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Aas-lC-jlf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="contacts icon" id="Z16-jX-ObI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NFy-Ha-2Qj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c31-8x-Wm0" kind="relationship" relationship="rootViewController" id="rIJ-LY-3WI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzw-aF-bBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441" y="458"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OH1-4W-Wfi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pyG-fT-7NG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="new challenge icon" id="5ZA-ZS-aWP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6n8-Sw-k5e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BKs-ED-vfI" kind="relationship" relationship="rootViewController" id="BSk-XM-B0O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gpi-3D-rm1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="448"/>
         </scene>
     </scenes>
     <resources>

@@ -24,6 +24,8 @@
 		0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */; };
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
+		04D8E8741B9FDEE3008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8721B9FDEE3008A5FCD /* NewChallengeViewController.m */; };
+		04D8E8751B9FDEE3008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8731B9FDEE3008A5FCD /* NewChallengeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,9 @@
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		04D8E8701B9FD5F2008A5FCD /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		04D8E8711B9FDEE3008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
+		04D8E8721B9FDEE3008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
+		04D8E8731B9FDEE3008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +198,9 @@
 				0490F47E1B9B5D5800318EFB /* ChallengeApp.xcdatamodeld */,
 				0490F4771B9B5D5800318EFB /* Supporting Files */,
 				04D8E8701B9FD5F2008A5FCD /* Test.h */,
+				04D8E8711B9FDEE3008A5FCD /* NewChallengeViewController.h */,
+				04D8E8721B9FDEE3008A5FCD /* NewChallengeViewController.m */,
+				04D8E8731B9FDEE3008A5FCD /* NewChallengeViewController.xib */,
 			);
 			path = ChallengeApp;
 			sourceTree = "<group>";
@@ -311,6 +319,7 @@
 				0490F48B1B9B5D5800318EFB /* LaunchScreen.xib in Resources */,
 				0490F4881B9B5D5800318EFB /* Images.xcassets in Resources */,
 				0480B05A1B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib in Resources */,
+				04D8E8751B9FDEE3008A5FCD /* NewChallengeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +340,7 @@
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
+				04D8E8741B9FDEE3008A5FCD /* NewChallengeViewController.m in Sources */,
 				0417A01F1B9DE2E000CCBC8C /* UserContextPseudoTabController.m in Sources */,
 				0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
