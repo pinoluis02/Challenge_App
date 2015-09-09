@@ -27,13 +27,13 @@
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
 		04B3C10A1BA0818A00A6D81C /* RegularItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */; };
+		04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C01BA0B5E30048996F /* Challenge.m */; };
+		04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */; };
+		04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C41BA0B5E30048996F /* ChallengeDao.m */; };
+		04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C61BA0B5E30048996F /* Connection.m */; };
+		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
-		04F6ACA21BA091B8008C10C5 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC991BA091B8008C10C5 /* Challenge.m */; };
-		04F6ACA31BA091B8008C10C5 /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9B1BA091B8008C10C5 /* ChallengeCriteria.m */; };
-		04F6ACA41BA091B8008C10C5 /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9D1BA091B8008C10C5 /* ChallengeDao.m */; };
-		04F6ACA51BA091B8008C10C5 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9F1BA091B8008C10C5 /* Connection.m */; };
-		04F6ACA61BA091B8008C10C5 /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ACA11BA091B8008C10C5 /* JSONParsing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,19 +79,19 @@
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
 		04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularItemTableViewCell.xib; sourceTree = "<group>"; };
+		04C3C8BF1BA0B5E30048996F /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = ChallengeApp/Challenge.h; sourceTree = "<group>"; };
+		04C3C8C01BA0B5E30048996F /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = ChallengeApp/Challenge.m; sourceTree = "<group>"; };
+		04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChallengeCriteria.h; path = ChallengeApp/ChallengeCriteria.h; sourceTree = "<group>"; };
+		04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChallengeCriteria.m; path = ChallengeApp/ChallengeCriteria.m; sourceTree = "<group>"; };
+		04C3C8C31BA0B5E30048996F /* ChallengeDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChallengeDao.h; path = ChallengeApp/ChallengeDao.h; sourceTree = "<group>"; };
+		04C3C8C41BA0B5E30048996F /* ChallengeDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChallengeDao.m; path = ChallengeApp/ChallengeDao.m; sourceTree = "<group>"; };
+		04C3C8C51BA0B5E30048996F /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = ChallengeApp/Connection.h; sourceTree = "<group>"; };
+		04C3C8C61BA0B5E30048996F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = ChallengeApp/Connection.m; sourceTree = "<group>"; };
+		04C3C8C71BA0B5E30048996F /* JSONParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParsing.h; path = ChallengeApp/JSONParsing.h; sourceTree = "<group>"; };
+		04C3C8C81BA0B5E30048996F /* JSONParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParsing.m; path = ChallengeApp/JSONParsing.m; sourceTree = "<group>"; };
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
-		04F6AC981BA091B8008C10C5 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
-		04F6AC991BA091B8008C10C5 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
-		04F6AC9A1BA091B8008C10C5 /* ChallengeCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeCriteria.h; sourceTree = "<group>"; };
-		04F6AC9B1BA091B8008C10C5 /* ChallengeCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeCriteria.m; sourceTree = "<group>"; };
-		04F6AC9C1BA091B8008C10C5 /* ChallengeDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeDao.h; sourceTree = "<group>"; };
-		04F6AC9D1BA091B8008C10C5 /* ChallengeDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDao.m; sourceTree = "<group>"; };
-		04F6AC9E1BA091B8008C10C5 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
-		04F6AC9F1BA091B8008C10C5 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
-		04F6ACA01BA091B8008C10C5 /* JSONParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParsing.h; sourceTree = "<group>"; };
-		04F6ACA11BA091B8008C10C5 /* JSONParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParsing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +180,8 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				04C3C8CF1BA0B5FA0048996F /* dao */,
+				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* contentViewController */,
 				04B3C1061BA07FA300A6D81C /* challenge items */,
 				0480B0661B9F9DA6007E71A2 /* contacts */,
@@ -239,6 +241,32 @@
 				044048471BA09622008AA356 /* OriginalItemTableViewCell.m */,
 			);
 			name = "challenge items";
+			sourceTree = "<group>";
+		};
+		04C3C8CE1BA0B5EE0048996F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				04C3C8BF1BA0B5E30048996F /* Challenge.h */,
+				04C3C8C01BA0B5E30048996F /* Challenge.m */,
+				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
+				04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */,
+			);
+			name = models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		04C3C8CF1BA0B5FA0048996F /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				04C3C8C31BA0B5E30048996F /* ChallengeDao.h */,
+				04C3C8C41BA0B5E30048996F /* ChallengeDao.m */,
+				04C3C8C51BA0B5E30048996F /* Connection.h */,
+				04C3C8C61BA0B5E30048996F /* Connection.m */,
+				04C3C8C71BA0B5E30048996F /* JSONParsing.h */,
+				04C3C8C81BA0B5E30048996F /* JSONParsing.m */,
+			);
+			name = dao;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,19 +376,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04F6ACA61BA091B8008C10C5 /* JSONParsing.m in Sources */,
+				04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */,
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* ChallengeTableViewController.m in Sources */,
+				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
 				04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */,
 				044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */,
+				04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */,
+				04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */,
 				0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */,
+				04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
-				04F6ACA41BA091B8008C10C5 /* ChallengeDao.m in Sources */,
-				04F6ACA51BA091B8008C10C5 /* Connection.m in Sources */,
-				04F6ACA31BA091B8008C10C5 /* ChallengeCriteria.m in Sources */,
 				0490F4801B9B5D5800318EFB /* ChallengeApp.xcdatamodeld in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 			);
