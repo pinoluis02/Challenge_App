@@ -40,16 +40,26 @@
             <objects>
                 <viewController id="6Z2-Wh-riS" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="world context" id="HKe-rS-ARs"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-sE-Q3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1135" y="342"/>
         </scene>
-        <!--User Context Pseudo Tab Controller-->
+        <!--Global Context Pseudo Tab Controller-->
         <scene sceneID="EqS-NQ-BuQ">
             <objects>
-                <viewController id="gDR-RK-se0" customClass="UserContextPseudoTabController" sceneMemberID="viewController">
+                <viewController id="gDR-RK-se0" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="this user context (2)" id="Pj0-fm-Le2" userLabel="profile"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIy-cV-0Kf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +105,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Donation Segue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LW4-EC-a3L">
                                 <rect key="frame" x="243" y="165" width="123" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

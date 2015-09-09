@@ -6,8 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GlobalContextPseudoTabController">
             <connections>
-                <outlet property="contextTabBar" destination="Hjo-2f-UAV" id="yxh-qi-wog"/>
-                <outlet property="tabBarVerticalSpaceConstraint" destination="lu7-zd-rac" id="QB8-bz-VDK"/>
+                <outlet property="contentViewVerticalSpaceConstraint" destination="VqD-Pq-n3B" id="buS-7H-Mks"/>
+                <outlet property="globalOptionsTabBar" destination="Hjo-2f-UAV" id="B4h-x8-gjl"/>
+                <outlet property="globalOptionsTabBarVerticalSpaceConstraint" destination="lu7-zd-rac" id="gkh-qA-E8B"/>
+                <outlet property="userOptionsTabBar" destination="iTE-4E-Uqx" id="zNv-pQ-UWV"/>
+                <outlet property="userOptionsTabBarVerticalSpaceConstraint" destination="EqO-np-7PE" id="XMH-jL-dub"/>
                 <outlet property="view" destination="FMY-iK-tQ3" id="WlV-O0-Vgf"/>
             </connections>
         </placeholder>
@@ -17,10 +20,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-M4-mZO" userLabel="contentView">
-                    <rect key="frame" x="0.0" y="49" width="600" height="551"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.87077809343434343" green="0.77468434609578396" blue="0.22004461556745955" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hjo-2f-UAV">
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTE-4E-Uqx" userLabel="user context tab bar">
+                    <rect key="frame" x="0.0" y="50" width="600" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem enabled="NO" title="" image="this user context (5)" id="Iib-Rt-BIf" userLabel="context indicator"/>
+                        <tabBarItem image="incomplete challenges" id="l4K-x1-EX5" userLabel="incomplete items"/>
+                        <tabBarItem title="" image="challenge notifications" id="53R-Iv-1Zy" userLabel="notifications"/>
+                        <tabBarItem title="" image="completed challenges" id="tjd-nd-mkV"/>
+                    </items>
+                </tabBar>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hjo-2f-UAV" userLabel="global context tab bar">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
@@ -35,20 +48,27 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="jqu-M4-mZO" firstAttribute="bottom" secondItem="FMY-iK-tQ3" secondAttribute="bottom" id="6bM-3X-HuF"/>
+                <constraint firstItem="iTE-4E-Uqx" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" constant="50" id="EqO-np-7PE"/>
                 <constraint firstItem="jqu-M4-mZO" firstAttribute="leading" secondItem="FMY-iK-tQ3" secondAttribute="leading" id="Lb9-i4-nXB"/>
                 <constraint firstItem="jqu-M4-mZO" firstAttribute="trailing" secondItem="FMY-iK-tQ3" secondAttribute="trailing" id="Met-ZP-24F"/>
-                <constraint firstItem="jqu-M4-mZO" firstAttribute="top" secondItem="Hjo-2f-UAV" secondAttribute="bottom" id="RAs-QW-QaA"/>
+                <constraint firstItem="iTE-4E-Uqx" firstAttribute="width" secondItem="jqu-M4-mZO" secondAttribute="width" id="UOv-gf-TaW"/>
                 <constraint firstItem="Hjo-2f-UAV" firstAttribute="width" secondItem="FMY-iK-tQ3" secondAttribute="width" id="VDs-Wf-vpf"/>
+                <constraint firstItem="jqu-M4-mZO" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" id="VqD-Pq-n3B"/>
                 <constraint firstItem="Hjo-2f-UAV" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" id="lu7-zd-rac"/>
                 <constraint firstItem="Hjo-2f-UAV" firstAttribute="centerX" secondItem="FMY-iK-tQ3" secondAttribute="centerX" id="q6n-Lc-aCd"/>
+                <constraint firstItem="iTE-4E-Uqx" firstAttribute="centerX" secondItem="jqu-M4-mZO" secondAttribute="centerX" id="yLx-mn-wmY"/>
             </constraints>
         </view>
     </objects>
     <resources>
+        <image name="challenge notifications" width="30" height="30"/>
+        <image name="completed challenges" width="30" height="30"/>
         <image name="favorites" width="30" height="30"/>
+        <image name="incomplete challenges" width="30" height="30"/>
         <image name="recent" width="30" height="30"/>
         <image name="search" width="30" height="30"/>
         <image name="show all" width="30" height="30"/>
+        <image name="this user context (5)" width="30" height="30"/>
         <image name="world context (2)" width="30" height="30"/>
     </resources>
 </document>

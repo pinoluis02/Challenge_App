@@ -29,14 +29,42 @@ bool tabBarVerticalSpaceConstraintFixed;
     if(!tabBarVerticalSpaceConstraintFixed){
 //        http://stackoverflow.com/questions/19078278/is-there-any-way-to-add-constraint-between-a-view-and-the-top-layout-guide-in-a/26397943#26397943
         [super viewWillLayoutSubviews];
-//         id<UILayoutSupport> bottomLayoutGuide = self.bottomLayoutGuide;
-         id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
+
+//        To set up constraint to the bottomGuide use code similar to:
+//        id<UILayoutSupport> bottomLayoutGuide = self.bottomLayoutGuide;
 //        CGRect screenRect = [[UIScreen mainScreen] bounds];
 //        CGFloat screenHeight = screenRect.size.height;
 //        [self.contextTabBar sizeToFit];
 //        CGFloat tabBarHeight = self.contextTabBar.bounds.size.height;
 //        self.tabBarVerticalSpaceConstraint.constant = screenHeight - [bottomLayoutGuide length] - tabBarHeight;
-        self.tabBarVerticalSpaceConstraint.constant = [topLayoutGuide length];
+
+//        Fix selected tab bar.
+         id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
+
+        self.globalOptionsTabBar.hidden = true;
+        self.userOptionsTabBar.hidden = true;
+        
+        self.userOptionsTabBarVerticalSpaceConstraint.constant = [topLayoutGuide length];
+
+        UITabBar * visibleTabBar;
+        NSLayoutConstraint * visibleTabBarVerticalConstraint;
+        switch (self.tabBarType) {
+            case GlobalOptionsTabBarType:
+                visibleTabBar = self.globalOptionsTabBar;
+                visibleTabBarVerticalConstraint = self.globalOptionsTabBarVerticalSpaceConstraint;
+                break;
+            case UserOptionsTabBarType:
+                visibleTabBar = self.userOptionsTabBar;
+                visibleTabBarVerticalConstraint = self.userOptionsTabBarVerticalSpaceConstraint;
+                break;
+            default:
+                break;
+        }
+
+        visibleTabBar.hidden = false;
+        visibleTabBarVerticalConstraint.constant = [topLayoutGuide length];
+        self.contentViewVerticalSpaceConstraint.constant = visibleTabBarVerticalConstraint.constant;
+        NSLog(@"length: %fd", visibleTabBarVerticalConstraint.constant);
         
         tabBarVerticalSpaceConstraintFixed = true;
     }

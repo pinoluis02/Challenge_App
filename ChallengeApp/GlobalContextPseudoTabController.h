@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, tabBarOptions) {
+    GlobalOptionsTabBarType = 1,
+    UserOptionsTabBarType = 2
+};
+
 @interface GlobalContextPseudoTabController : UIViewController
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tabBarVerticalSpaceConstraint;
-@property (weak, nonatomic) IBOutlet UITabBar *contextTabBar;
+@property (nonatomic) tabBarOptions tabBarType;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *globalOptionsTabBarVerticalSpaceConstraint;
+@property (weak, nonatomic) IBOutlet UITabBar *globalOptionsTabBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userOptionsTabBarVerticalSpaceConstraint;
+@property (weak, nonatomic) IBOutlet UITabBar *userOptionsTabBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewVerticalSpaceConstraint;
 
 @end
