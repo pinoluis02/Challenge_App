@@ -10,5 +10,7 @@
 
 @interface NewChallengeViewController : UIViewController
 - (IBAction)makeDonationSwith:(UISwitch *)sender;
+- (IBAction)addMediaButton:(UIButton *)sender;
+- (IBAction)createChallengeButton:(UIButton *)sender;
 
 @end

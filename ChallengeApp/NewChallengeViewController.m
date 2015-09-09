@@ -7,6 +7,7 @@
 //
 
 #import "NewChallengeViewController.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 
 @interface NewChallengeViewController ()
 
@@ -38,6 +39,64 @@
 
 - (IBAction)makeDonationSwith:(UISwitch *)sender
 {
-    [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+    if ([sender isOn])
+    {
+        NSLog(@"Make Donatation is On");
+        [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+    }
+    else
+    {
+        NSLog(@"Make Donation if Off");
+    }
 }
+
+
+- (IBAction)addMediaButton:(UIButton *)sender
+{
+    NSLog(@"Add media Button");
+    [self video];
+}
+
+- (IBAction)createChallengeButton:(UIButton *)sender
+{
+    NSLog(@"Creation of the New Challenge");
+}
+
+
+-(void)video
+{
+    UIImagePickerController *imagePicker =
+    [[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    imagePicker.sourceType =
+    UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    
+    imagePicker.mediaTypes = [[NSArray alloc] initWithObjects:(NSString *)kUTTypeMovie, nil];
+    
+    [self presentModalViewController:imagePicker animated:YES];
+}
+
+
+-(void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
+{
+    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+    
+    if (CFStringCompare ((__bridge CFStringRef) mediaType, kUTTypeMovie, 0)
+        == kCFCompareEqualTo)
+    {
+        NSString *moviePath = [[info objectForKey:UIImagePickerControllerMediaURL] path];
+        
+        NSURL *videoUrl=(NSURL*)[info objectForKey:UIImagePickerControllerMediaURL];
+        // NSLog(@"%@",moviePath);
+        
+        if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum (moviePath)) {
+            UISaveVideoAtPathToSavedPhotosAlbum (moviePath, nil, nil, nil);
+        }
+    }
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+
+
 @end

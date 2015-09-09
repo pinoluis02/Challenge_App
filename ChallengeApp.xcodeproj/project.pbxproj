@@ -144,6 +144,7 @@
 		0480B0651B9F9D93007E71A2 /* create new challenge */ = {
 			isa = PBXGroup;
 			children = (
+				04D8E87B1BA0034A008A5FCD /* Add Media Actions */,
 				0490F4E51B9CCCEC00318EFB /* CreateNewChallengeViewController.h */,
 				0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */,
 				0490F4A01B9BB2D000318EFB /* CreateNewChallengeViewController.xib */,
@@ -227,6 +228,13 @@
 				0490F4951B9B5D5800318EFB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04D8E87B1BA0034A008A5FCD /* Add Media Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Add Media Actions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
