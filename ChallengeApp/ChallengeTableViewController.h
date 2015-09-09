@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChallengeDao.h"
 
-@interface ChallengeTableViewController : UITableViewController
+@interface ChallengeTableViewController : UITableViewController <ChallengeDelegate>
+
+@property ChallengeDao * challengeDao;
+@property NSArray * challengesArray;
 
 @end

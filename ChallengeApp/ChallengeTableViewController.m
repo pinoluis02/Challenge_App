@@ -22,6 +22,9 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.challengeDao = [[ChallengeDao alloc] init];
+    self.challengeDao.delegate = self;
+    [self.challengeDao getAllChallenges];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,15 +46,21 @@
     return 0;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    static NSString *simpleTableIdentifier = @"articleCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    Challenge * challenge = [self.challengesArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = challenge.name;
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -96,5 +105,61 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetAllChallengesWithResult count = %ld", [resultArray count]);
+    
+    self.challengesArray = resultArray;
+    
+    
+}
+
+-(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetLastChallengesWithResult count = %ld", [resultArray count]);
+    
+}
+
+-(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetPopularChallengesWithResult count = %ld", [resultArray count]);
+    
+}
+
+-(void)  didFinishGetChallengesFromUserWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesFromUserWithResult count = %ld", [resultArray count]);
+    
+}
+
+-(void)  didFinishAddChallengeWithResult:(NSError *) error {
+    NSLog(@"didFinishAddChallengeWithResult count = %@", error);
+    
+}
+
+-(void)  didFinishSearchChallengesWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishSearchChallengesWithResult count = %ld", [resultArray count]);
+    
+}
+
+// This method returns a list of challenges requests for a given challenge
+-(void)  didFinishGetChallengeRequestsWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengeRequestsWithResult count = %ld", [resultArray count]);
+    
+}
+
+// This method returns a list of evidences or reponses for a given challenge
+-(void)  didFinishGetChallengesResponsesWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesResponsesWithResult count = %ld", [resultArray count]);
+    
+}
+
+-(void)  didFinishAcceptChallengeRequestWithResult:(NSError *) error  {
+    NSLog(@"didFinishAcceptChallengeRequestWithResult count = %@", error);
+    
+}
+
+-(void)  didFinishRejectChallengeRequestWithResult:(NSError *) error {
+    NSLog(@"didFinishRejectChallengeRequestWithResult count = %@", error);
+    
+}
+
 
 @end
