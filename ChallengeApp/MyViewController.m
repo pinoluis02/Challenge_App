@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//CHECK
+
 //    Doesn't init IBOutlets
 //    NSString * vcName = @"createNew";
 //    NSString * sbName = @"Main";
