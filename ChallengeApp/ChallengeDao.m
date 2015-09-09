@@ -39,12 +39,25 @@
          resultType: (NSNumber *)resultType_  error:(NSError *)error_{
     
     NSLog(@" jsonParsing ----------- ");
+     NSMutableArray * challengesArray = [[NSMutableArray alloc]init];
     
     switch(resultType_.intValue) {
             
         case  didFinishGetAllChallengesWithResult_:
             
-            [self.delegate didFinishGetAllChallengesWithResult:resultArray];
+            for (int i = 0; i < resultArray.count ; i++) {
+                
+                NSDictionary *dataDic = (NSDictionary *)resultArray[i];
+                
+                Challenge * challenge = [[Challenge alloc]init];
+                challenge.name = [dataDic objectForKey:@"data"];
+                [challengesArray addObject:challenge];
+                
+                
+                
+            }
+            
+            [self.delegate didFinishGetAllChallengesWithResult:challengesArray];
             
             break;
             
