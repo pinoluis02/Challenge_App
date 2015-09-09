@@ -1,0 +1,6 @@
+
+For the details on how a view loads its view, reference the book, but one important thing is that when using separated xibs and storyboards remember that xib are a design of the object, they are not instances, the objects that are on the storyboard those are instances, so the IBOutlets you make on your design don't get assigned but the ones you set on the instance those are set up. Another thing is that in the book you read about the correspondence betweet a view controller and a view named the same, that is true but again is not exactly the same with the use of storyboards, say you have a view controller in the storyboard with its own nested view then that is gonna be the view for that view controller instance, if you remove that view then the behaviour described on the book kicks in and then in that case, the IBOutlets from the xib are honored.
+
+Storyboards have many features, you can create "instances" of objects and custom placeholders (drag a control to placeholders bar in the IB).
+
+Also don't forget to clean the project I was stumpled by the described behaviour not working until I cleaned the project
