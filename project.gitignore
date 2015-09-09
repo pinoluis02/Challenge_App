@@ -170,7 +170,8 @@ xcuserdata/
 #         xcschememanagement.plist
 #
 #
-*.xcuserstate
+UserInterfaceState.xcuserstate
+
 
 ####
 # Xcode 4 - Deprecated classes
