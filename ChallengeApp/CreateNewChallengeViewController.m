@@ -56,6 +56,7 @@ NSString * customCharityOrganizationOptionString = @"Other";
     [chkBtn setImage:[UIImage imageNamed:@"checkbox_checked"]
             forState:UIControlStateSelected];
     
+    [self performSegueWithIdentifier:@"CreateDonationSegue" sender:self];
     
 }
 

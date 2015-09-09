@@ -14,12 +14,14 @@
 
 @implementation NewChallengeViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -34,4 +36,8 @@
 }
 */
 
+- (IBAction)makeDonationSwith:(UISwitch *)sender
+{
+    [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+}
 @end
