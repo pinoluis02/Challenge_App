@@ -26,6 +26,11 @@
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
+		04F6ACA21BA091B8008C10C5 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC991BA091B8008C10C5 /* Challenge.m */; };
+		04F6ACA31BA091B8008C10C5 /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9B1BA091B8008C10C5 /* ChallengeCriteria.m */; };
+		04F6ACA41BA091B8008C10C5 /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9D1BA091B8008C10C5 /* ChallengeDao.m */; };
+		04F6ACA51BA091B8008C10C5 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6AC9F1BA091B8008C10C5 /* Connection.m */; };
+		04F6ACA61BA091B8008C10C5 /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F6ACA11BA091B8008C10C5 /* JSONParsing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +74,16 @@
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
+		04F6AC981BA091B8008C10C5 /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Challenge.h; sourceTree = "<group>"; };
+		04F6AC991BA091B8008C10C5 /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Challenge.m; sourceTree = "<group>"; };
+		04F6AC9A1BA091B8008C10C5 /* ChallengeCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeCriteria.h; sourceTree = "<group>"; };
+		04F6AC9B1BA091B8008C10C5 /* ChallengeCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeCriteria.m; sourceTree = "<group>"; };
+		04F6AC9C1BA091B8008C10C5 /* ChallengeDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeDao.h; sourceTree = "<group>"; };
+		04F6AC9D1BA091B8008C10C5 /* ChallengeDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeDao.m; sourceTree = "<group>"; };
+		04F6AC9E1BA091B8008C10C5 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		04F6AC9F1BA091B8008C10C5 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
+		04F6ACA01BA091B8008C10C5 /* JSONParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParsing.h; sourceTree = "<group>"; };
+		04F6ACA11BA091B8008C10C5 /* JSONParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParsing.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +197,8 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				04F6ACA81BA09468008C10C5 /* dao */,
+				04F6ACA71BA0943E008C10C5 /* models */,
 				0480B0661B9F9DA6007E71A2 /* contacts */,
 				0480B0651B9F9D93007E71A2 /* create new challenge */,
 				0480B05F1B9F36A2007E71A2 /* global challenges */,
@@ -227,6 +244,30 @@
 				0490F4951B9B5D5800318EFB /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04F6ACA71BA0943E008C10C5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				04F6AC9A1BA091B8008C10C5 /* ChallengeCriteria.h */,
+				04F6AC9B1BA091B8008C10C5 /* ChallengeCriteria.m */,
+				04F6AC981BA091B8008C10C5 /* Challenge.h */,
+				04F6AC991BA091B8008C10C5 /* Challenge.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		04F6ACA81BA09468008C10C5 /* dao */ = {
+			isa = PBXGroup;
+			children = (
+				04F6AC9C1BA091B8008C10C5 /* ChallengeDao.h */,
+				04F6AC9D1BA091B8008C10C5 /* ChallengeDao.m */,
+				04F6AC9E1BA091B8008C10C5 /* Connection.h */,
+				04F6AC9F1BA091B8008C10C5 /* Connection.m */,
+				04F6ACA01BA091B8008C10C5 /* JSONParsing.h */,
+				04F6ACA11BA091B8008C10C5 /* JSONParsing.m */,
+			);
+			name = dao;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,13 +376,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F6ACA61BA091B8008C10C5 /* JSONParsing.m in Sources */,
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
+				04F6ACA21BA091B8008C10C5 /* Challenge.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
 				04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */,
 				0417A01F1B9DE2E000CCBC8C /* UserContextPseudoTabController.m in Sources */,
 				0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
+				04F6ACA41BA091B8008C10C5 /* ChallengeDao.m in Sources */,
+				04F6ACA51BA091B8008C10C5 /* Connection.m in Sources */,
+				04F6ACA31BA091B8008C10C5 /* ChallengeCriteria.m in Sources */,
 				0490F4801B9B5D5800318EFB /* ChallengeApp.xcdatamodeld in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 			);
