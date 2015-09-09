@@ -26,7 +26,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 -(void)updateViewConstraints{
-    //Check this eric!.
+    //Check this eric!. that's what this comment is for.
     if(!tabBarVerticalSpaceConstraintFixed){
         //        http://stackoverflow.com/questions/19078278/is-there-any-way-to-add-constraint-between-a-view-and-the-top-layout-guide-in-a/26397943#26397943
         [super viewWillLayoutSubviews];
