@@ -64,6 +64,7 @@
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		04D8E8701B9FD5F2008A5FCD /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +192,7 @@
 				0490F4891B9B5D5800318EFB /* LaunchScreen.xib */,
 				0490F47E1B9B5D5800318EFB /* ChallengeApp.xcdatamodeld */,
 				0490F4771B9B5D5800318EFB /* Supporting Files */,
+				04D8E8701B9FD5F2008A5FCD /* Test.h */,
 			);
 			path = ChallengeApp;
 			sourceTree = "<group>";
