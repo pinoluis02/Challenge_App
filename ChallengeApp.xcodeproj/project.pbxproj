@@ -232,7 +232,7 @@
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* challenges view controllers */,
-				04B3C1061BA07FA300A6D81C /* challenge items */,
+				04B3C1061BA07FA300A6D81C /* challenge items cells */,
 				0480B0661B9F9DA6007E71A2 /* contacts */,
 				0480B0651B9F9D93007E71A2 /* create new challenge */,
 				0480B05F1B9F36A2007E71A2 /* global challenges */,
@@ -279,7 +279,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04B3C1061BA07FA300A6D81C /* challenge items */ = {
+		04B3C1061BA07FA300A6D81C /* challenge items cells */ = {
 			isa = PBXGroup;
 			children = (
 				04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */,
@@ -295,7 +295,7 @@
 				046A6D521BA10E3A00488A09 /* UserCommentTableViewCell.m */,
 				046A6D531BA10E3A00488A09 /* UserCommentTableViewCell.xib */,
 			);
-			name = "challenge items";
+			name = "challenge items cells";
 			sourceTree = "<group>";
 		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {

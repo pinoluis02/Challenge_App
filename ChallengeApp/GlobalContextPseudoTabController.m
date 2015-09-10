@@ -88,7 +88,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item{
     contentController.contentType = item.tag;
-    
+
 }
 /*
 #pragma mark - Navigation
