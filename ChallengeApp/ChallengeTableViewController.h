@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChallengeDao.h"
 
 
 typedef NS_ENUM(NSUInteger, ChallengeTableViewControllerContent) {

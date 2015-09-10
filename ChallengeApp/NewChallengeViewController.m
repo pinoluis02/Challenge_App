@@ -39,5 +39,6 @@
 - (IBAction)makeDonationSwith:(UISwitch *)sender
 {
     [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+    NSLog(@"New Change");
 }
 @end
