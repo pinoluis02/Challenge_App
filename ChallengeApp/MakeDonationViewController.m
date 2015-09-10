@@ -1,27 +1,25 @@
 //
-//  NewChallengeViewController.m
+//  MakeDonationViewController.m
 //  ChallengeApp
 //
 //  Created by MCS on 9/9/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "NewChallengeViewController.h"
+#import "MakeDonationViewController.h"
 
-@interface NewChallengeViewController ()
+@interface MakeDonationViewController ()
 
 @end
 
-@implementation NewChallengeViewController
+@implementation MakeDonationViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -35,29 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)addMediaButton:(UIButton *)sender
-{
-    NSLog(@"This is the button to add Media to the File Server");
-}
-
-- (IBAction)makeDonationSwith:(UISwitch *)sender
-{
-    if ([sender isOn])
-    {
-        [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
-    }
-    else
-    {
-        NSLog(@"Donataion is Off");
-    }
-}
-
-- (IBAction)submitChallengeButton:(UIButton *)sender
-{
-    NSLog(@"Submit button action pressed");
-}
-
-
 
 @end

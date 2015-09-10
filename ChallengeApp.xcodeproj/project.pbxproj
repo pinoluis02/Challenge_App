@@ -11,6 +11,8 @@
 		044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048441BA09547008AA356 /* RegularItemTableViewCell.m */; };
 		044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048471BA09622008AA356 /* OriginalItemTableViewCell.m */; };
 		0440484D1BA09AF1008AA356 /* ChallengeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440484C1BA09AF1008AA356 /* ChallengeTableViewController.m */; };
+		0455588B1BA0E41E006A4C87 /* MakeDonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045558891BA0E41E006A4C87 /* MakeDonationViewController.m */; };
+		0455588C1BA0E41E006A4C87 /* MakeDonationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455588A1BA0E41E006A4C87 /* MakeDonationViewController.xib */; };
 		0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480B0571B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m */; };
 		0480B05A1B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0480B0581B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib */; };
 		0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480B0681B9F9DCD007E71A2 /* ContactsViewController.m */; };
@@ -54,6 +56,9 @@
 		044048471BA09622008AA356 /* OriginalItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OriginalItemTableViewCell.m; sourceTree = "<group>"; };
 		0440484B1BA09AF1008AA356 /* ChallengeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeTableViewController.h; sourceTree = "<group>"; };
 		0440484C1BA09AF1008AA356 /* ChallengeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengeTableViewController.m; sourceTree = "<group>"; };
+		045558881BA0E41E006A4C87 /* MakeDonationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeDonationViewController.h; sourceTree = "<group>"; };
+		045558891BA0E41E006A4C87 /* MakeDonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeDonationViewController.m; sourceTree = "<group>"; };
+		0455588A1BA0E41E006A4C87 /* MakeDonationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MakeDonationViewController.xib; sourceTree = "<group>"; };
 		0480B0561B9E0BB7007E71A2 /* GlobalContextPseudoTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalContextPseudoTabController.h; sourceTree = "<group>"; };
 		0480B0571B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalContextPseudoTabController.m; sourceTree = "<group>"; };
 		0480B0581B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalContextPseudoTabController.xib; sourceTree = "<group>"; };
@@ -200,6 +205,9 @@
 				04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */,
 				04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */,
 				04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */,
+				045558881BA0E41E006A4C87 /* MakeDonationViewController.h */,
+				045558891BA0E41E006A4C87 /* MakeDonationViewController.m */,
+				0455588A1BA0E41E006A4C87 /* MakeDonationViewController.xib */,
 			);
 			path = ChallengeApp;
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 				0490F48B1B9B5D5800318EFB /* LaunchScreen.xib in Resources */,
 				04B3C10A1BA0818A00A6D81C /* RegularItemTableViewCell.xib in Resources */,
 				0490F4881B9B5D5800318EFB /* Images.xcassets in Resources */,
+				0455588C1BA0E41E006A4C87 /* MakeDonationViewController.xib in Resources */,
 				0480B05A1B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib in Resources */,
 				04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */,
 			);
@@ -390,6 +399,7 @@
 				0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */,
 				04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
+				0455588B1BA0E41E006A4C87 /* MakeDonationViewController.m in Sources */,
 				0490F4801B9B5D5800318EFB /* ChallengeApp.xcdatamodeld in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 			);
