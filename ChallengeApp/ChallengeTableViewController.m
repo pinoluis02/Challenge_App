@@ -7,21 +7,95 @@
 //
 
 #import "ChallengeTableViewController.h"
+#import "RegularItemTableViewCell.h"
 
-@interface ChallengeTableViewController ()
-
+@interface ChallengeTableViewController (){
+    NSMutableDictionary * items;
+ChallengeTableViewControllerContent mContentType;
+}
 @end
 
 @implementation ChallengeTableViewController
+
+
+-(ChallengeTableViewControllerContent)contentType{
+    return mContentType;
+}
+
+-(void)setContentType:(ChallengeTableViewControllerContent)contentType{
+    mContentType = contentType;
+    NSDictionary * dic = [self getDemoObjects:contentType];
+    items = dic;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
+       UINib *cellNib = [UINib nibWithNibName:@"RegularItemTableViewCell" bundle:nil];
+        [self.tableView registerNib: cellNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
+    self.tableView.rowHeight = 310;
+}
+
+-(NSDictionary *) getDemoObjects:(ChallengeTableViewControllerContent)contentType{
+
+    NSMutableDictionary * master = [NSMutableDictionary new];
+    NSMutableDictionary * itemOne = [NSMutableDictionary new];
+    NSMutableDictionary * itemTwo = [NSMutableDictionary new];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSString * resultType;
+    
+    
+    //    I need also challenge status with respect to the user
+    //    suggestion: rename url for thumbnail
+    //    If user can donate but rejects he doesn't get to save the donation prove (challenge)
+    
+    switch (contentType) {
+        case AllChallenges:{
+            resultType = @"didFinishGetAllChallengesWithResult_";
+        }break;
+        case PopularChallenges:{
+            resultType = @"GetMostViewedChallenges";
+        }break;
+        case RecentChallenges:{
+            resultType = @"GetRecentsChallenges";
+        }break;
+        case SearchChallenges:{
+            resultType = @"_pending_search";
+        }break;
+        case UserChallengeInvitation:{
+            resultType = @"didFinishGetChallengeRequestsWithResult_";
+        }break;
+        case UserCompleteChallenges:{
+            resultType = @"didFinishGetChallengeCompleteWithResult_";
+        }break;
+        case UserIncompleteChallenges:{
+            resultType = @"didFinishGetChallengeIncompletesWithResult_";
+        }break;
+        default:
+            NSAssert(false, @"some programmer error");
+    }
+    
+    NSArray * challenges_arr = [[NSArray alloc] initWithObjects:itemOne, itemTwo, nil];
+    [master setValue:resultType forKey:@"resultType"];
+    [master setValue:challenges_arr forKey:@"challenges"];
+    
+    [itemOne setValue:@1 forKey:@"id"];
+    [itemOne setValue:@"mauris, rhoncus id," forKey:@"title"];
+    [itemOne setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
+    [itemOne setValue:@"image" forKey:@"type"];
+    [itemOne setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
+    
+    [itemTwo setValue:@1 forKey:@"id"];
+    [itemTwo setValue:@"mauris, rhoncus id," forKey:@"title"];
+    [itemTwo setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
+    [itemTwo setValue:@"image" forKey:@"type"];
+    [itemTwo setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
+
+    [self.tableView reloadData];
+    return master;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,69 +106,31 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+//    return [[items valueForKey:@"challenges"] count];
+    return 1;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    RegularItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    NSDictionary * item = [items valueForKey:@"challenges"][indexPath.row];
+    cell.title = [item objectForKey:@"title"];
+    cell.challengeDescription = [item objectForKey:@"description"];
+    cell.author.text = @"UserXXII";
+    cell.pubDate.text = [NSString stringWithFormat:@"%@", [NSDate date]];
+    UIImage * image = [UIImage imageNamed:@"homemovies"];
+    [cell.thumbnail setImage:image];
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

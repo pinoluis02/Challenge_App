@@ -20,9 +20,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="YR3-NV-1lT" appends="YES" id="5CB-a4-3cF"/>
-                            </connections>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="media upload" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-9J-s4A" userLabel="image">
                             <rect key="frame" x="100" y="92" width="400" height="400"/>
@@ -87,9 +84,6 @@
                     <state key="normal" title="Take challenge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="YR3-NV-1lT" appends="YES" id="vvg-sI-Zd5"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -103,11 +97,6 @@
             </constraints>
             <point key="canvasLocation" x="290" y="328.5"/>
         </view>
-        <tapGestureRecognizer id="YR3-NV-1lT">
-            <connections>
-                <outlet property="delegate" destination="-1" id="hNa-c1-TUs"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="media upload" width="116" height="109"/>
