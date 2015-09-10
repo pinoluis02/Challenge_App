@@ -12,17 +12,20 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3S-HY-6Hn" userLabel="contentView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3S-HY-6Hn" userLabel="Content view">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chr-Mo-t2l" userLabel="author">
-                            <rect key="frame" x="30" y="69" width="37.5" height="8"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chr-Mo-t2l" userLabel="author">
+                            <rect key="frame" x="30" y="59" width="37.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="YR3-NV-1lT" appends="YES" id="5CB-a4-3cF"/>
-                            </connections>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pya-sr-cFg" userLabel="publication date">
+                            <rect key="frame" x="83" y="59" width="37.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.69503630049999998" green="0.69503630049999998" blue="0.69503630049999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="media upload" translatesAutoresizingMaskIntoConstraints="NO" id="OxS-9J-s4A" userLabel="image">
                             <rect key="frame" x="100" y="92" width="400" height="400"/>
@@ -40,8 +43,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Ice Bucket Challenge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhG-nd-Vog" userLabel="title">
-                            <rect key="frame" x="30" y="30" width="203" height="24"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice Bucket Challenge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhG-nd-Vog" userLabel="title">
+                            <rect key="frame" x="30" y="30" width="203" height="14"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -53,12 +56,6 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pya-sr-cFg" userLabel="publication date">
-                            <rect key="frame" x="83" y="65" width="37.5" height="18"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.69503630049999998" green="0.69503630049999998" blue="0.69503630049999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -73,6 +70,7 @@
                         <constraint firstItem="chr-Mo-t2l" firstAttribute="top" secondItem="RhG-nd-Vog" secondAttribute="bottom" constant="15" id="Q6e-g6-g0J"/>
                         <constraint firstItem="JGp-md-wCY" firstAttribute="top" secondItem="5gR-A9-hjd" secondAttribute="bottom" constant="16" id="Z86-wD-es9"/>
                         <constraint firstItem="Pya-sr-cFg" firstAttribute="centerY" secondItem="chr-Mo-t2l" secondAttribute="centerY" id="a6c-un-JsN"/>
+                        <constraint firstItem="Pya-sr-cFg" firstAttribute="height" secondItem="chr-Mo-t2l" secondAttribute="height" id="b5Z-LJ-mnz"/>
                         <constraint firstItem="RhG-nd-Vog" firstAttribute="leading" secondItem="JGp-md-wCY" secondAttribute="leading" id="eRc-RQ-A08"/>
                         <constraint firstAttribute="bottom" secondItem="JGp-md-wCY" secondAttribute="bottom" constant="40" id="hna-aG-ZvL"/>
                         <constraint firstItem="5gR-A9-hjd" firstAttribute="trailing" secondItem="e3S-HY-6Hn" secondAttribute="trailing" constant="-30" id="q36-25-46N"/>
@@ -87,9 +85,6 @@
                     <state key="normal" title="Take challenge">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="YR3-NV-1lT" appends="YES" id="vvg-sI-Zd5"/>
-                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -101,13 +96,8 @@
                 <constraint firstItem="LuP-dZ-5iS" firstAttribute="trailing" secondItem="5gR-A9-hjd" secondAttribute="trailing" id="laJ-gK-9Lg"/>
                 <constraint firstItem="e3S-HY-6Hn" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="ozS-M5-rvY"/>
             </constraints>
-            <point key="canvasLocation" x="290" y="328.5"/>
+            <point key="canvasLocation" x="290" y="341.5"/>
         </view>
-        <tapGestureRecognizer id="YR3-NV-1lT">
-            <connections>
-                <outlet property="delegate" destination="-1" id="hNa-c1-TUs"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="media upload" width="116" height="109"/>

@@ -10,4 +10,6 @@
 
 @interface Challenge : NSObject
 
+@property NSString * name;
+
 @end

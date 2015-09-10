@@ -117,13 +117,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		044048491BA0990F008AA356 /* contentViewController */ = {
+		044048491BA0990F008AA356 /* challenges view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				046A6D451BA10A5900488A09 /* user comments */,
+				046A6D441BA10A4D00488A09 /* evidence */,
+				046A6D431BA10A1E00488A09 /* challenge */,
+				046A6D561BA1108000488A09 /* NSDate+Utils.h */,
+				046A6D571BA1108000488A09 /* NSDate+Utils.m */,
+			);
+			name = "challenges view controllers";
+			sourceTree = "<group>";
+		};
+		046A6D431BA10A1E00488A09 /* challenge */ = {
 			isa = PBXGroup;
 			children = (
 				0440484B1BA09AF1008AA356 /* ChallengeTableViewController.h */,
 				0440484C1BA09AF1008AA356 /* ChallengeTableViewController.m */,
 			);
-			name = contentViewController;
+			name = challenge;
+			sourceTree = "<group>";
+		};
+		046A6D441BA10A4D00488A09 /* evidence */ = {
+			isa = PBXGroup;
+			children = (
+				046A6D461BA10AD000488A09 /* ChallengeEvidenceTableViewController.h */,
+				046A6D471BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m */,
+			);
+			name = evidence;
+			sourceTree = "<group>";
+		};
+		046A6D451BA10A5900488A09 /* user comments */ = {
+			isa = PBXGroup;
+			children = (
+				046A6D491BA10B4000488A09 /* ChallengeCommentsTableViewController.h */,
+				046A6D4A1BA10B4900488A09 /* ChallengeCommentsTableViewController.m */,
+			);
+			name = "user comments";
 			sourceTree = "<group>";
 		};
 		0480B05F1B9F36A2007E71A2 /* global challenges */ = {
@@ -187,7 +217,7 @@
 			children = (
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
-				044048491BA0990F008AA356 /* contentViewController */,
+				044048491BA0990F008AA356 /* challenges view controllers */,
 				04B3C1061BA07FA300A6D81C /* challenge items */,
 				0480B0661B9F9DA6007E71A2 /* contacts */,
 				0480B0651B9F9D93007E71A2 /* create new challenge */,
@@ -247,6 +277,12 @@
 				044048441BA09547008AA356 /* RegularItemTableViewCell.m */,
 				044048461BA09622008AA356 /* OriginalItemTableViewCell.h */,
 				044048471BA09622008AA356 /* OriginalItemTableViewCell.m */,
+				046A6D4C1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.h */,
+				046A6D4D1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.m */,
+				046A6D4E1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.xib */,
+				046A6D511BA10E3A00488A09 /* UserCommentTableViewCell.h */,
+				046A6D521BA10E3A00488A09 /* UserCommentTableViewCell.m */,
+				046A6D531BA10E3A00488A09 /* UserCommentTableViewCell.xib */,
 			);
 			name = "challenge items";
 			sourceTree = "<group>";
@@ -357,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046A6D501BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.xib in Resources */,
 				0490F4A11B9BB2D000318EFB /* CreateNewChallengeViewController.xib in Resources */,
 				0480B06B1B9F9DCD007E71A2 /* ContactsViewController.xib in Resources */,
 				0490F4861B9B5D5800318EFB /* Main.storyboard in Resources */,
@@ -367,6 +404,7 @@
 				0490F4881B9B5D5800318EFB /* Images.xcassets in Resources */,
 				0455588C1BA0E41E006A4C87 /* MakeDonationViewController.xib in Resources */,
 				0480B05A1B9E0BB7007E71A2 /* GlobalContextPseudoTabController.xib in Resources */,
+				046A6D551BA10E3A00488A09 /* UserCommentTableViewCell.xib in Resources */,
 				04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,13 +424,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */,
+				046A6D581BA1108000488A09 /* NSDate+Utils.m in Sources */,
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* ChallengeTableViewController.m in Sources */,
+				046A6D481BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
 				04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */,
+				046A6D4F1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.m in Sources */,
+				046A6D4B1BA10B4900488A09 /* ChallengeCommentsTableViewController.m in Sources */,
 				044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */,
 				04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */,
 				04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */,
@@ -401,6 +443,7 @@
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
 				0455588B1BA0E41E006A4C87 /* MakeDonationViewController.m in Sources */,
 				0490F4801B9B5D5800318EFB /* ChallengeApp.xcdatamodeld in Sources */,
+				046A6D541BA10E3A00488A09 /* UserCommentTableViewCell.m in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

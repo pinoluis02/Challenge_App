@@ -7,9 +7,13 @@
 //
 
 #import "GlobalContextPseudoTabController.h"
+#import "ChallengeTableViewController.h"
 
 @interface GlobalContextPseudoTabController (){
 bool tabBarVerticalSpaceConstraintFixed;
+            UITabBar * visibleTabBar;
+    NSArray * navigation;
+    ChallengeTableViewController * contentController;
 }
 @end
 
@@ -17,7 +21,11 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSLog(@"viewDidLoad");
+    contentController = [ChallengeTableViewController new];
+    [self addChildViewController:contentController];
+    [self.view addSubview:contentController.tableView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +34,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 -(void)updateViewConstraints{
+    NSLog(@"updateViewConstraints");
     if(!tabBarVerticalSpaceConstraintFixed){
 //        http://stackoverflow.com/questions/19078278/is-there-any-way-to-add-constraint-between-a-view-and-the-top-layout-guide-in-a/26397943#26397943
         [super viewWillLayoutSubviews];
@@ -46,7 +55,7 @@ bool tabBarVerticalSpaceConstraintFixed;
         
         self.userOptionsTabBarVerticalSpaceConstraint.constant = [topLayoutGuide length];
 
-        UITabBar * visibleTabBar;
+
         NSLayoutConstraint * visibleTabBarVerticalConstraint;
         switch (self.tabBarType) {
             case GlobalOptionsTabBarType:
@@ -61,10 +70,12 @@ bool tabBarVerticalSpaceConstraintFixed;
                 break;
         }
 
+        visibleTabBar.selectedItem = visibleTabBar.items[1];
+        [self tabBar:visibleTabBar didSelectItem:visibleTabBar.selectedItem];
+        
         visibleTabBar.hidden = false;
         visibleTabBarVerticalConstraint.constant = [topLayoutGuide length];
         self.contentViewVerticalSpaceConstraint.constant = visibleTabBarVerticalConstraint.constant;
-        NSLog(@"length: %fd", visibleTabBarVerticalConstraint.constant);
         
         tabBarVerticalSpaceConstraintFixed = true;
     }
@@ -72,6 +83,13 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 
+//NB: each item should draw itself correctly based on its own type, and based on that the controller will show the appropiate commands
+
+- (void)tabBar:(UITabBar *)tabBar
+ didSelectItem:(UITabBarItem *)item{
+    contentController.contentType = item.tag;
+    
+}
 /*
 #pragma mark - Navigation
 
