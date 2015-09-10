@@ -10,7 +10,7 @@
 #import "RegularItemTableViewCell.h"
 
 @interface ChallengeTableViewController (){
-    NSMutableDictionary * items;
+    NSDictionary * items;
 ChallengeTableViewControllerContent mContentType;
 }
 @end
@@ -24,8 +24,7 @@ ChallengeTableViewControllerContent mContentType;
 
 -(void)setContentType:(ChallengeTableViewControllerContent)contentType{
     mContentType = contentType;
-    NSDictionary * dic = [self getDemoObjects:contentType];
-    items = dic;
+    [self fetchData:contentType];
 }
 
 - (void)viewDidLoad {
@@ -35,7 +34,40 @@ ChallengeTableViewControllerContent mContentType;
     self.clearsSelectionOnViewWillAppear = NO;
        UINib *cellNib = [UINib nibWithNibName:@"RegularItemTableViewCell" bundle:nil];
         [self.tableView registerNib: cellNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
-    self.tableView.rowHeight = 310;
+    self.tableView.rowHeight = 255;
+
+    //    Networking code
+    self.challengeDao = [[ChallengeDao alloc] init];
+    self.challengeDao.delegate = self;
+}
+
+-(void) fetchData:(ChallengeTableViewControllerContent)contentType{
+    
+    switch (contentType) {
+        case AllChallenges:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case PopularChallenges:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case RecentChallenges:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case SearchChallenges:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case UserChallengeInvitation:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case UserCompleteChallenges:{
+            [self.challengeDao getAllChallenges];
+        }break;
+        case UserIncompleteChallenges:{
+        }break;
+        default:
+            NSAssert(false, @"programmer you made an error");
+    }
+    
 }
 
 -(NSDictionary *) getDemoObjects:(ChallengeTableViewControllerContent)contentType{
@@ -133,10 +165,37 @@ ChallengeTableViewControllerContent mContentType;
 
 
 
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
 -(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetAllChallengesWithResult count = %ld", [resultArray count]);
     
+//    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    items =[self getDemoObjects:[self contentType]];
+    [self.tableView reloadData];
     
     
 }
