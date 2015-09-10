@@ -8,6 +8,7 @@
 
 #import "ChallengeTableViewController.h"
 #import "RegularItemTableViewCell.h"
+#import "ChallengeEvidenceTableViewController.h"
 
 @interface ChallengeTableViewController (){
     NSDictionary * items;
@@ -145,12 +146,13 @@ ChallengeTableViewControllerContent mContentType;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-//    return [[items valueForKey:@"challenges"] count];
-    return 1;
+    return [[items valueForKey:@"challenges"] count];
+//    return 1;
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     RegularItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
     
     NSDictionary * item = [items valueForKey:@"challenges"][indexPath.row];
@@ -163,7 +165,9 @@ ChallengeTableViewControllerContent mContentType;
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 /*
 // Override to support rearranging the table view.
