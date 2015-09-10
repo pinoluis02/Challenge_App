@@ -146,13 +146,28 @@ ChallengeTableViewControllerContent mContentType;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [[items valueForKey:@"challenges"] count];
+    //return [[items valueForKey:@"challenges"] count];
+    return [self.challengesArray count];
 //    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    static NSString *simpleTableIdentifier = @"articleCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    Challenge * challenge = [self.challengesArray objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = challenge.name;
+    
+    return cell;
+    /*
     RegularItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
     
     NSDictionary * item = [items valueForKey:@"challenges"][indexPath.row];
@@ -162,7 +177,7 @@ ChallengeTableViewControllerContent mContentType;
     cell.pubDate.text = [NSString stringWithFormat:@"%@", [NSDate date]];
     UIImage * image = [UIImage imageNamed:@"homemovies"];
     [cell.thumbnail setImage:image];
-    return cell;
+    return cell; */
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
