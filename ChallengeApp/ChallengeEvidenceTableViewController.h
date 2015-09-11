@@ -8,5 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChallengeEvidenceTableViewController : UITableViewController
+@interface ChallengeEvidenceTableViewController : UITableViewController<UITableViewDelegate>
+@property int challengeId;
+@property int userId;
 @end

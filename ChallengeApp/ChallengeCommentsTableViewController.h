@@ -10,4 +10,6 @@
 
 
 @interface ChallengeCommentsTableViewController : UITableViewController
+@property int challengeId;
+@property int userId;
 @end

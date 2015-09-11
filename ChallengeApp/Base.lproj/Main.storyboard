@@ -90,28 +90,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="1915"/>
         </scene>
-        <!--View Controller-->
+        <!--Make Donation View Controller-->
         <scene sceneID="j9K-l9-1EW">
             <objects>
-                <viewController id="EBM-Lr-Ivf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OfN-EM-Q0u"/>
-                        <viewControllerLayoutGuide type="bottom" id="Dn8-G8-y5i"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kQX-Ar-Qyr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Donation Segue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LW4-EC-a3L">
-                                <rect key="frame" x="243" y="165" width="123" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
+                <viewController id="EBM-Lr-Ivf" customClass="MakeDonationViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZE9-8e-ego" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2026" y="2679"/>
