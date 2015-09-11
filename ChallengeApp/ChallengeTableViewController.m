@@ -56,9 +56,9 @@ ChallengeTableViewControllerContent mContentType;
             //[self.challengeDao getChallengesRequestByUserId:@10 withStatus:@1]; // OK
             //[self.challengeDao putChallengesRequestStatus:@20 withStatus:@1]; // OK
             //[self.challengeDao getChallengesEvidencesByUserId:@20];
-            //[self.challengeDao getChallengesPendingEvidencesByUserId:@20];
-            Challenge *challenge;
-            [self.challengeDao postChallenge:challenge]; // OK
+            [self.challengeDao getChallengesPendingEvidencesByUserId:@20];
+            //Challenge *challenge;
+            //[self.challengeDao postChallenge:challenge]; // OK
             //User *user;
             //[self.challengeDao postUser:user];
             //[self.challengeDao getExistUser:@"8484248"];
