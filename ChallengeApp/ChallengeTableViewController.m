@@ -40,6 +40,8 @@ ChallengeTableViewControllerContent mContentType;
     //    Networking code
     self.challengeDao = [[ChallengeDao alloc] init];
     self.challengeDao.delegate = self;
+    
+    self.challengesArray = [[NSMutableArray alloc]init];
 }
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
