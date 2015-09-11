@@ -19,6 +19,10 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"ContactsViewController_idLoginUser:%@",self.idLoginUser);
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

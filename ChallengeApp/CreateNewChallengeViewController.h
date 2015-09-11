@@ -18,6 +18,7 @@ extern NSString * customCharityOrganizationOptionString;
 @property (weak, nonatomic) IBOutlet UITextField *inputPaypalID;
 @property (weak, nonatomic) IBOutlet UITextField *inputAmount;
 @property (weak, nonatomic) IBOutlet UIImageView *inputMediaPreview;
+@property (strong, nonatomic) NSString *idLoginUser;
 - (IBAction)donateButtonClick:(id)sender;
 
 @end

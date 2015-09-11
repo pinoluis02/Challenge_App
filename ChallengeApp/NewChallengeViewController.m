@@ -36,9 +36,28 @@
 }
 */
 
+- (IBAction)addMediaButton:(UIButton *)sender
+{
+    NSLog(@"This is the button to add Media to the File Server");
+}
+
 - (IBAction)makeDonationSwith:(UISwitch *)sender
 {
-    [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
-    NSLog(@"New Change");
+    if ([sender isOn])
+    {
+        [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+    }
+    else
+    {
+        NSLog(@"Donataion is Off");
+    }
 }
+
+- (IBAction)submitChallengeButton:(UIButton *)sender
+{
+    NSLog(@"Submit button action pressed");
+}
+
+
+
 @end

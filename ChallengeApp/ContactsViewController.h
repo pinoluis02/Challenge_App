@@ -10,4 +10,6 @@
 
 @interface ContactsViewController : UIViewController
 
+@property (strong, nonatomic) NSString *idLoginUser;
+
 @end
