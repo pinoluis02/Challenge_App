@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, ChallengeTableViewControllerContent) {
     UserCompleteChallenges = 4
 };
 
-@interface ChallengeTableViewController : UITableViewController <ChallengeDelegate>
+@interface ChallengeTableViewController : UITableViewController <ChallengeDelegate, UITableViewDelegate>
 @property ChallengeDao * challengeDao;
 @property NSArray * challengesArray;
 @property ChallengeTableViewControllerContent contentType;
