@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="efK-Xu-Bwk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JuS-kv-UaK">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="RPw-cf-Djv">
             <objects>
-                <tabBarController id="efK-Xu-Bwk" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="efK-Xu-Bwk" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wWq-hB-hMg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -49,6 +49,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-sE-Q3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1135" y="342"/>
+        </scene>
+        <!--My View Controller-->
+        <scene sceneID="zH8-dF-DyU">
+            <objects>
+                <viewController id="JuS-kv-UaK" customClass="MyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EcF-V3-mad"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vth-tM-Llz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CdH-71-QJn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xM0-Aq-goQ" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="90" y="288" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.74023437496262634" green="0.74023437496262634" blue="0.74023437496262634" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="mst-xt-JMl">
+                                <rect key="frame" x="95" y="150" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-Nd-5ts">
+                                <rect key="frame" x="16" y="331" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="ztL-AD-BIX">
+                                <rect key="frame" x="237" y="490" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="NGz-oH-huo">
+                                <rect key="frame" x="258" y="182" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="qJy-1W-Eqi">
+                                <rect key="frame" x="16" y="53" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="4td-q4-Egu">
+                                <rect key="frame" x="107" y="439" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-xF-Yaq">
+                                <rect key="frame" x="278" y="359" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ecw-wh-Lo8">
+                                <rect key="frame" x="-23" y="217" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Me3-AY-eGh">
+                                <rect key="frame" x="54" y="551" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="TnO-YU-FiG">
+                                <rect key="frame" x="235" y="11" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="VpU-V0-6QH">
+                                <rect key="frame" x="259" y="630" width="75" height="65"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78661723589999999" green="0.83995495119999997" blue="0.90334990530000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="xM0-Aq-goQ" id="uYW-xj-hHi"/>
+                        <segue destination="efK-Xu-Bwk" kind="show" identifier="segueToTabBar" id="NRh-eY-8Yl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihe-gu-0N6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441" y="-1210"/>
         </scene>
         <!--Global Context Pseudo Tab Controller-->
         <scene sceneID="EqS-NQ-BuQ">
@@ -119,7 +180,7 @@
         <!--Navigation Controller-->
         <scene sceneID="j5U-ZF-peo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="new challenge icon" id="5ZA-ZS-aWP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cD6-P6-i2R">

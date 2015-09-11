@@ -34,6 +34,9 @@
 		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
+		04DDC3A41BA1105E004C20E5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */; };
+		04DDC3A61BA11066004C20E5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */; };
+		04DDC3A81BA11072004C20E5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
+		04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DDC3A61BA11066004C20E5 /* FBSDKLoginKit.framework in Frameworks */,
+				04DDC3A41BA1105E004C20E5 /* FBSDKCoreKit.framework in Frameworks */,
+				04DDC3A81BA11072004C20E5 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +189,7 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				04DDC3A21BA11050004C20E5 /* Facebook SDK */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* contentViewController */,
@@ -267,6 +277,16 @@
 			);
 			name = dao;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		04DDC3A21BA11050004C20E5 /* Facebook SDK */ = {
+			isa = PBXGroup;
+			children = (
+				04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */,
+				04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */,
+				04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */,
+			);
+			name = "Facebook SDK";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,6 +539,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -530,6 +554,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

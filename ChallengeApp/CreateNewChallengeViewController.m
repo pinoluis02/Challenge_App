@@ -34,6 +34,8 @@ NSString * customCharityOrganizationOptionString = @"Other";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        NSLog(@"CreateNewChallengeViewController_idLoginUser:%@",self.idLoginUser);
+    
     // Do any additional setup after loading the view.
 //    newChallengeView = (CreateNewChallengeView *)self.view;
 //            NSLog(@"viewDidLoad %@", self.view);
@@ -60,7 +62,9 @@ NSString * customCharityOrganizationOptionString = @"Other";
     
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"CreateNewChallengeViewController_idLoginUser:%@",self.idLoginUser);
+}
 
 
 - (void)didReceiveMemoryWarning {

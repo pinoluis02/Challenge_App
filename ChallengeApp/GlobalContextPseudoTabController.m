@@ -25,7 +25,12 @@ bool tabBarVerticalSpaceConstraintFixed;
     contentController = [ChallengeTableViewController new];
     [self addChildViewController:contentController];
     [self.view addSubview:contentController.tableView];
+    
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"GlobalContextPseudoTabController_idLoginUser:%@",self.idLoginUser);
 }
 
 - (void)didReceiveMemoryWarning {

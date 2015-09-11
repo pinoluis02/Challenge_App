@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface MyViewController : UIViewController
+
+@interface MyViewController : UIViewController <FBSDKLoginButtonDelegate>
+
+@property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
 
 @end
