@@ -36,6 +36,9 @@
     self.tableView.rowHeight = 255;
     [self setDemoData];
     [self.tableView reloadData];
+    
+    
+}
 
 -(void)setDemoData{
     
