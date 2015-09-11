@@ -41,6 +41,9 @@
 		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
+		416B9F051BA215B700761422 /* ParsingChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F041BA215B700761422 /* ParsingChallenge.m */; };
+		416B9F081BA2244D00761422 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F071BA2244D00761422 /* Evidence.m */; };
+		416B9F0E1BA2B9D800761422 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F0D1BA2B9D800761422 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,12 @@
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
+		416B9F031BA215B700761422 /* ParsingChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingChallenge.h; sourceTree = "<group>"; };
+		416B9F041BA215B700761422 /* ParsingChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingChallenge.m; sourceTree = "<group>"; };
+		416B9F061BA2244D00761422 /* Evidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Evidence.h; path = ChallengeApp/Evidence.h; sourceTree = "<group>"; };
+		416B9F071BA2244D00761422 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Evidence.m; path = ChallengeApp/Evidence.m; sourceTree = "<group>"; };
+		416B9F0C1BA2B9D800761422 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ChallengeApp/User.h; sourceTree = "<group>"; };
+		416B9F0D1BA2B9D800761422 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ChallengeApp/User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +220,8 @@
 		0490F46B1B9B5D5800318EFB = {
 			isa = PBXGroup;
 			children = (
+				416B9F0C1BA2B9D800761422 /* User.h */,
+				416B9F0D1BA2B9D800761422 /* User.m */,
 				0490F4761B9B5D5800318EFB /* ChallengeApp */,
 				0490F4931B9B5D5800318EFB /* ChallengeAppTests */,
 				0490F4751B9B5D5800318EFB /* Products */,
@@ -301,6 +312,8 @@
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
+				416B9F061BA2244D00761422 /* Evidence.h */,
+				416B9F071BA2244D00761422 /* Evidence.m */,
 				04C3C8BF1BA0B5E30048996F /* Challenge.h */,
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
@@ -313,6 +326,7 @@
 		04C3C8CF1BA0B5FA0048996F /* dao */ = {
 			isa = PBXGroup;
 			children = (
+				416B9F021BA214D200761422 /* Parsing Model */,
 				04C3C8C31BA0B5E30048996F /* ChallengeDao.h */,
 				04C3C8C41BA0B5E30048996F /* ChallengeDao.m */,
 				04C3C8C51BA0B5E30048996F /* Connection.h */,
@@ -322,6 +336,15 @@
 			);
 			name = dao;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		416B9F021BA214D200761422 /* Parsing Model */ = {
+			isa = PBXGroup;
+			children = (
+				416B9F031BA215B700761422 /* ParsingChallenge.h */,
+				416B9F041BA215B700761422 /* ParsingChallenge.m */,
+			);
+			name = "Parsing Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,12 +456,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416B9F081BA2244D00761422 /* Evidence.m in Sources */,
 				04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */,
 				046A6D581BA1108000488A09 /* NSDate+Utils.m in Sources */,
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* ChallengeTableViewController.m in Sources */,
+				416B9F051BA215B700761422 /* ParsingChallenge.m in Sources */,
+				416B9F0E1BA2B9D800761422 /* User.m in Sources */,
 				046A6D481BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,

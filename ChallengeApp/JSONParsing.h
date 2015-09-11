@@ -6,9 +6,9 @@
 //
 
 #define didFinishGetAllChallengesWithResult_ 0
-#define didFinishGetLastChallengesWithResult_ 1
-#define didFinishGetPopularChallengesWithResult_ 2
-#define didFinishGetChallengesFromUserWithResult_ 3
+//#define didFinishGetLastChallengesWithResult_ 1
+//#define didFinishGetPopularChallengesWithResult_ 2
+//#define didFinishGetChallengesFromUserWithResult_ 3
 #define didFinishAddChallengeWithResult_ 4
 #define didFinishSearchChallengesWithResult_ 5
 #define didFinishGetChallengeRequestsWithResult_ 6
@@ -17,6 +17,8 @@
 #define didFinishRejectChallengeRequestWithResult_ 9
 
 #import <Foundation/Foundation.h>
+#import "ParsingChallenge.h"
+
 @class JSONParsing;
 
 @protocol JSONParsingDelegate <NSObject>
@@ -29,6 +31,7 @@
 @interface JSONParsing : NSObject
 
 @property (nonatomic, weak) id<JSONParsingDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *resultArrayModel; // DELETE
 
 - (instancetype)initWithData: (NSData *) jsonData;
 - (void) startParsing;
