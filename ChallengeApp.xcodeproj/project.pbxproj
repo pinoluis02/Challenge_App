@@ -41,11 +41,11 @@
 		04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C41BA0B5E30048996F /* ChallengeDao.m */; };
 		04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C61BA0B5E30048996F /* Connection.m */; };
 		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
+		04CA04171BA352BC0066239E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04161BA352BC0066239E /* FBSDKShareKit.framework */; };
+		04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04181BA352C70066239E /* FBSDKCoreKit.framework */; };
+		04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04191BA352C70066239E /* FBSDKLoginKit.framework */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
-		04DDC3A41BA1105E004C20E5 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */; };
-		04DDC3A61BA11066004C20E5 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */; };
-		04DDC3A81BA11072004C20E5 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,12 +116,12 @@
 		04C3C8C61BA0B5E30048996F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = ChallengeApp/Connection.m; sourceTree = "<group>"; };
 		04C3C8C71BA0B5E30048996F /* JSONParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParsing.h; path = ChallengeApp/JSONParsing.h; sourceTree = "<group>"; };
 		04C3C8C81BA0B5E30048996F /* JSONParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParsing.m; path = ChallengeApp/JSONParsing.m; sourceTree = "<group>"; };
+		04CA04161BA352BC0066239E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		04CA04181BA352C70066239E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		04CA04191BA352C70066239E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
-		04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
-		04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
-		04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "../../../../../Downloads/FacebookSDKs-iOS-20150813/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,9 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DDC3A61BA11066004C20E5 /* FBSDKLoginKit.framework in Frameworks */,
-				04DDC3A41BA1105E004C20E5 /* FBSDKCoreKit.framework in Frameworks */,
-				04DDC3A81BA11072004C20E5 /* FBSDKShareKit.framework in Frameworks */,
+				04CA04171BA352BC0066239E /* FBSDKShareKit.framework in Frameworks */,
+				04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */,
+				04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +345,9 @@
 		04DDC3A21BA11050004C20E5 /* Facebook SDK */ = {
 			isa = PBXGroup;
 			children = (
-				04DDC3A71BA11072004C20E5 /* FBSDKShareKit.framework */,
-				04DDC3A51BA11066004C20E5 /* FBSDKLoginKit.framework */,
-				04DDC3A31BA1105E004C20E5 /* FBSDKCoreKit.framework */,
+				04CA04181BA352C70066239E /* FBSDKCoreKit.framework */,
+				04CA04191BA352C70066239E /* FBSDKLoginKit.framework */,
+				04CA04161BA352BC0066239E /* FBSDKShareKit.framework */,
 			);
 			name = "Facebook SDK";
 			sourceTree = "<group>";
@@ -614,6 +614,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ChallengeApp",
 				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -629,6 +630,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ChallengeApp",
 				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
