@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="1915"/>
         </scene>
-        <!--View Controller-->
+        <!--Make Donation View Controller-->
         <scene sceneID="j9K-l9-1EW">
             <objects>
-                <viewController id="EBM-Lr-Ivf" sceneMemberID="viewController"/>
+                <viewController id="EBM-Lr-Ivf" customClass="MakeDonationViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZE9-8e-ego" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2026" y="2679"/>
