@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GlobalContextPseudoTabController">
             <connections>
+                <outlet property="contentView" destination="jqu-M4-mZO" id="0hA-Cb-koa"/>
                 <outlet property="contentViewVerticalSpaceConstraint" destination="VqD-Pq-n3B" id="buS-7H-Mks"/>
                 <outlet property="globalOptionsTabBar" destination="Hjo-2f-UAV" id="B4h-x8-gjl"/>
                 <outlet property="globalOptionsTabBarVerticalSpaceConstraint" destination="lu7-zd-rac" id="gkh-qA-E8B"/>

@@ -22,5 +22,6 @@ typedef NS_ENUM(NSUInteger, TabBarOptions) {
 @property (weak, nonatomic) IBOutlet UITabBar *userOptionsTabBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewVerticalSpaceConstraint;
 @property (strong, nonatomic) NSString *idLoginUser;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end

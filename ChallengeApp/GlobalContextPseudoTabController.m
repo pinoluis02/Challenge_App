@@ -24,7 +24,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     NSLog(@"viewDidLoad");
     contentController = [ChallengeTableViewController new];
     [self addChildViewController:contentController];
-    [self.view addSubview:contentController.tableView];
+    [self.contentView addSubview:contentController.tableView];
     
 
 }
