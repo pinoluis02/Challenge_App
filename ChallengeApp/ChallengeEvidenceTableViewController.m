@@ -66,6 +66,32 @@
 
 }
 
+-(void)setDemoData{
+
+    NSMutableDictionary * itemOne = [NSMutableDictionary dictionary];
+    NSMutableDictionary * itemTwo = [NSMutableDictionary dictionary];
+    
+    [itemOne setValue:@1 forKey:@"id"];
+    [itemOne setValue:@"Mauris Rhoncus" forKey:@"authorUserName"];
+    [itemOne setValue:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." forKey:@"evidenceDescription"];
+    [itemOne setValue:[NSDate date] forKey:@"creationDate"];
+    
+    [itemOne setValue:@2 forKey:@"id"];
+    [itemOne setValue:@"UserXXII" forKey:@"authorUserName"];
+    [itemOne setValue:@"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." forKey:@"evidenceDescription"];
+    [itemOne setValue:[NSDate date] forKey:@"creationDate"];
+    
+    evidenceArray = @[itemOne, itemTwo];
+    
+    originalChallenge = [NSMutableDictionary dictionary];
+    [originalChallenge setValue:@1 forKey:@"id"];
+    [originalChallenge setValue:@"mauris, rhoncus id," forKey:@"title"];
+    [originalChallenge setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
+    [originalChallenge setValue:@"image" forKey:@"type"];
+    [originalChallenge setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
