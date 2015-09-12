@@ -41,7 +41,7 @@
 }
 
 -(void)setDemoData{
-    
+
     NSMutableDictionary * itemOne = [NSMutableDictionary dictionary];
     NSMutableDictionary * itemTwo = [NSMutableDictionary dictionary];
     
@@ -63,7 +63,7 @@
     [originalChallenge setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
     [originalChallenge setValue:@"image" forKey:@"type"];
     [originalChallenge setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +76,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1 + [evidenceArray count];
-    
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -90,7 +90,7 @@
 {
     UITableViewCell * cell;
     if(indexPath.row == 0){
-        //    The first cell is the original challenge and has different style than the rest of the rows.
+//    The first cell is the original challenge and has different style than the rest of the rows.
         RegularItemTableViewCell *originalChallengeCell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
         
         NSDictionary * item = originalChallenge;

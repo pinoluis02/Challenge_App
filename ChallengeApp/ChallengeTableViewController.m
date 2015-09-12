@@ -198,7 +198,11 @@ ChallengeTableViewControllerContent mContentType;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    ChallengeEvidenceTableViewController * vc = [ChallengeEvidenceTableViewController new];
+    vc.challengeId = 99;
+    vc.userId = 99;
+    [self.navigationController pushViewController:vc animated:true];
+
 }
 
 /*
