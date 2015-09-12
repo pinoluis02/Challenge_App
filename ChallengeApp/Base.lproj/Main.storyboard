@@ -25,21 +25,21 @@
             </objects>
             <point key="canvasLocation" x="441" y="-409"/>
         </scene>
-        <!--Contacts View Controller-->
+        <!--contacts-->
         <scene sceneID="Tw2-tN-8fz">
             <objects>
                 <viewController id="c31-8x-Wm0" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="contacts icon" id="Z16-jX-ObI"/>
+                    <tabBarItem key="tabBarItem" title="contacts" image="contacts icon" id="Z16-jX-ObI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAi-5O-ViM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="441" y="342"/>
         </scene>
-        <!--Global Context Pseudo Tab Controller-->
+        <!--world-->
         <scene sceneID="qxW-Uu-zXp">
             <objects>
                 <viewController id="6Z2-Wh-riS" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="world context" id="HKe-rS-ARs"/>
+                    <tabBarItem key="tabBarItem" title="world" image="world context" id="HKe-rS-ARs"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
                             <integer key="value" value="1"/>
@@ -111,11 +111,11 @@
             </objects>
             <point key="canvasLocation" x="441" y="-1210"/>
         </scene>
-        <!--Global Context Pseudo Tab Controller-->
+        <!--dashboard-->
         <scene sceneID="EqS-NQ-BuQ">
             <objects>
                 <viewController id="gDR-RK-se0" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="this user context (2)" id="Pj0-fm-Le2" userLabel="profile"/>
+                    <tabBarItem key="tabBarItem" title="dashboard" image="this user context (2)" id="Pj0-fm-Le2" userLabel="profile"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
                             <integer key="value" value="2"/>
@@ -159,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="2026" y="2679"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--create-->
         <scene sceneID="j5U-ZF-peo">
             <objects>
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="new challenge icon" id="5ZA-ZS-aWP"/>
+                    <tabBarItem key="tabBarItem" title="create" image="new challenge icon" id="5ZA-ZS-aWP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cD6-P6-i2R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

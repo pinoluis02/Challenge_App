@@ -28,10 +28,10 @@
                     <rect key="frame" x="0.0" y="50" width="600" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" enabled="NO" title="" image="this user context (5)" id="Iib-Rt-BIf" userLabel="context indicator"/>
-                        <tabBarItem tag="2" image="incomplete challenges" id="l4K-x1-EX5" userLabel="incomplete items"/>
-                        <tabBarItem tag="3" title="" image="challenge notifications" id="53R-Iv-1Zy" userLabel="invitations"/>
-                        <tabBarItem tag="4" title="" image="completed challenges" id="tjd-nd-mkV" userLabel="completed"/>
+                        <tabBarItem tag="1" enabled="NO" title="user" image="this user context (5)" id="Iib-Rt-BIf" userLabel="context indicator"/>
+                        <tabBarItem tag="2" title="Incomplete" image="incomplete challenges" id="l4K-x1-EX5" userLabel="incomplete items"/>
+                        <tabBarItem tag="3" title="Notifications" image="challenge notifications" id="53R-Iv-1Zy" userLabel="invitations"/>
+                        <tabBarItem tag="4" title="Completed" image="completed challenges" id="tjd-nd-mkV" userLabel="completed"/>
                     </items>
                     <connections>
                         <outlet property="delegate" destination="-1" id="pTO-ej-LK6"/>
@@ -41,11 +41,11 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="5" enabled="NO" title="" image="world context (2)" id="Sct-Qf-LGv" userLabel="context"/>
-                        <tabBarItem tag="6" title="" image="show all" id="o2b-0P-aaq" userLabel="all"/>
-                        <tabBarItem tag="7" title="" image="favorites" id="9ZJ-pU-gZZ" userLabel="favorites"/>
-                        <tabBarItem tag="8" title="" image="recent" id="Umi-ds-8Zx" userLabel="recent"/>
-                        <tabBarItem tag="9" title="" image="search" id="2Ry-oS-whM" userLabel="search"/>
+                        <tabBarItem tag="5" enabled="NO" title="world" image="world context (2)" id="Sct-Qf-LGv" userLabel="context"/>
+                        <tabBarItem tag="6" title="all" image="show all" id="o2b-0P-aaq" userLabel="all"/>
+                        <tabBarItem tag="7" title="popular" image="favorites" id="9ZJ-pU-gZZ" userLabel="favorites"/>
+                        <tabBarItem tag="8" title="recent" image="recent" id="Umi-ds-8Zx" userLabel="recent"/>
+                        <tabBarItem tag="9" title="search" image="search" id="2Ry-oS-whM" userLabel="search"/>
                     </items>
                     <connections>
                         <outlet property="delegate" destination="-1" id="FGR-qM-XSO"/>

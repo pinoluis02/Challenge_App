@@ -42,6 +42,8 @@ ChallengeTableViewControllerContent mContentType;
     self.challengeDao.delegate = self;
     
     self.challengesArray = [[NSMutableArray alloc]init];
+    
+    self.tableView.delegate = self;
 }
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
@@ -56,7 +58,7 @@ ChallengeTableViewControllerContent mContentType;
             //[self.challengeDao getChallengesRequestByUserId:@10 withStatus:@1]; // OK
             //[self.challengeDao putChallengesRequestStatus:@20 withStatus:@1]; // OK
             //[self.challengeDao getChallengesEvidencesByUserId:@20];
-            [self.challengeDao getChallengesPendingEvidencesByUserId:@20];
+            [self.challengeDao getAllChallenges];
             //Challenge *challenge;
             //[self.challengeDao postChallenge:challenge]; // OK
             //User *user;
