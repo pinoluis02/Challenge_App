@@ -16,7 +16,8 @@
         Challenge *challenge = [Challenge alloc];
         challenge.title = [snippet objectForKey:@"title"];
         challenge.descriptionItem = [snippet objectForKey:@"description"];
-        challenge.urlResource = [snippet objectForKey:@"url"];
+        challenge.urlResource = [snippet objectForKey:@"url_thumbnail"];
+        NSLog(@"challenge.urlResource: %@", challenge.urlResource);
         [resultArray addObject:challenge];
     }
     return resultArray;
