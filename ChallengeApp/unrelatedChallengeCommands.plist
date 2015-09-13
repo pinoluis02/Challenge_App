@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Items</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>New Challenge</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Take Challenge</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Share</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Donate</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Cancel</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>

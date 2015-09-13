@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ChallengeDao.h"
 
+@class CustomRootController;
 typedef NS_ENUM(NSUInteger, ChallengeTableViewControllerContent) {
     //    the integer values must have a correspondence with the tab items tags on NestedTabViewController.
     AllChallenges = 6,
@@ -20,8 +21,9 @@ typedef NS_ENUM(NSUInteger, ChallengeTableViewControllerContent) {
     UserCompleteChallenges = 4
 };
 
-@interface ChallengeTableViewController : UITableViewController <ChallengeDelegate, UITableViewDelegate>
+@interface ChallengeTableViewController : UITableViewController <ChallengeDelegate, UITableViewDelegate, UIGestureRecognizerDelegate>
 @property ChallengeDao * challengeDao;
 @property NSArray * challengesArray;
 @property ChallengeTableViewControllerContent contentType;
+@property CustomRootController * coordinatorController;
 @end
