@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewChallengeViewController : UIViewController
-
+@interface NewChallengeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImagePickerController *videoPicker;
     UIImagePickerController *imagePicker;
@@ -17,16 +16,21 @@
     NSString *testing;
     NSURL *vidPath;
     IBOutlet UIImageView *imageView;
+    
+    UIView * aProgressView ;
 }
-
--(IBAction)takePhoto;
-
--(IBAction)chooseExisting;
 
 - (IBAction)addMediaButton:(UIButton *)sender;
 - (IBAction)makeDonationSwith:(UISwitch *)sender;
 - (IBAction)submitChallengeButton:(UIButton *)sender;
 
+
+
+- (IBAction)ChooseFromGallery:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *ChooseFromGallery;
+
+@property (strong,nonatomic) IBOutlet UILabel *progressLabel;
+@property(strong,nonatomic)IBOutlet  UIProgressView *progressIndicator;
 
 @end
 

@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewChallengeViewController">
             <connections>
+                <outlet property="ChooseFromGallery" destination="Kbo-et-BxI" id="adQ-fw-X6x"/>
+                <outlet property="activityIndicator" destination="P9q-YZ-b2x" id="Wzh-nc-axE"/>
+                <outlet property="movieView" destination="GJR-bQ-Y6b" id="VXE-Qs-Si6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Yb5-aL-gic"/>
             </connections>
         </placeholder>
@@ -65,6 +68,23 @@
                         <action selector="addMediaButton:" destination="-1" eventType="touchUpInside" id="cZc-Nx-7W5"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbo-et-BxI">
+                    <rect key="frame" x="13" y="423" width="220" height="44"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="Choose from gallery">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="ChooseFromGallery:" destination="-1" eventType="touchUpInside" id="Jc8-V6-ogA"/>
+                    </connections>
+                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="P9q-YZ-b2x">
+                    <rect key="frame" x="173" y="133" width="20" height="20"/>
+                </activityIndicatorView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJR-bQ-Y6b">
+                    <rect key="frame" x="31" y="464" width="185" height="152"/>
+                    <color key="backgroundColor" red="0.37583947182822974" green="1" blue="0.45917700547826301" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
