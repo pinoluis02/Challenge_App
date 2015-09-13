@@ -9,10 +9,14 @@
 #import "ChallengeTableViewController.h"
 #import "RegularItemTableViewCell.h"
 #import "ChallengeEvidenceTableViewController.h"
+#import "NSDate+Utils.h"
+#import "customRootController.h"
 
 @interface ChallengeTableViewController (){
     NSDictionary * items;
-ChallengeTableViewControllerContent mContentType;
+    ChallengeTableViewControllerContent mContentType;
+    UILongPressGestureRecognizer * lpgr;
+
 }
 @end
 
@@ -32,10 +36,10 @@ ChallengeTableViewControllerContent mContentType;
     [super viewDidLoad];
     
     // Uncomment the following line to preserve selection between presentations.
-    self.clearsSelectionOnViewWillAppear = NO;
+//    self.clearsSelectionOnViewWillAppear = NO;
        UINib *cellNib = [UINib nibWithNibName:@"RegularItemTableViewCell" bundle:nil];
         [self.tableView registerNib: cellNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
-    self.tableView.rowHeight = 255;
+//    self.tableView.rowHeight = 255;
 
     //    Networking code
     self.challengeDao = [[ChallengeDao alloc] init];
@@ -43,11 +47,21 @@ ChallengeTableViewControllerContent mContentType;
     
     self.challengesArray = [[NSMutableArray alloc]init];
     
+    self.tableView.estimatedRowHeight = 68.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 
+lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.0; //seconds
+    lpgr.delegate = self;
+    [self.tableView addGestureRecognizer:lpgr];
 }
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
     
+    BOOL debug = true;
+    if(!debug)
+    {
     switch (contentType) {
         case AllChallenges:{
             //[self.challengeDao getAllChallenges];
@@ -96,8 +110,54 @@ ChallengeTableViewControllerContent mContentType;
         default:
             NSAssert(false, @"programmer you made an error");
     }
-    
+    }else
+    {
+        [self setDemoData];
+    }
 }
+
+-(void)setDemoData{
+    
+     NSString * loremLipsum = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+    
+    Challenge * itemOne = [Challenge new];
+    itemOne.idChallenge = @"1";
+    itemOne.title = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium";
+    itemOne.descriptionItem = loremLipsum;
+    itemOne.type = @"image"; //Image/vide0
+    itemOne.urlResource = @"www.google.com";
+    itemOne.urlThumbnail = @"http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eecf65c5a16f7/thumbnail_8877914413458619170.jpg";
+    itemOne.idAuthor = @"1";
+    itemOne.nameAuthor = @"Brendon Small";
+    itemOne.creationDate = [[NSDate date] shortFormattedDateString];
+    //unrelated, notified, accepted (incomplete), rejected, completed.
+    itemOne.userStatus = @"unrelated";
+    itemOne.donation = @"0.0";
+    itemOne.idPayPal = nil;
+    itemOne.organization = @"Red cross";
+
+    
+    Challenge * itemTwo = [Challenge new];
+    itemTwo.idChallenge = @"1";
+    itemTwo.title = @"title";
+    itemTwo.descriptionItem = @"description";
+    itemTwo.type = @"image"; //Image/vide0
+    itemTwo.urlResource = @"www.google.com";
+    itemTwo.urlThumbnail = @"http://33.media.tumblr.com/avatar_7e31575f9de3_128.png";
+    itemTwo.idAuthor = @"1";
+    itemTwo.nameAuthor = @"Roger";
+    itemTwo.creationDate = [[NSDate date] shortFormattedDateString];
+    //unrelated, notified, accepted (incomplete), rejected, completed.
+    itemTwo.userStatus = @"notified";
+    itemTwo.donation = @"0.0";
+    itemTwo.idPayPal = nil;
+    itemTwo.organization = @"Red cross";
+
+    NSArray * resultsArray = @[itemOne, itemTwo];
+    
+    
+        self.challengesArray = resultsArray;
+    }
 
 
 - (void)didReceiveMemoryWarning {
@@ -140,11 +200,28 @@ ChallengeTableViewControllerContent mContentType;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ChallengeEvidenceTableViewController * vc = [ChallengeEvidenceTableViewController new];
-    vc.challengeId = 99;
-    vc.userId = 99;
-    [self.navigationController pushViewController:vc animated:true];
+    Challenge *item = self.challengesArray[indexPath.row];
+    [self notifyCoordinatorOfItemSelection:item longPress:NO];
+}
 
+- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        CGPoint p = [gestureRecognizer locationInView:self.tableView];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+        if (indexPath == nil) {
+            return;
+        } else {
+            Challenge *item = self.challengesArray[indexPath.row];
+            [self notifyCoordinatorOfItemSelection:item longPress:YES];
+        }
+    }
+}
+
+-(void)notifyCoordinatorOfItemSelection: (Challenge *)item longPress:(BOOL)lp{
+    [self.coordinatorController coordinateItemSelection:item selectedByLongPress:lp];
 }
 
 /*

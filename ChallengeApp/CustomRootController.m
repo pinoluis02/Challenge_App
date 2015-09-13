@@ -6,25 +6,32 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "GlobalContextPseudoTabController.h"
-#import "ChallengeTableViewController.h"
+#import "CustomRootController.h"
 
-@interface GlobalContextPseudoTabController (){
+@interface CustomRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
-            UITabBar * visibleTabBar;
-    NSArray * navigation;
-    ChallengeTableViewController * contentController;
 }
 @end
 
-@implementation GlobalContextPseudoTabController
+@implementation CustomRootController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
-    contentController = [ChallengeTableViewController new];
-    [self addChildViewController:contentController];
-    [self.contentView addSubview:contentController.tableView];
+    
+    ChallengeTableViewController * tableContentController = [ChallengeTableViewController new];
+    self.tableContentController = tableContentController;
+    [self addChildViewController:tableContentController];
+    [self.tableContentView addSubview:tableContentController.tableView];
+    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
+    tableContentController.coordinatorController = self;
+
+    ExpandableTableViewController *commandMenuController = [ExpandableTableViewController new];
+    self.commandMenuController = commandMenuController;
+    [self addChildViewController:commandMenuController];
+    [self.commandMenuView addSubview:commandMenuController.view];
+    commandMenuController.view.frame = CGRectMake(0, 0, self.commandMenuView.frame.size.width,  self.commandMenuView.frame.size.height);
+    commandMenuController.coordinatorController = self;
+
     
 
 }
@@ -39,7 +46,6 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 -(void)updateViewConstraints{
-    NSLog(@"updateViewConstraints");
     if(!tabBarVerticalSpaceConstraintFixed){
 //        http://stackoverflow.com/questions/19078278/is-there-any-way-to-add-constraint-between-a-view-and-the-top-layout-guide-in-a/26397943#26397943
         [super viewWillLayoutSubviews];
@@ -54,7 +60,9 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 //        Fix selected tab bar.
          id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
-
+        
+//        I need a normalized value, not the "at query time" value
+        
         self.globalOptionsTabBar.hidden = true;
         self.userOptionsTabBar.hidden = true;
         
@@ -62,6 +70,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 
         NSLayoutConstraint * visibleTabBarVerticalConstraint;
+        UITabBar * visibleTabBar;
         switch (self.tabBarType) {
             case GlobalOptionsTabBarType:
                 visibleTabBar = self.globalOptionsTabBar;
@@ -79,8 +88,12 @@ bool tabBarVerticalSpaceConstraintFixed;
         [self tabBar:visibleTabBar didSelectItem:visibleTabBar.selectedItem];
         
         visibleTabBar.hidden = false;
+//        topLayoutGuide is statusBar height.
+//        NB. visibleTabBar.bounds.size.height and tabViewController.tabBar.frame.size.height return 0
         visibleTabBarVerticalConstraint.constant = [topLayoutGuide length];
-        self.contentViewVerticalSpaceConstraint.constant = visibleTabBarVerticalConstraint.constant;
+        [visibleTabBar sizeToFit];
+        CGFloat tabBarHeight  = visibleTabBar.frame.size.height;
+        self.contentViewVerticalTopSpaceConstraint.constant = [topLayoutGuide length] + tabBarHeight;
         
         tabBarVerticalSpaceConstraintFixed = true;
     }
@@ -92,9 +105,33 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item{
-    contentController.contentType = item.tag;
+    self.tableContentController.contentType = item.tag;
 
 }
+
+
+-(void)coordinateMainContentViewHeightWithMenuHeight:(CGFloat)height{
+    if(height == 0)
+    {
+        height = 1; //Set it to zero and is gone for sure, don't know why though.
+    }
+    self.commandMenuViewHeightConstraint.constant = height;
+}
+
+
+-(void)respondToMenuItemSelection:(NSString *)command{
+    if([command isEqualToString:@"Cancel"]){
+        self.commandMenuController.itemsInTable = nil;
+    }
+}
+
+
+-(void)coordinateItemSelection:(Challenge *)item
+           selectedByLongPress:(BOOL)longPress;
+{
+        NSAssert(NO, @"Subclasses need to overwrite this method");
+}
+
 /*
 #pragma mark - Navigation
 

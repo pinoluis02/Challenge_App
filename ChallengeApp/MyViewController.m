@@ -8,13 +8,13 @@
 
 #import "MyViewController.h"
 #import "CreateNewChallengeViewController.h"
-#import "GlobalContextPseudoTabController.h"
+#import "customRootController.h"
 #import "ContactsViewController.h"
 
 @interface MyViewController ()
 {
     CreateNewChallengeViewController *createNewChallengeViewController;
-    GlobalContextPseudoTabController *globalContextPseudoTabController;
+    CustomRootController *globalContextPseudoTabController;
     ContactsViewController *contactsViewController;
 }
 
@@ -71,13 +71,13 @@
                  
                  NSMutableArray *listOfViewControllers = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
                  
-                 globalContextPseudoTabController = (GlobalContextPseudoTabController*)[listOfViewControllers objectAtIndex:0];
+                 globalContextPseudoTabController = (CustomRootController*)[listOfViewControllers objectAtIndex:0];
                  globalContextPseudoTabController.idLoginUser = idFbUser;
                 
                  contactsViewController = (ContactsViewController*) [listOfViewControllers objectAtIndex:1];
                  contactsViewController.idLoginUser = idFbUser;
                  
-                 globalContextPseudoTabController = (GlobalContextPseudoTabController*)[listOfViewControllers objectAtIndex:2];
+                 globalContextPseudoTabController = (CustomRootController*)[listOfViewControllers objectAtIndex:2];
                  globalContextPseudoTabController.idLoginUser = idFbUser;
                  
                  UINavigationController *navigationController = (UINavigationController*)[listOfViewControllers objectAtIndex:3];

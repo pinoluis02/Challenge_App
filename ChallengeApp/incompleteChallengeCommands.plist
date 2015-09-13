@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Items</key>
+	<array>
+		<dict>
+			<key>Name</key>
+			<string>Incomplete Challenge</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Complete Challenge</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Chicken Out</string>
+			<key>level</key>
+			<integer>0</integer>
+			<key>SubItems</key>
+			<array>
+				<dict>
+					<key>Name</key>
+					<string>Donate</string>
+					<key>level</key>
+					<integer>1</integer>
+				</dict>
+				<dict>
+					<key>Name</key>
+					<string>Don&apos;t Donate</string>
+					<key>level</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>Name</key>
+			<string>Cancel</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+</dict>
+</plist>
