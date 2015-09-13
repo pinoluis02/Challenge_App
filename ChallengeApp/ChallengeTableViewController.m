@@ -40,30 +40,58 @@ ChallengeTableViewControllerContent mContentType;
     //    Networking code
     self.challengeDao = [[ChallengeDao alloc] init];
     self.challengeDao.delegate = self;
+    
+    self.challengesArray = [[NSMutableArray alloc]init];
+    
+    self.tableView.delegate = self;
 }
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
     
     switch (contentType) {
         case AllChallenges:{
+            //[self.challengeDao getAllChallenges];
+            //[self.challengeDao getPopularChallenges];
+            //[self.challengeDao getLastChallenges];
+            //ChallengeCriteria *criteria;
+            //[self.challengeDao searchChallenges:criteria];
+            //[self.challengeDao getChallengesRequestByUserId:@10 withStatus:@1]; // OK
+            //[self.challengeDao putChallengesRequestStatus:@20 withStatus:@1]; // OK
+            //[self.challengeDao getChallengesEvidencesByUserId:@20];
             [self.challengeDao getAllChallenges];
+            //Challenge *challenge;
+            //[self.challengeDao postChallenge:challenge]; // OK
+            //User *user;
+            //[self.challengeDao postUser:user];
+            //[self.challengeDao getExistUser:@"8484248"];
+            
         }break;
         case PopularChallenges:{
-            [self.challengeDao getAllChallenges];
+            [self.challengeDao getPopularChallenges];
         }break;
         case RecentChallenges:{
-            [self.challengeDao getAllChallenges];
+            [self.challengeDao getLastChallenges];
         }break;
         case SearchChallenges:{
-            [self.challengeDao getAllChallenges];
+            ChallengeCriteria * criteria = [ChallengeCriteria new];
+            [self.challengeDao searchChallenges:criteria];
         }break;
         case UserChallengeInvitation:{
-            [self.challengeDao getAllChallenges];
+//Fix this documentation:
+//            0 - noresponded
+//            1 - accepted
+//            2 - rejected
+            NSNumber * userId = [NSNumber numberWithInt:1];
+            NSNumber * statusIncomplete = [NSNumber numberWithInt:1];
+            [self.challengeDao getChallengesRequestByUserId:userId withStatus:statusIncomplete];
         }break;
         case UserCompleteChallenges:{
-            [self.challengeDao getAllChallenges];
+                        NSNumber * userId = [NSNumber numberWithInt:1];
+            [self.challengeDao getChallengesEvidencesByUserId:userId];
         }break;
         case UserIncompleteChallenges:{
+            NSNumber * userId = [NSNumber numberWithInt:1];
+            [self.challengeDao getChallengesPendingEvidencesByUserId:userId];
         }break;
         default:
             NSAssert(false, @"programmer you made an error");
@@ -71,65 +99,6 @@ ChallengeTableViewControllerContent mContentType;
     
 }
 
--(NSDictionary *) getDemoObjects:(ChallengeTableViewControllerContent)contentType{
-
-    NSMutableDictionary * master = [NSMutableDictionary new];
-    NSMutableDictionary * itemOne = [NSMutableDictionary new];
-    NSMutableDictionary * itemTwo = [NSMutableDictionary new];
-    
-    NSString * resultType;
-    
-    
-    //    I need also challenge status with respect to the user
-    //    suggestion: rename url for thumbnail
-    //    If user can donate but rejects he doesn't get to save the donation prove (challenge)
-    
-    switch (contentType) {
-        case AllChallenges:{
-            resultType = @"didFinishGetAllChallengesWithResult_";
-        }break;
-        case PopularChallenges:{
-            resultType = @"GetMostViewedChallenges";
-        }break;
-        case RecentChallenges:{
-            resultType = @"GetRecentsChallenges";
-        }break;
-        case SearchChallenges:{
-            resultType = @"_pending_search";
-        }break;
-        case UserChallengeInvitation:{
-            resultType = @"didFinishGetChallengeRequestsWithResult_";
-        }break;
-        case UserCompleteChallenges:{
-            resultType = @"didFinishGetChallengeCompleteWithResult_";
-        }break;
-        case UserIncompleteChallenges:{
-            resultType = @"didFinishGetChallengeIncompletesWithResult_";
-        }break;
-        default:
-            NSAssert(false, @"some programmer error");
-    }
-    
-    NSArray * challenges_arr = [[NSArray alloc] initWithObjects:itemOne, itemTwo, nil];
-    [master setValue:resultType forKey:@"resultType"];
-    [master setValue:challenges_arr forKey:@"challenges"];
-    
-    [itemOne setValue:@1 forKey:@"id"];
-    [itemOne setValue:@"mauris, rhoncus id," forKey:@"title"];
-    [itemOne setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
-    [itemOne setValue:@"image" forKey:@"type"];
-    [itemOne setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
-    
-    [itemTwo setValue:@1 forKey:@"id"];
-    [itemTwo setValue:@"mauris, rhoncus id," forKey:@"title"];
-    [itemTwo setValue:@"Morbi accumsan laoreet ipsum. Curabitur consequat, lectus sit amet" forKey:@"description"];
-    [itemTwo setValue:@"image" forKey:@"type"];
-    [itemTwo setValue:@"http://i.blogs.es/e61022/bit-0-1/650_1200.jpg" forKey:@"url"];
-
-    [self.tableView reloadData];
-    return master;
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,33 +124,27 @@ ChallengeTableViewControllerContent mContentType;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *simpleTableIdentifier = @"articleCell";
+    Challenge * item = [self.challengesArray objectAtIndex:indexPath.row];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    Challenge * challenge = [self.challengesArray objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = challenge.name;
-    
-    return cell;
-    /*
     RegularItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
     
-    NSDictionary * item = [items valueForKey:@"challenges"][indexPath.row];
-    cell.title = [item objectForKey:@"title"];
-    cell.challengeDescription = [item objectForKey:@"description"];
-    cell.author.text = @"UserXXII";
-    cell.pubDate.text = [NSString stringWithFormat:@"%@", [NSDate date]];
-    UIImage * image = [UIImage imageNamed:@"homemovies"];
+    cell.title.text = item.title;
+    cell.challengeDescription.text = item.descriptionItem;
+    cell.author.text = item.nameAuthor;
+    cell.pubDate.text = item.creationDate;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
+    UIImage * image = [UIImage imageWithData:imageData];
     [cell.thumbnail setImage:image];
-    return cell; */
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    ChallengeEvidenceTableViewController * vc = [ChallengeEvidenceTableViewController new];
+    vc.challengeId = 99;
+    vc.userId = 99;
+    [self.navigationController pushViewController:vc animated:true];
+
 }
 
 /*
@@ -213,25 +176,37 @@ ChallengeTableViewControllerContent mContentType;
     
 //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
-    items =[self getDemoObjects:[self contentType]];
     [self.tableView reloadData];
-    
     
 }
 
 -(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetLastChallengesWithResult count = %ld", [resultArray count]);
+
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
     
 }
 
 -(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetPopularChallengesWithResult count = %ld", [resultArray count]);
     
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
 }
 
 -(void)  didFinishGetChallengesFromUserWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetChallengesFromUserWithResult count = %ld", [resultArray count]);
     
+}
+
+-(void)  didFinishGetChallengesRequestByUserIdWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesRequestByUserIdWithResult count = %ld", [resultArray count]);
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
 }
 
 -(void)  didFinishAddChallengeWithResult:(NSError *) error {
@@ -241,7 +216,9 @@ ChallengeTableViewControllerContent mContentType;
 
 -(void)  didFinishSearchChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishSearchChallengesWithResult count = %ld", [resultArray count]);
-    
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
 }
 
 // This method returns a list of challenges requests for a given challenge
@@ -266,5 +243,32 @@ ChallengeTableViewControllerContent mContentType;
     
 }
 
+-(void)  didFinishAcceptOrRejectChallengeRequestWithResult:(NSError *) error {
+    NSLog(@"didFinishAcceptOrRejectChallengeRequestWithResult count = %@", error);
+    
+}
+
+-(void)  didFinishGetChallengesEvidencesByUserIdWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesEvidencesByUserIdWithResult count = %ld", [resultArray count]);
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
+}
+
+-(void)  didFinishGetChallengesPendingEvidencesByUserIdWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesPendingEvidencesByUserIdWithResult count = %ld", [resultArray count]);
+    //    Setting both dummy objects, when model is ready leave only one
+    self.challengesArray = resultArray;
+    [self.tableView reloadData];
+}
+
+-(void) didFinishAddUserWithResult:(NSError *) error {
+    NSLog(@"didFinishAddUserWithResult count = %@", error);
+    
+}
+
+-(void)  didFinishGetExistUserWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetExistUserWithResult count = %ld", [resultArray count]);
+}
 
 @end

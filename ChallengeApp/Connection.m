@@ -7,7 +7,9 @@
 
 #import "Connection.h"
 
-@interface Connection()
+@interface Connection(){
+    NSURLConnection *con;
+}
 
 @property (nonatomic, strong) NSMutableData *xmlData;
 
@@ -24,7 +26,7 @@
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-    NSURLConnection *con = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    con = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
 #pragma mark - NSURLConnectionDelegate

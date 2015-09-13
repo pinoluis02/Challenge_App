@@ -24,8 +24,13 @@ bool tabBarVerticalSpaceConstraintFixed;
     NSLog(@"viewDidLoad");
     contentController = [ChallengeTableViewController new];
     [self addChildViewController:contentController];
-    [self.view addSubview:contentController.tableView];
+    [self.contentView addSubview:contentController.tableView];
+    
 
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    NSLog(@"GlobalContextPseudoTabController_idLoginUser:%@",self.idLoginUser);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,7 +93,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item{
     contentController.contentType = item.tag;
-    
+
 }
 /*
 #pragma mark - Navigation

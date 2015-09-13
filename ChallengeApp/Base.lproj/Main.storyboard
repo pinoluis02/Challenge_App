@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="RPw-cf-Djv">
             <objects>
-                <tabBarController id="efK-Xu-Bwk" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="efK-Xu-Bwk" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="wWq-hB-hMg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -25,21 +25,21 @@
             </objects>
             <point key="canvasLocation" x="441" y="-409"/>
         </scene>
-        <!--Contacts View Controller-->
+        <!--contacts-->
         <scene sceneID="Tw2-tN-8fz">
             <objects>
                 <viewController id="c31-8x-Wm0" customClass="ContactsViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="contacts icon" id="Z16-jX-ObI"/>
+                    <tabBarItem key="tabBarItem" title="contacts" image="contacts icon" id="Z16-jX-ObI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAi-5O-ViM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="441" y="342"/>
         </scene>
-        <!--Global Context Pseudo Tab Controller-->
+        <!--world-->
         <scene sceneID="qxW-Uu-zXp">
             <objects>
                 <viewController id="6Z2-Wh-riS" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="world context" id="HKe-rS-ARs"/>
+                    <tabBarItem key="tabBarItem" title="world" image="world context" id="HKe-rS-ARs"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
                             <integer key="value" value="1"/>
@@ -50,11 +50,72 @@
             </objects>
             <point key="canvasLocation" x="1135" y="342"/>
         </scene>
-        <!--Global Context Pseudo Tab Controller-->
+        <!--My View Controller-->
+        <scene sceneID="zH8-dF-DyU">
+            <objects>
+                <viewController id="JuS-kv-UaK" customClass="MyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EcF-V3-mad"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vth-tM-Llz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CdH-71-QJn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xM0-Aq-goQ" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="90" y="288" width="200" height="50"/>
+                                <color key="backgroundColor" red="0.74023437496262634" green="0.74023437496262634" blue="0.74023437496262634" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="mst-xt-JMl">
+                                <rect key="frame" x="95" y="150" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-Nd-5ts">
+                                <rect key="frame" x="16" y="331" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="this user context (2)" translatesAutoresizingMaskIntoConstraints="NO" id="ztL-AD-BIX">
+                                <rect key="frame" x="237" y="490" width="70" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="NGz-oH-huo">
+                                <rect key="frame" x="258" y="182" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="qJy-1W-Eqi">
+                                <rect key="frame" x="16" y="53" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="4td-q4-Egu">
+                                <rect key="frame" x="107" y="439" width="75" height="65"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Z0c-xF-Yaq">
+                                <rect key="frame" x="278" y="359" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ecw-wh-Lo8">
+                                <rect key="frame" x="-23" y="217" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="Me3-AY-eGh">
+                                <rect key="frame" x="54" y="551" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new challenge icon" translatesAutoresizingMaskIntoConstraints="NO" id="TnO-YU-FiG">
+                                <rect key="frame" x="235" y="11" width="75" height="75"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" alpha="0.05000000074505806" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="world context" translatesAutoresizingMaskIntoConstraints="NO" id="VpU-V0-6QH">
+                                <rect key="frame" x="259" y="630" width="75" height="65"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78661723589999999" green="0.83995495119999997" blue="0.90334990530000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="xM0-Aq-goQ" id="uYW-xj-hHi"/>
+                        <segue destination="efK-Xu-Bwk" kind="show" identifier="segueToTabBar" id="NRh-eY-8Yl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihe-gu-0N6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441" y="-1210"/>
+        </scene>
+        <!--dashboard-->
         <scene sceneID="EqS-NQ-BuQ">
             <objects>
                 <viewController id="gDR-RK-se0" customClass="GlobalContextPseudoTabController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="this user context (2)" id="Pj0-fm-Le2" userLabel="profile"/>
+                    <tabBarItem key="tabBarItem" title="dashboard" image="this user context (2)" id="Pj0-fm-Le2" userLabel="profile"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="tabBarType">
                             <integer key="value" value="2"/>
@@ -98,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="2026" y="2679"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--create-->
         <scene sceneID="j5U-ZF-peo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="new challenge icon" id="5ZA-ZS-aWP"/>
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="create" image="new challenge icon" id="5ZA-ZS-aWP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cD6-P6-i2R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

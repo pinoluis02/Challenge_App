@@ -52,6 +52,9 @@
 		04CB5B211BA5552F00C8D232 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B201BA5552F00C8D232 /* QuartzCore.framework */; };
 		04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */; };
+		4121429F1BA35C8000C792ED /* ParsingChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121429E1BA35C8000C792ED /* ParsingChallenge.m */; };
+		416B9F081BA2244D00761422 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F071BA2244D00761422 /* Evidence.m */; };
+		416B9F0E1BA2B9D800761422 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F0D1BA2B9D800761422 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,12 @@
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
+		4121429D1BA35C8000C792ED /* ParsingChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingChallenge.h; sourceTree = "<group>"; };
+		4121429E1BA35C8000C792ED /* ParsingChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingChallenge.m; sourceTree = "<group>"; };
+		416B9F061BA2244D00761422 /* Evidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Evidence.h; path = ChallengeApp/Evidence.h; sourceTree = "<group>"; };
+		416B9F071BA2244D00761422 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Evidence.m; path = ChallengeApp/Evidence.m; sourceTree = "<group>"; };
+		416B9F0C1BA2B9D800761422 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ChallengeApp/User.h; sourceTree = "<group>"; };
+		416B9F0D1BA2B9D800761422 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ChallengeApp/User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +258,8 @@
 		0490F46B1B9B5D5800318EFB = {
 			isa = PBXGroup;
 			children = (
+				416B9F0C1BA2B9D800761422 /* User.h */,
+				416B9F0D1BA2B9D800761422 /* User.m */,
 				0490F4761B9B5D5800318EFB /* ChallengeApp */,
 				0490F4931B9B5D5800318EFB /* ChallengeAppTests */,
 				0490F4751B9B5D5800318EFB /* Products */,
@@ -272,7 +283,7 @@
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* challenges view controllers */,
-				04B3C1061BA07FA300A6D81C /* challenge items */,
+				04B3C1061BA07FA300A6D81C /* challenge items cells */,
 				0480B0661B9F9DA6007E71A2 /* contacts */,
 				0480B0651B9F9D93007E71A2 /* create new challenge */,
 				0480B05F1B9F36A2007E71A2 /* global challenges */,
@@ -316,7 +327,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04B3C1061BA07FA300A6D81C /* challenge items */ = {
+		04B3C1061BA07FA300A6D81C /* challenge items cells */ = {
 			isa = PBXGroup;
 			children = (
 				04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */,
@@ -332,12 +343,14 @@
 				046A6D521BA10E3A00488A09 /* UserCommentTableViewCell.m */,
 				046A6D531BA10E3A00488A09 /* UserCommentTableViewCell.xib */,
 			);
-			name = "challenge items";
+			name = "challenge items cells";
 			sourceTree = "<group>";
 		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
+				416B9F061BA2244D00761422 /* Evidence.h */,
+				416B9F071BA2244D00761422 /* Evidence.m */,
 				04C3C8BF1BA0B5E30048996F /* Challenge.h */,
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
@@ -350,6 +363,8 @@
 		04C3C8CF1BA0B5FA0048996F /* dao */ = {
 			isa = PBXGroup;
 			children = (
+				4121429D1BA35C8000C792ED /* ParsingChallenge.h */,
+				4121429E1BA35C8000C792ED /* ParsingChallenge.m */,
 				04C3C8C31BA0B5E30048996F /* ChallengeDao.h */,
 				04C3C8C41BA0B5E30048996F /* ChallengeDao.m */,
 				04C3C8C51BA0B5E30048996F /* Connection.h */,
@@ -495,12 +510,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				416B9F081BA2244D00761422 /* Evidence.m in Sources */,
 				04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */,
 				046A6D581BA1108000488A09 /* NSDate+Utils.m in Sources */,
 				0490F47D1B9B5D5800318EFB /* AppDelegate.m in Sources */,
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* ChallengeTableViewController.m in Sources */,
+				416B9F0E1BA2B9D800761422 /* User.m in Sources */,
 				046A6D481BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
@@ -511,6 +528,7 @@
 				04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */,
 				04CB5B1F1BA4E12400C8D232 /* NetworkManager.m in Sources */,
 				04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */,
+				4121429F1BA35C8000C792ED /* ParsingChallenge.m in Sources */,
 				0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */,
 				04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* GlobalContextPseudoTabController.m in Sources */,
@@ -645,6 +663,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ChallengeApp",
+				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -656,6 +679,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mcs/Downloads/FacebookSDKs-iOS-20150813",
+					"$(PROJECT_DIR)/ChallengeApp",
+				);
 				INFOPLIST_FILE = ChallengeApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

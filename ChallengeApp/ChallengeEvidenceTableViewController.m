@@ -8,10 +8,13 @@
 
 #import "ChallengeEvidenceTableViewController.h"
 #import "RegularItemTableViewCell.h"
+#import "ChallengeEvidenceTableViewCell.h"
+#import "ChallengeCommentsTableViewController.h"
 #import "NSDate+Utils.h"
 
 @interface ChallengeEvidenceTableViewController (){
-    NSDictionary * items;
+    NSMutableDictionary * originalChallenge;
+    NSArray * evidenceArray;
 }
 @end
 
@@ -25,15 +28,17 @@
     self.clearsSelectionOnViewWillAppear = NO;
     
     UINib *originalChallengeNib = [UINib nibWithNibName:@"RegularItemTableViewCell" bundle:nil];
-        [self.tableView registerNib: originalChallengeNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
+    [self.tableView registerNib: originalChallengeNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
     
     UINib *evidenceChallengeNib = [UINib nibWithNibName:@"ChallengeEvidenceTableViewCell" bundle:nil];
     [self.tableView registerNib: evidenceChallengeNib forCellReuseIdentifier:@"ChallengeEvidenceTableViewCell"];
     
     self.tableView.rowHeight = 255;
-
- 
+    [self.tableView reloadData];
+    
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -44,32 +49,60 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return 1 + [evidenceArray count];
 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-//    return [[items valueForKey:@"challenges"] count];
+    //    return [[items valueForKey:@"challenges"] count];
     return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    RegularItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
+    UITableViewCell * cell;
+    if(indexPath.row == 0){
+//    The first cell is the original challenge and has different style than the rest of the rows.
+        RegularItemTableViewCell *originalChallengeCell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
+        
+        NSDictionary * item = originalChallenge;
+        originalChallengeCell.title = [item objectForKey:@"title"];
+        originalChallengeCell.challengeDescription = [item objectForKey:@"description"];
+        originalChallengeCell.author.text = @"UserXXII";
+        NSDate * date = [NSDate date];
+        originalChallengeCell.pubDate.text = [NSString stringWithFormat:@"%@", [date shortFormattedDateString]];
+        UIImage * image = [UIImage imageNamed:@"homemovies"];
+        [originalChallengeCell.thumbnail setImage:image];
+        
+        cell = originalChallengeCell;
+    }else{
+        ChallengeEvidenceTableViewCell *evidenceCell = [tableView dequeueReusableCellWithIdentifier:@"ChallengeEvidenceTableViewCell" forIndexPath:indexPath];
+        
+        NSDictionary * item = evidenceArray[indexPath.row];
+        evidenceCell.evidenceDescription = [item objectForKey:@"evidenceDescription"];
+        evidenceCell.authorUsername.text = [item objectForKey:@"authorUsername"];
+        NSDate * today = [item objectForKey:@"creationDate"];
+        evidenceCell.creationDate.text = [NSString stringWithFormat:@"%@", [today shortFormattedDateString]];
+        UIImage * image = [UIImage imageNamed:@"homemovies"];
+        [evidenceCell.thumbnail setImage:image];
+        
+        cell = evidenceCell;
+    }
     
-    NSDictionary * item = [items valueForKey:@"challenges"][indexPath.row];
-    cell.title = [item objectForKey:@"title"];
-    cell.challengeDescription = [item objectForKey:@"description"];
-    cell.author.text = @"UserXXII";
-    NSDate * today = [NSDate date];
-    cell.pubDate.text = [NSString stringWithFormat:@"%@", [today shortFormattedDateString]];
-    UIImage * image = [UIImage imageNamed:@"homemovies"];
-    [cell.thumbnail setImage:image];
+    
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ChallengeCommentsTableViewController * vc = [ChallengeCommentsTableViewController new];
+    vc.challengeId = 99;
+    vc.userId = 99;
+    [self.navigationController pushViewController:vc animated:true];
+    
+}
 
 
 
