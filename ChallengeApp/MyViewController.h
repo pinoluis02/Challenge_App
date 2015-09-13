@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
+#import "ChallengeDao.h"
+#import "FbSingleton.h"
 
 
-@interface MyViewController : UIViewController <FBSDKLoginButtonDelegate>
+@interface MyViewController : UIViewController <FBSDKLoginButtonDelegate, ChallengeDelegate, FBclassDelegate>
+
+- (IBAction)shareLink:(FBSDKShareButton *)sender;
 
 @property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property ChallengeDao *challengeDao;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
