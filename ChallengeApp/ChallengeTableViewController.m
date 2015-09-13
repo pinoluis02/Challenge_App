@@ -43,7 +43,7 @@ ChallengeTableViewControllerContent mContentType;
     
     self.challengesArray = [[NSMutableArray alloc]init];
     
-    self.tableView.delegate = self;
+
 }
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
