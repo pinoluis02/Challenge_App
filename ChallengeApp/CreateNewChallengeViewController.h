@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FbSingleton.h"
 
 extern NSString * customCharityOrganizationOptionString;
 @interface CreateNewChallengeViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
