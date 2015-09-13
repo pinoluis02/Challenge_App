@@ -41,6 +41,9 @@
 		04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C41BA0B5E30048996F /* ChallengeDao.m */; };
 		04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C61BA0B5E30048996F /* Connection.m */; };
 		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
+		04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04181BA352C70066239E /* FBSDKCoreKit.framework */; };
+		04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04191BA352C70066239E /* FBSDKLoginKit.framework */; };
+		04CA041D1BA353D20066239E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA041C1BA353D20066239E /* FBSDKShareKit.framework */; };
 		04CB5AD41BA3364800C8D232 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5AD31BA3364800C8D232 /* CoreMedia.framework */; };
 		04CB5B111BA340E500C8D232 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B101BA340E500C8D232 /* MediaPlayer.framework */; };
 		04CB5B151BA3412D00C8D232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B121BA3412D00C8D232 /* AVFoundation.framework */; };
@@ -135,6 +138,9 @@
 		04CB5B1D1BA4E0D300C8D232 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		04CB5B1E1BA4E12400C8D232 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		04CB5B201BA5552F00C8D232 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		04CA04181BA352C70066239E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		04CA04191BA352C70066239E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		04CA041C1BA353D20066239E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewChallengeViewController.h; sourceTree = "<group>"; };
 		04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewChallengeViewController.m; sourceTree = "<group>"; };
 		04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewChallengeViewController.xib; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				04CB5B171BA3412D00C8D232 /* Foundation.framework in Frameworks */,
 				04CB5B111BA340E500C8D232 /* MediaPlayer.framework in Frameworks */,
 				04CB5AD41BA3364800C8D232 /* CoreMedia.framework in Frameworks */,
+				04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */,
+				04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */,
+				04CA041D1BA353D20066239E /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
+				04DDC3A21BA11050004C20E5 /* Facebook SDK */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* challenges view controllers */,
@@ -391,6 +401,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+
+
+04DDC3A21BA11050004C20E5 /* Facebook SDK */ = {
+isa = PBXGroup;
+children = (
+04CA041C1BA353D20066239E /* FBSDKShareKit.framework */,
+04CA04181BA352C70066239E /* FBSDKCoreKit.framework */,
+04CA04191BA352C70066239E /* FBSDKLoginKit.framework */,
+);
+name = "Facebook SDK";
+sourceTree = "<group>";
+};
 		04CB5B1C1BA4E0B100C8D232 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
