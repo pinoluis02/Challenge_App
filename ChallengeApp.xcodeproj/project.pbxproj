@@ -425,6 +425,17 @@ children = (
 name = "Facebook SDK";
 sourceTree = "<group>";
 };
+
+04F013AA1BA55437003F2DE8 /* commandMenuViewController */ = {
+isa = PBXGroup;
+children = (
+04F013B91BA5590E003F2DE8 /* cells */,
+04F013AE1BA55545003F2DE8 /* ExpandableTableViewController.h */,
+04F013AF1BA55545003F2DE8 /* ExpandableTableViewController.m */,
+);
+name = commandMenuViewController;
+sourceTree = "<group>";
+};
 		04CB5B1C1BA4E0B100C8D232 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,16 +443,6 @@ sourceTree = "<group>";
 				04CB5B1E1BA4E12400C8D232 /* NetworkManager.m */,
 			);
 			name = NetworkManager;
-			sourceTree = "<group>";
-		};
-		04F013AA1BA55437003F2DE8 /* commandMenuViewController */ = {
-			isa = PBXGroup;
-			children = (
-				04F013B91BA5590E003F2DE8 /* cells */,
-				04F013AE1BA55545003F2DE8 /* ExpandableTableViewController.h */,
-				04F013AF1BA55545003F2DE8 /* ExpandableTableViewController.m */,
-			);
-			name = commandMenuViewController;
 			sourceTree = "<group>";
 		};
 		04F013B31BA55744003F2DE8 /* navigation */ = {
@@ -648,6 +649,7 @@ sourceTree = "<group>";
 				044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */,
 				04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */,
 				04CB5B1F1BA4E12400C8D232 /* NetworkManager.m in Sources */,
+				04F013B21BA55545003F2DE8 /* ExpandableTableViewController.m in Sources */,
 				04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */,
 				4121429F1BA35C8000C792ED /* ParsingChallenge.m in Sources */,
 				04F013D31BA5A4C6003F2DE8 /* ChallengesRootController.m in Sources */,
