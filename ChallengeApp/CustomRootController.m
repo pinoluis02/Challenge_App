@@ -15,31 +15,39 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 @implementation CustomRootController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ChallengeTableViewController * tableContentController = [ChallengeTableViewController new];
-    self.tableContentController = tableContentController;
-    [self addChildViewController:tableContentController];
-    [self.tableContentView addSubview:tableContentController.tableView];
-    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
-    tableContentController.coordinatorController = self;
-
-    ExpandableTableViewController *commandMenuController = [ExpandableTableViewController new];
-    self.commandMenuController = commandMenuController;
-    [self addChildViewController:commandMenuController];
-    [self.commandMenuView addSubview:commandMenuController.view];
-    commandMenuController.view.frame = CGRectMake(0, 0, self.commandMenuView.frame.size.width,  self.commandMenuView.frame.size.height);
-    commandMenuController.coordinatorController = self;
-
-    
+    [self setUpMainViewContent];
+    [self setUpMenuContent];
+    [self setUpTableContent];
 
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    NSLog(@"GlobalContextPseudoTabController_idLoginUser:%@",self.idLoginUser);
+
+
+-(void)setUpMenuContent{
+    NSAssert(NO, @"Subclasses need to overwrite this method");
 }
 
+
+-(void)setUpMainViewContent{
+    NSAssert(NO, @"Subclasses need to overwrite this method");
+}
+
+-(void)setUpTableContent{
+    NSAssert(NO, @"Subclasses need to overwrite this method");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -61,7 +69,6 @@ bool tabBarVerticalSpaceConstraintFixed;
 //        Fix selected tab bar.
          id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
         
-//        I need a normalized value, not the "at query time" value
         
         self.globalOptionsTabBar.hidden = true;
         self.userOptionsTabBar.hidden = true;
@@ -132,6 +139,11 @@ bool tabBarVerticalSpaceConstraintFixed;
         NSAssert(NO, @"Subclasses need to overwrite this method");
 }
 
+-(void)coordinateMainItemSelection:(Challenge *)item
+               selectedByLongPress:(BOOL)longPress{
+        NSAssert(NO, @"Subclasses need to overwrite this method");
+}
+
 /*
 #pragma mark - Navigation
 
@@ -141,5 +153,33 @@ bool tabBarVerticalSpaceConstraintFixed;
     // Pass the selected object to the new view controller.
 }
 */
+
+
++(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item{
+    NSDictionary * dict;
+    if([item.userStatus isEqualToString:@"unrelated"]){
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
+    }
+    else if([item.userStatus isEqualToString:@"notified"]){
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"notificationPendingChallengeCommands" ofType:@"plist"]];
+    }
+    else if([item.userStatus isEqualToString:@"accepted"]){
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"incompleteChallengeCommands" ofType:@"plist"]];
+    }
+    else if([item.userStatus isEqualToString:@"rejected"]){
+        //        For this version rejected items behave the same as unrelated items.
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
+    }
+    else if([item.userStatus isEqualToString:@"completed"]){
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"completedChallengeCommands" ofType:@"plist"]];
+    }
+    else{
+        NSAssert(false, @"you made a mistake programmer");
+    }
+    
+    NSArray * items =  [dict valueForKey:@"Items"];
+    return  items;
+}
+
 
 @end

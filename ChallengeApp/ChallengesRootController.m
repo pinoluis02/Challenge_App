@@ -30,36 +30,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setUpMenuContent{
+    ExpandableTableViewController *commandMenuController = [ExpandableTableViewController new];
+    self.commandMenuController = commandMenuController;
+    [self addChildViewController:commandMenuController];
+    [self.commandMenuView addSubview:commandMenuController.view];
+    commandMenuController.view.frame = CGRectMake(0, 0, self.commandMenuView.frame.size.width,  self.commandMenuView.frame.size.height);
+    commandMenuController.coordinatorController = self;
+}
 
+
+-(void)setUpMainViewContent{
+    return;
+}
+
+-(void)setUpTableContent{
+    ChallengeTableViewController * tableContentController = [ChallengeTableViewController new];
+    self.tableContentController = tableContentController;
+    [self addChildViewController:tableContentController];
+    [self.tableContentView addSubview:tableContentController.tableView];
+    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
+    tableContentController.coordinatorController = self;
+}
+
+
+-(void)coordinateMainItemSelection:(Challenge *)item
+               selectedByLongPress:(BOOL)longPress{
+    NSAssert(NO, @"ChallengesRootController shouldn't have a main item.");
+}
 
 -(void)coordinateItemSelection:(Challenge *)item
            selectedByLongPress:(BOOL)longPress;
 {
     
     if(longPress){
-        NSDictionary * dict;
+
         //unrelated, invited, accepted (incomplete), rejected, completed.
-        if([item.userStatus isEqualToString:@"unrelated"]){
-            dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
-        }
-        else if([item.userStatus isEqualToString:@"notified"]){
-            dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"notificationPendingChallengeCommands" ofType:@"plist"]];
-        }
-        else if([item.userStatus isEqualToString:@"accepted"]){
-            dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"incompleteChallengeCommands" ofType:@"plist"]];
-        }
-        else if([item.userStatus isEqualToString:@"rejected"]){
-            //        For this version rejected items behave the same as unrelated items.
-            dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
-        }
-        else if([item.userStatus isEqualToString:@"completed"]){
-            dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"completedChallengeCommands" ofType:@"plist"]];
-        }
-        else{
-            NSAssert(false, @"you made a mistake programmer");
-        }
-        
-        NSArray * items =  [dict valueForKey:@"Items"];
+        NSArray * items = [CustomRootController loadMenuItemsForChallengeItem:item];
         self.commandMenuController.itemsInTable = items;
     }
     else{

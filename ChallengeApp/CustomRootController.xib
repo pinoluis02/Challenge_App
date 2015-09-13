@@ -13,6 +13,8 @@
                 <outlet property="contentViewVerticalTopSpaceConstraint" destination="VqD-Pq-n3B" id="SDF-UG-ydc"/>
                 <outlet property="globalOptionsTabBar" destination="Hjo-2f-UAV" id="B4h-x8-gjl"/>
                 <outlet property="globalOptionsTabBarVerticalSpaceConstraint" destination="lu7-zd-rac" id="gkh-qA-E8B"/>
+                <outlet property="mainItemView" destination="JPN-pt-lkt" id="adG-4T-JOV"/>
+                <outlet property="mainViewHeightConstraint" destination="8q0-KO-D1c" id="GF1-Tc-Qkz"/>
                 <outlet property="tableContentView" destination="KXf-Yy-Aoy" id="HFs-72-vCA"/>
                 <outlet property="userOptionsTabBar" destination="iTE-4E-Uqx" id="zNv-pQ-UWV"/>
                 <outlet property="userOptionsTabBarVerticalSpaceConstraint" destination="EqO-np-7PE" id="XMH-jL-dub"/>
@@ -27,8 +29,15 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-M4-mZO" userLabel="contentView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPN-pt-lkt" userLabel="mainItem">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <color key="backgroundColor" red="0.2496751931" green="1" blue="0.27617261720000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="8q0-KO-D1c"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-Yy-Aoy" userLabel="tableContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="599"/>
+                            <rect key="frame" x="0.0" y="50" width="600" height="549"/>
                             <color key="backgroundColor" red="1" green="0.065531124829999995" blue="0.08477256373" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBq-WN-Lsa" userLabel="menuView">
@@ -42,12 +51,15 @@
                     <color key="backgroundColor" red="0.87077809343434343" green="0.77468434609578396" blue="0.22004461556745955" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="KXf-Yy-Aoy" firstAttribute="bottom" secondItem="DBq-WN-Lsa" secondAttribute="top" id="0nQ-pr-ZRT"/>
+                        <constraint firstAttribute="trailing" secondItem="JPN-pt-lkt" secondAttribute="trailing" id="1mb-66-SBs"/>
                         <constraint firstItem="KXf-Yy-Aoy" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="5cw-B0-T5w"/>
                         <constraint firstItem="DBq-WN-Lsa" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="Hkg-BL-p0n"/>
                         <constraint firstItem="DBq-WN-Lsa" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="P2h-TD-RvT"/>
+                        <constraint firstItem="JPN-pt-lkt" firstAttribute="top" secondItem="jqu-M4-mZO" secondAttribute="top" id="TEg-aL-a7n"/>
                         <constraint firstItem="KXf-Yy-Aoy" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="bcm-JL-wHr"/>
-                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="top" secondItem="jqu-M4-mZO" secondAttribute="top" id="eIm-9C-lX9"/>
                         <constraint firstItem="DBq-WN-Lsa" firstAttribute="bottom" secondItem="jqu-M4-mZO" secondAttribute="bottom" id="gjZ-On-pGs"/>
+                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="top" secondItem="JPN-pt-lkt" secondAttribute="bottom" id="kOS-RW-4u7"/>
+                        <constraint firstItem="JPN-pt-lkt" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="w0u-aG-4mL"/>
                     </constraints>
                 </view>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTE-4E-Uqx" userLabel="user context tab bar">
@@ -92,6 +104,17 @@
                 <constraint firstItem="iTE-4E-Uqx" firstAttribute="centerX" secondItem="jqu-M4-mZO" secondAttribute="centerX" id="yLx-mn-wmY"/>
             </constraints>
         </view>
+        <viewController id="t1D-8G-qLx">
+            <layoutGuides>
+                <viewControllerLayoutGuide type="top" id="tp4-Bx-WAf"/>
+                <viewControllerLayoutGuide type="bottom" id="kaj-lr-mxZ"/>
+            </layoutGuides>
+            <view key="view" contentMode="scaleToFill" id="D7E-9D-ynK">
+                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            </view>
+        </viewController>
     </objects>
     <resources>
         <image name="challenge notifications" width="30" height="30"/>

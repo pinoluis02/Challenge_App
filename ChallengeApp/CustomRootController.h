@@ -28,9 +28,12 @@ typedef NS_ENUM(NSUInteger, TabBarOptions) {
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewVerticalBottonSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commandMenuViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commandMenuView;
 @property (weak, nonatomic) IBOutlet UIView *tableContentView;
+@property (weak, nonatomic) IBOutlet UIView *mainItemView;
 -(void)coordinateMainContentViewHeightWithMenuHeight:(CGFloat)height;
++(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item;
 -(void)coordinateItemSelection:(NSObject *)item
            selectedByLongPress:(BOOL)longPress;
 -(void)respondToMenuItemSelection:(NSString *)command;
@@ -38,6 +41,7 @@ typedef NS_ENUM(NSUInteger, TabBarOptions) {
 
 @property ChallengeTableViewController * tableContentController;
 @property ExpandableTableViewController * commandMenuController;
+@property UIViewController * mainItemController;
 @property Challenge * selectedItem;
 
 @end
