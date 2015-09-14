@@ -24,10 +24,11 @@
 {
     self = [super init];
     if (self) {
-        _friendsFbUser = [[NSArray alloc]init];
-        _idFbUser      = [[NSString alloc]init];
-        _nameFbUser    = [[NSString alloc]init];
-        _emailFbUser   = [[NSString alloc]init];
+        _friendsFbUser  = [[NSArray  alloc]init];
+        _idFbUser       = [[NSString alloc]init];
+        _nameFbUser     = [[NSString alloc]init];
+        _emailFbUser    = [[NSString alloc]init];
+        _urlImageFbUser = [[NSString alloc]init];
     }
     return self;
 }
@@ -37,7 +38,7 @@
     
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:@"/me/friends"
-                                  parameters:@{@"fields": @"id, name, email"}
+                                  parameters:@{@"fields": @"id, name, email, picture"}
                                   HTTPMethod:@"GET"];
     
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
@@ -48,9 +49,22 @@
         // Handle the result
         if (!error) {
             
-            [friendRequest setObject:[result objectForKey:@"data"] forKey:@"data"];
+        
+            NSMutableArray *arrayOfFriends = [[NSMutableArray alloc]init];
+           
+            for(NSMutableDictionary *dic in [result objectForKey:@"data"]){
+                NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];
+               // [temp setObject:[dic objectForKey:@"email"] forKey:@"email"];
+                [temp setObject:[dic objectForKey:@"id"] forKey:@"id"];
+                [temp setObject:[dic objectForKey:@"name"] forKey:@"name"];
+                [temp setObject:[[[dic objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"urlImage"];
+                [arrayOfFriends addObject:temp];
+            }
+            
+            [friendRequest setObject:arrayOfFriends forKey:@"data"];
             [friendRequest setObject:@"YES" forKey:@"successful"];
-            _friendsFbUser = [result objectForKey:@"friends"];
+            
+            _friendsFbUser = [friendRequest objectForKey:@"data"];
         }
         else{
             
@@ -72,14 +86,13 @@
     NSMutableDictionary *userInfo = [[NSMutableDictionary alloc]init];
     FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                   initWithGraphPath:@"me"
-                                  parameters:@{@"fields": @"id, name, email"}
+                                  parameters:@{@"fields": @"id, name, email, picture"}
                                   HTTPMethod:@"GET"];
     
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         
         if (!error) {
             
-//            NSLog(@"fetched user:%@", result);
             [userInfo setValue:@"YES" forKey:@"successful"];
             
             if ([result objectForKey:@"name"]) {
@@ -93,6 +106,10 @@
             if ([result objectForKey:@"email"]) {
                 _emailFbUser = [result objectForKey:@"email"];
                 [userInfo setValue:[result objectForKey:@"email"] forKey:@"email"];
+            }
+            if ([result objectForKey:@"picture"]) {
+                _urlImageFbUser = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                [userInfo setValue:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"urlImage"];
             }
         }
         else{

@@ -9,5 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @interface User : NSObject
+@property (strong, nonatomic) NSString *facebookUser;
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *password;
+@property (strong, nonatomic) NSString *email;
 
 @end

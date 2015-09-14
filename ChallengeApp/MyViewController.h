@@ -12,6 +12,7 @@
 #import <FBSDKShareKit/FBSDKShareKit.h>
 #import "ChallengeDao.h"
 #import "FbSingleton.h"
+#import "Reachability.h"
 
 
 @interface MyViewController : UIViewController <FBSDKLoginButtonDelegate, ChallengeDelegate, FBclassDelegate>

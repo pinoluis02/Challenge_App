@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		043859F01BA628B500DA51B6 /* FbSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 043859EF1BA628B500DA51B6 /* FbSingleton.m */; };
-		043859F31BA62AD800DA51B6 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 043859F21BA62AD800DA51B6 /* Comment.m */; };
+		043859F61BA6756800DA51B6 /* FbSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 043859F51BA6756800DA51B6 /* FbSingleton.m */; };
+		043859FA1BA6757800DA51B6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F71BA6757800DA51B6 /* FBSDKCoreKit.framework */; };
+		043859FB1BA6757800DA51B6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F81BA6757800DA51B6 /* FBSDKLoginKit.framework */; };
+		043859FC1BA6757800DA51B6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F91BA6757800DA51B6 /* FBSDKShareKit.framework */; };
 		044048421BA08D34008AA356 /* OriginalItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044048411BA08D34008AA356 /* OriginalItemTableViewCell.xib */; };
 		044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048441BA09547008AA356 /* RegularItemTableViewCell.m */; };
 		044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048471BA09622008AA356 /* OriginalItemTableViewCell.m */; };
@@ -35,15 +37,14 @@
 		0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */; };
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
+		0494FD651BA691AB008EFC3D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494FD641BA691AB008EFC3D /* Reachability.m */; };
+		0494FD671BA69476008EFC3D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494FD661BA69476008EFC3D /* SystemConfiguration.framework */; };
 		04B3C10A1BA0818A00A6D81C /* RegularItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */; };
 		04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C01BA0B5E30048996F /* Challenge.m */; };
 		04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */; };
 		04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C41BA0B5E30048996F /* ChallengeDao.m */; };
 		04C3C8CC1BA0B5E30048996F /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C61BA0B5E30048996F /* Connection.m */; };
 		04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C81BA0B5E30048996F /* JSONParsing.m */; };
-		04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04181BA352C70066239E /* FBSDKCoreKit.framework */; };
-		04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA04191BA352C70066239E /* FBSDKLoginKit.framework */; };
-		04CA041D1BA353D20066239E /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CA041C1BA353D20066239E /* FBSDKShareKit.framework */; };
 		04CB5AD41BA3364800C8D232 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5AD31BA3364800C8D232 /* CoreMedia.framework */; };
 		04CB5B111BA340E500C8D232 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B101BA340E500C8D232 /* MediaPlayer.framework */; };
 		04CB5B151BA3412D00C8D232 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B121BA3412D00C8D232 /* AVFoundation.framework */; };
@@ -75,6 +76,8 @@
 		04F013D01BA5838E003F2DE8 /* unrelatedChallengeCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F013CF1BA5838E003F2DE8 /* unrelatedChallengeCommands.plist */; };
 		04F013D31BA5A4C6003F2DE8 /* ChallengesRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F013D21BA5A4C6003F2DE8 /* ChallengesRootController.m */; };
 		4121429F1BA35C8000C792ED /* ParsingChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121429E1BA35C8000C792ED /* ParsingChallenge.m */; };
+		415847A41BA6AF590027965B /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 415847A31BA6AF590027965B /* NSString+URLEncode.m */; };
+		415847A81BA6B01A0027965B /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 415847A71BA6B01A0027965B /* Message.m */; };
 		416B9F081BA2244D00761422 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F071BA2244D00761422 /* Evidence.m */; };
 		416B9F0E1BA2B9D800761422 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F0D1BA2B9D800761422 /* User.m */; };
 /* End PBXBuildFile section */
@@ -90,10 +93,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		043859EE1BA628B500DA51B6 /* FbSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbSingleton.h; sourceTree = "<group>"; };
-		043859EF1BA628B500DA51B6 /* FbSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbSingleton.m; sourceTree = "<group>"; };
 		043859F11BA62AD800DA51B6 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		043859F21BA62AD800DA51B6 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		043859F41BA6756800DA51B6 /* FbSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbSingleton.h; sourceTree = "<group>"; };
+		043859F51BA6756800DA51B6 /* FbSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbSingleton.m; sourceTree = "<group>"; };
+		043859F71BA6757800DA51B6 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ChallengeApp/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		043859F81BA6757800DA51B6 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ChallengeApp/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		043859F91BA6757800DA51B6 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ChallengeApp/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		044048411BA08D34008AA356 /* OriginalItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OriginalItemTableViewCell.xib; sourceTree = "<group>"; };
 		044048431BA09547008AA356 /* RegularItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularItemTableViewCell.h; sourceTree = "<group>"; };
 		044048441BA09547008AA356 /* RegularItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularItemTableViewCell.m; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		0494FD631BA691AB008EFC3D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0494FD641BA691AB008EFC3D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0494FD661BA69476008EFC3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularItemTableViewCell.xib; sourceTree = "<group>"; };
 		04C3C8BF1BA0B5E30048996F /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = ChallengeApp/Challenge.h; sourceTree = "<group>"; };
 		04C3C8C01BA0B5E30048996F /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = ChallengeApp/Challenge.m; sourceTree = "<group>"; };
@@ -192,6 +201,10 @@
 		04F013D21BA5A4C6003F2DE8 /* ChallengesRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengesRootController.m; sourceTree = "<group>"; };
 		4121429D1BA35C8000C792ED /* ParsingChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingChallenge.h; sourceTree = "<group>"; };
 		4121429E1BA35C8000C792ED /* ParsingChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingChallenge.m; sourceTree = "<group>"; };
+		415847A21BA6AF590027965B /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		415847A31BA6AF590027965B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		415847A61BA6B01A0027965B /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		415847A71BA6B01A0027965B /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		416B9F061BA2244D00761422 /* Evidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Evidence.h; path = ChallengeApp/Evidence.h; sourceTree = "<group>"; };
 		416B9F071BA2244D00761422 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Evidence.m; path = ChallengeApp/Evidence.m; sourceTree = "<group>"; };
 		416B9F0C1BA2B9D800761422 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ChallengeApp/User.h; sourceTree = "<group>"; };
@@ -203,17 +216,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0494FD671BA69476008EFC3D /* SystemConfiguration.framework in Frameworks */,
 				04CB5B211BA5552F00C8D232 /* QuartzCore.framework in Frameworks */,
+				043859FA1BA6757800DA51B6 /* FBSDKCoreKit.framework in Frameworks */,
 				04CB5B1B1BA3427000C8D232 /* UIKit.framework in Frameworks */,
 				04CB5B191BA3418800C8D232 /* MobileCoreServices.framework in Frameworks */,
 				04CB5B151BA3412D00C8D232 /* AVFoundation.framework in Frameworks */,
 				04CB5B161BA3412D00C8D232 /* CoreFoundation.framework in Frameworks */,
 				04CB5B171BA3412D00C8D232 /* Foundation.framework in Frameworks */,
+				043859FB1BA6757800DA51B6 /* FBSDKLoginKit.framework in Frameworks */,
 				04CB5B111BA340E500C8D232 /* MediaPlayer.framework in Frameworks */,
 				04CB5AD41BA3364800C8D232 /* CoreMedia.framework in Frameworks */,
-				04CA041A1BA352C70066239E /* FBSDKCoreKit.framework in Frameworks */,
-				04CA041B1BA352C70066239E /* FBSDKLoginKit.framework in Frameworks */,
-				04CA041D1BA353D20066239E /* FBSDKShareKit.framework in Frameworks */,
+				043859FC1BA6757800DA51B6 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +351,7 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				0494FD621BA69197008EFC3D /* Reachability */,
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
 				04DDC3A21BA11050004C20E5 /* Facebook */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
@@ -393,6 +408,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0494FD621BA69197008EFC3D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				0494FD631BA691AB008EFC3D /* Reachability.h */,
+				0494FD641BA691AB008EFC3D /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +430,8 @@
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
 				04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */,
+				415847A61BA6B01A0027965B /* Message.h */,
+				415847A71BA6B01A0027965B /* Message.m */,
 			);
 			name = models;
 			path = ..;
@@ -414,6 +440,7 @@
 		04C3C8CF1BA0B5FA0048996F /* dao */ = {
 			isa = PBXGroup;
 			children = (
+				415847A51BA6AF5D0027965B /* Categories */,
 				4121429D1BA35C8000C792ED /* ParsingChallenge.h */,
 				4121429E1BA35C8000C792ED /* ParsingChallenge.m */,
 				04C3C8C31BA0B5E30048996F /* ChallengeDao.h */,
@@ -430,9 +457,10 @@
 		04CB5AD51BA3366C00C8D232 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				04CA04191BA352C70066239E /* FBSDKLoginKit.framework */,
-				04CA04181BA352C70066239E /* FBSDKCoreKit.framework */,
-				04CA041C1BA353D20066239E /* FBSDKShareKit.framework */,
+				0494FD661BA69476008EFC3D /* SystemConfiguration.framework */,
+				043859F71BA6757800DA51B6 /* FBSDKCoreKit.framework */,
+				043859F81BA6757800DA51B6 /* FBSDKLoginKit.framework */,
+				043859F91BA6757800DA51B6 /* FBSDKShareKit.framework */,
 				04CB5B201BA5552F00C8D232 /* QuartzCore.framework */,
 				04CB5B1A1BA3427000C8D232 /* UIKit.framework */,
 				04CB5B181BA3418800C8D232 /* MobileCoreServices.framework */,
@@ -539,6 +567,15 @@
 				04F013C41BA569F9003F2DE8 /* ExpandableTableViewCell.xib */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		415847A51BA6AF5D0027965B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				415847A21BA6AF590027965B /* NSString+URLEncode.h */,
+				415847A31BA6AF590027965B /* NSString+URLEncode.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -670,10 +707,11 @@
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* CustomTableViewController.m in Sources */,
+				415847A41BA6AF590027965B /* NSString+URLEncode.m in Sources */,
+				415847A81BA6B01A0027965B /* Message.m in Sources */,
 				416B9F0E1BA2B9D800761422 /* User.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
-				043859F01BA628B500DA51B6 /* FbSingleton.m in Sources */,
 				04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */,
 				046A6D4F1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.m in Sources */,
 				04E63E0D1BA6138000A89E2C /* EvidencesRootController.m in Sources */,
@@ -696,6 +734,8 @@
 				046A6D541BA10E3A00488A09 /* UserCommentTableViewCell.m in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 				04F013B01BA55545003F2DE8 /* ExpandableTableViewCell.m in Sources */,
+				0494FD651BA691AB008EFC3D /* Reachability.m in Sources */,
+				043859F61BA6756800DA51B6 /* FbSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

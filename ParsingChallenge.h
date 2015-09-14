@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Challenge.h"
+#import "Message.h"
+#import "Evidence.h"
 
 @interface ParsingChallenge : NSObject
 @property (strong, nonatomic) NSString *title;
@@ -15,4 +17,7 @@
 @property (strong, nonatomic) NSString *imageUrl;
 
 -(NSMutableArray *)getParsingChallenge:(NSDictionary *) dictonaryJson;
+-(NSMutableArray *)getParsingMessage:(NSString *) result;
+-(NSMutableArray *)getParsingEvidence:(NSDictionary *) dictonaryJson;
+
 @end

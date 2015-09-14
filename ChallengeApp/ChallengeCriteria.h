@@ -10,4 +10,8 @@
 
 @interface ChallengeCriteria : NSObject
 
+@property (strong, nonatomic) NSString *title;
+@property (strong, nonatomic) NSString *hashtag;
+@property (strong, nonatomic) NSString *userId;
+
 @end

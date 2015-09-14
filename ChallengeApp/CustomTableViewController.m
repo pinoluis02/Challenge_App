@@ -97,7 +97,7 @@
         Evidence * cast = (Evidence *)item;
         customCell.evidenceDescription.text = @"Lorem Ipsum lalalallalala";
         customCell.authorUsername.text = @"Nivardo's";
-        customCell.creationDate.text = cast.date;
+        customCell.creationDate.text = cast.created_at;
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
         UIImage * image = [UIImage imageWithData:imageData];
         [customCell.thumbnail setImage:image];
