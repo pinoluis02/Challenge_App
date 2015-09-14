@@ -97,7 +97,7 @@
 #import "NSString+URLEncode.h"
 
 @protocol ChallengeDelegate <NSObject>
-
+@optional
 -(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray; //OK
 -(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray; //OK
 -(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray; //OK
