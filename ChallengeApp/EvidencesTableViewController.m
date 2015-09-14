@@ -42,7 +42,7 @@
         customCell.evidenceDescription.text = loremLipsum;
         customCell.authorUsername.text = @"Nivardo's";
         customCell.creationDate.text = cast.created_at;
-        UIImage * image = nil;
+        UIImage * image = [UIImage imageNamed:@"missing"];
         if(![cast.imageUrl isKindOfClass:[NSNull class]]){
             NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
             image = [UIImage imageWithData:imageData];

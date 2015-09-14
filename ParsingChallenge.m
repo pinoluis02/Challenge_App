@@ -13,12 +13,27 @@
 -(NSMutableArray *)getParsingChallenge:(NSDictionary *) dictonaryJson {
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     for (NSDictionary *snippet in dictonaryJson) {
-        Challenge *challenge = [Challenge alloc];
+        Challenge * challenge = [Challenge new];
+        challenge.idChallenge = [snippet objectForKey:@"id"];
         challenge.title = [snippet objectForKey:@"title"];
         challenge.descriptionItem = [snippet objectForKey:@"description"];
-        challenge.urlThumbnail = [snippet objectForKey:@"url_thumbnail"];
+         challenge.type = [snippet objectForKey:@"typeresource"];
         challenge.urlResource = [snippet objectForKey:@"urlresource"];
-        NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
+        challenge.urlThumbnail = [snippet objectForKey:@"url_thumbnail"];
+        if([challenge.urlThumbnail isKindOfClass:[NSNull class]]) {
+            challenge.urlThumbnail = @"http://www.telebajar.com/wp-content/themes/TechNews/images/img_not_available.png";
+        }
+        if([challenge.urlResource isKindOfClass:[NSNull class]]) {
+            challenge.urlResource = @"http://www.telebajar.com/wp-content/themes/TechNews/images/img_not_available.png";
+        }
+        challenge.idAuthor = [snippet objectForKey:@"user_id"];;
+        challenge.nameAuthor = @"Brendon Small";
+        challenge.creationDate = [snippet objectForKey:@"created_at"];
+        //unrelated, notified, accepted (incomplete), rejected, completed.
+        challenge.userStatus = @"unrelated";
+        challenge.donation = @"0.0";
+        challenge.idPayPal = nil;
+        challenge.organization = @"Red cross";
         [resultArray addObject:challenge];
     }
     return resultArray;

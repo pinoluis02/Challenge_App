@@ -121,23 +121,7 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 
 -(UIView*)createTableHeaderView: (id)object{
-    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OriginalItemTableViewCell"
-                                                      owner:self
-                                                    options:nil];
-    if(!object){ return nil; }
-    Challenge * item = (Challenge *)object;
-    OriginalItemTableViewCell * customCell = [ nibViews objectAtIndex: 0];
-    customCell.title.text = item.title;
-    customCell.challengeDescription.text = item.descriptionItem;
-    customCell.author.text = item.nameAuthor;
-    customCell.pubDate.text = item.creationDate;
-    UIImage * image = nil;
-    if(![item.urlThumbnail isKindOfClass:[NSNull class]]){
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
-        image = [UIImage imageWithData:imageData];
-    }
-    [customCell.image setImage:image];
-    return customCell;
+    return nil;
     
 }
 
@@ -234,8 +218,11 @@ bool tabBarVerticalSpaceConstraintFixed;
     customCell.evidenceDescription.text = loremLipsum;
     customCell.authorUsername.text = @"Nivardo's";
     customCell.creationDate.text = item.created_at;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.imageUrl]];
-    UIImage * image = [UIImage imageWithData:imageData];
+    UIImage * image = [UIImage imageNamed:@"missing"];
+    if(![item.imageUrl isKindOfClass:[NSNull class]]){
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.  imageUrl]];
+        image = [UIImage imageWithData:imageData];
+    }
     [customCell.thumbnail setImage:image];
     return  customCell;
     
