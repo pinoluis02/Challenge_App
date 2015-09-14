@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043859F01BA628B500DA51B6 /* FbSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 043859EF1BA628B500DA51B6 /* FbSingleton.m */; };
+		043859F31BA62AD800DA51B6 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 043859F21BA62AD800DA51B6 /* Comment.m */; };
 		044048421BA08D34008AA356 /* OriginalItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044048411BA08D34008AA356 /* OriginalItemTableViewCell.xib */; };
 		044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048441BA09547008AA356 /* RegularItemTableViewCell.m */; };
 		044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048471BA09622008AA356 /* OriginalItemTableViewCell.m */; };
@@ -90,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		043859EE1BA628B500DA51B6 /* FbSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbSingleton.h; sourceTree = "<group>"; };
+		043859EF1BA628B500DA51B6 /* FbSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FbSingleton.m; sourceTree = "<group>"; };
+		043859F11BA62AD800DA51B6 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		043859F21BA62AD800DA51B6 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		044048411BA08D34008AA356 /* OriginalItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OriginalItemTableViewCell.xib; sourceTree = "<group>"; };
 		044048431BA09547008AA356 /* RegularItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularItemTableViewCell.h; sourceTree = "<group>"; };
 		044048441BA09547008AA356 /* RegularItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularItemTableViewCell.m; sourceTree = "<group>"; };
@@ -342,7 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
-				04DDC3A21BA11050004C20E5 /* Facebook SDK */,
+				04DDC3A21BA11050004C20E5 /* Facebook */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
 				04C3C8CE1BA0B5EE0048996F /* models */,
 				044048491BA0990F008AA356 /* presentation layer */,
@@ -400,6 +406,8 @@
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
+				043859F11BA62AD800DA51B6 /* Comment.h */,
+				043859F21BA62AD800DA51B6 /* Comment.m */,
 				416B9F0C1BA2B9D800761422 /* User.h */,
 				416B9F0D1BA2B9D800761422 /* User.m */,
 				416B9F061BA2244D00761422 /* Evidence.h */,
@@ -432,6 +440,9 @@
 		04CB5AD51BA3366C00C8D232 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04CA04191BA352C70066239E /* FBSDKLoginKit.framework */,
+				04CA04181BA352C70066239E /* FBSDKCoreKit.framework */,
+				04CA041C1BA353D20066239E /* FBSDKShareKit.framework */,
 				04CB5B201BA5552F00C8D232 /* QuartzCore.framework */,
 				04CB5B1A1BA3427000C8D232 /* UIKit.framework */,
 				04CB5B181BA3418800C8D232 /* MobileCoreServices.framework */,
@@ -674,6 +685,7 @@
 				046A6D481BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,
 				0490F47A1B9B5D5800318EFB /* main.m in Sources */,
+				043859F01BA628B500DA51B6 /* FbSingleton.m in Sources */,
 				04D8E8791B9FFB32008A5FCD /* NewChallengeViewController.m in Sources */,
 				046A6D4F1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.m in Sources */,
 				046A6D4B1BA10B4900488A09 /* ChallengeCommentsTableViewController.m in Sources */,
