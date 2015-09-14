@@ -18,7 +18,6 @@
 
 @implementation ChallengesRootController
 
-
 -(void)updateViewConstraints{
     [super updateViewConstraints];
 }
@@ -44,27 +43,14 @@
 
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
+//    NSLog(@"contentType:%@",[self contentypeToString:contentType]);
     
-    BOOL debug = true;
+    BOOL debug = false;
     if(!debug)
     {
         switch (contentType) {
             case AllChallenges:{
-                //[self.challengeDao getAllChallenges];
-                //[self.challengeDao getPopularChallenges];
-                //[self.challengeDao getLastChallenges];
-                //ChallengeCriteria *criteria;
-                //[self.challengeDao searchChallenges:criteria];
-                //[self.challengeDao getChallengesRequestByUserId:@10 withStatus:@1]; // OK
-                //[self.challengeDao putChallengesRequestStatus:@20 withStatus:@1]; // OK
-                //[self.challengeDao getChallengesEvidencesByUserId:@20];
-                [self.challengeDao getAllChallenges];
-                //Challenge *challenge;
-                //[self.challengeDao postChallenge:challenge]; // OK
-                //User *user;
-                //[self.challengeDao postUser:user];
-                //[self.challengeDao getExistUser:@"8484248"];
-                
+                [self.challengeDao getAllChallenges];                
             }break;
             case PopularChallenges:{
                 [self.challengeDao getPopularChallenges];
@@ -74,6 +60,9 @@
             }break;
             case SearchChallenges:{
                 ChallengeCriteria * criteria = [ChallengeCriteria new];
+                criteria.title   = @"el bebe";
+                criteria.hashtag = @"nil";
+                criteria.userId  = @"nil";
                 [self.challengeDao searchChallenges:criteria];
             }break;
             case UserChallengeInvitation:{
@@ -81,8 +70,9 @@
                 //            0 - noresponded
                 //            1 - accepted
                 //            2 - rejected
-                NSNumber * userId = [NSNumber numberWithInt:1];
-                NSNumber * statusIncomplete = [NSNumber numberWithInt:1];
+                NSNumber * userId = [NSNumber numberWithInt:2];
+                NSNumber * statusIncomplete = [NSNumber numberWithInt:0];
+
                 [self.challengeDao getChallengesRequestByUserId:userId withStatus:statusIncomplete];
             }break;
             case UserCompleteChallenges:{
@@ -150,25 +140,22 @@
 
 -(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetAllChallengesWithResult count = %ld", [resultArray count]);
-    
-    //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
     
 }
 
 -(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetLastChallengesWithResult count = %ld", [resultArray count]);
-    
-    //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
     
 }
 
 -(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetPopularChallengesWithResult count = %ld", [resultArray count]);
-    
-    //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
 }
 
 -(void)  didFinishGetChallengesFromUserWithResult:(NSArray *) resultArray {
@@ -180,6 +167,8 @@
     NSLog(@"didFinishGetChallengesRequestByUserIdWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
+    //[self.tableContentController.tableView reloadData];
 }
 
 -(void)  didFinishAddChallengeWithResult:(NSError *) error {
@@ -191,6 +180,8 @@
     NSLog(@"didFinishSearchChallengesWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
+
 }
 
 // This method returns a list of challenges requests for a given challenge
@@ -224,12 +215,15 @@
     NSLog(@"didFinishGetChallengesEvidencesByUserIdWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+     self.tableContentController.itemsArray = self.challengesArray;
+  //  [self.tableContentController.tableView reloadData];
 }
 
 -(void)  didFinishGetChallengesPendingEvidencesByUserIdWithResult:(NSArray *) resultArray {
     NSLog(@"didFinishGetChallengesPendingEvidencesByUserIdWithResult count = %ld", [resultArray count]);
-    //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
+    self.tableContentController.itemsArray = self.challengesArray;
+   // [self.tableContentController.tableView reloadData];
 }
 
 -(void) didFinishAddUserWithResult:(NSError *) error {

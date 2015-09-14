@@ -52,4 +52,35 @@
     return resultArray;
 }
 
+-(NSMutableArray *)getParsingChallengeEvidence:(NSDictionary *) dictonaryJson {
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    NSLog(@"dictonaryJson: %@", dictonaryJson);
+    for (NSDictionary *snippet in dictonaryJson) {
+        Challenge *challenge = [Challenge alloc];
+        challenge.title = [[snippet objectForKey:@"challenge"] objectForKey:@"title"];
+        challenge.descriptionItem = [[snippet objectForKey:@"challenge"] objectForKey:@"description"];
+        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        challenge.urlResource = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
+        [resultArray addObject:challenge];
+    }
+    return resultArray;
+}
+
+-(NSMutableArray *)getParsingChallengeRequests:(NSDictionary *) dictonaryJson {
+    NSMutableArray *resultArray = [[NSMutableArray alloc]init];
+    NSLog(@"dictonaryJson: %@", dictonaryJson);
+    for (NSDictionary *snippet in dictonaryJson) {
+        Challenge *challenge = [Challenge alloc];
+        challenge.title = [[snippet objectForKey:@"challenge"] objectForKey:@"title"];
+        challenge.descriptionItem = [[snippet objectForKey:@"challenge"] objectForKey:@"description"];
+        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        challenge.urlResource = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
+        [resultArray addObject:challenge];
+    }
+    return resultArray;
+}
+
+
 @end

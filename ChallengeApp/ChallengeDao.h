@@ -44,7 +44,7 @@
 #define getChallengesByCriteria_url "http://ruby-mcschallenge.rhcloud.com/searchChallenges/"
 //"http://192.168.1.3/mcs/team/challengue/getChallengesByCriteria.json"
 // REQ0008 The user can see his challenges requests (Challenge Not decided still)
-#define getChallengesRequestByUserId_url " http://ruby-mcschallenge.rhcloud.com/getChallengesRequestByUserId/"
+#define getChallengesRequestByUserId_url "http://ruby-mcschallenge.rhcloud.com/getChallengesRequestByUserId/"
 //"http://192.168.1.3/mcs/team/challengue/getChallengesRequestByUserId.json"
 
 //REQ0009 The user can accept a challenge request
