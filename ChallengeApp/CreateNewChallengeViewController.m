@@ -34,7 +34,9 @@ NSString * customCharityOrganizationOptionString = @"Other";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        NSLog(@"CreateNewChallengeViewController_idLoginUser:%@",self.idLoginUser);
+    FbSingleton *fb = [FbSingleton sharedInstance];
+    self.idLoginUser = fb.idFbUser;
+    NSLog(@"CreateNewChallengeViewController_idLoginUser:%@",self.idLoginUser);
     
     // Do any additional setup after loading the view.
 //    newChallengeView = (CreateNewChallengeView *)self.view;

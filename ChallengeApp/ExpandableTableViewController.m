@@ -176,7 +176,7 @@
         cell.selectedBackgroundView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.lblTitle.textColor = [[UIColor alloc] initWithRed:0.0 green:122.f/255.f blue:1.f alpha:1.f];
-        cell.lblTitle.font = [UIFont systemFontOfSize:17.0f weight:5.f];
+       // cell.lblTitle.font = [UIFont systemFontOfSize:17.0f weight:5.f];
         cell.backgroundColor = [UIColor darkGrayColor];
     }
     else{

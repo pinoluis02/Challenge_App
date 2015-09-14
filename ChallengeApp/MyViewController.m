@@ -13,9 +13,7 @@
 
 @interface MyViewController ()
 {
-    CreateNewChallengeViewController *createNewChallengeViewController;
-    CustomRootController *globalContextPseudoTabController;
-    ContactsViewController *contactsViewController;
+    FbSingleton *fb;
 }
 
 @end
@@ -25,80 +23,104 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    //Networking code
+    self.challengeDao = [[ChallengeDao alloc] init];
+    self.challengeDao.delegate = self;
     
+    fb = [FbSingleton sharedInstance];
+    fb.delegate = self;
+    
+    self.loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     [self.loginButton setDelegate:self];
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     
 }
 
-
+#pragma mark - loginButton didCompleteWithResult
 - (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult: (FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
+    
+    //  self.activityIndicator.hidden = NO;
+    [self.activityIndicator startAnimating];
+    self.loginButton.hidden = YES;
     
     if (error)
     {
         // There is an error here.
+        NSLog(@"ERROR:%@",error);
+        [self popAlert:@"Error" msg:[NSString stringWithFormat:@"%@",error]];
     }
     else
         if(result.token)   // This means if There is current access token.
         {
-            [self fetchUserInfo];
+            [fb startDownloadingUserInfo];
+            [fb startDownloadingUserFriends];
         }
-    
 }
 
--(void)fetchUserInfo {
-    [[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:@{@"fields": @"id, name"}]
-     startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-         if (!error) {
-             NSLog(@"fetched user:%@", result);
-             
-             if ([result objectForKey:@"name"]) {
-                 NSLog(@"Name : %@",[result objectForKey:@"name"]);
-             }
-             if ([result objectForKey:@"id"]) {
-                 NSString *idFbUser = [result objectForKey:@"id"];
-                 NSLog(@"User id : %@",[result objectForKey:@"id"]);
-                 
-                 //Call API to check if exist user.......
-                 
-                 
-                 // After API Response change to TabController
-                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                 UITabBarController *tabBarController = (UITabBarController *)[storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-                 tabBarController.selectedIndex = 0;
-                 
-                 
-                 NSMutableArray *listOfViewControllers = [NSMutableArray arrayWithArray:tabBarController.viewControllers];
-                 
-                 globalContextPseudoTabController = (CustomRootController*)[listOfViewControllers objectAtIndex:0];
-                 globalContextPseudoTabController.idLoginUser = idFbUser;
-                
-                 contactsViewController = (ContactsViewController*) [listOfViewControllers objectAtIndex:1];
-                 contactsViewController.idLoginUser = idFbUser;
-                 
-                 globalContextPseudoTabController = (CustomRootController*)[listOfViewControllers objectAtIndex:2];
-                 globalContextPseudoTabController.idLoginUser = idFbUser;
-                 
-                 UINavigationController *navigationController = (UINavigationController*)[listOfViewControllers objectAtIndex:3];
-                 createNewChallengeViewController = (CreateNewChallengeViewController*)navigationController.topViewController;
-                 createNewChallengeViewController.idLoginUser = idFbUser;
-                 
-                 [tabBarController setViewControllers:listOfViewControllers animated:YES];
-                 
-                //[self performSegueWithIdentifier:@"segueToTabBar" sender:self.btnLogin];
-                 [self presentViewController:tabBarController animated:NO completion:nil];
-             }
-         }
-     }];
-}
-
-
-- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton{
+#pragma mark - loginButtonDidLogOut
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton
+{
     NSLog(@"facebook logout button test");
+}
+
+
+#pragma mark - didFinishDownloadingUserInfo
+- (void) FBclass:(FbSingleton *)FBclass didFinishDownloadingUserInfo:(NSDictionary *)result
+{
+    NSLog(@"didFinishDownloadingUserInfo:%@",result);
+    
+    // if an error ocurred
+    if([[result objectForKey:@"successful"] isEqualToString:@"No"]){
+        [self popAlert:@"Error" msg:[result objectForKey:@"error"]];
+    }
+    else{
+        [self.challengeDao getExistUser:[result objectForKey:@"id"]];
+    }
     
 }
 
+#pragma mark - didFinishDownloadingUserFriends
+- (void) FBclass:(FbSingleton *)FBclass didFinishDownloadingUserFriends:(NSDictionary *)result
+{
+    NSLog(@"didFinishDownloadingUserFriends:%@",result);
+    
+    // if an error ocurred
+    if([[result objectForKey:@"successful"] isEqualToString:@"No"]){
+        [self popAlert:@"Error" msg:[result objectForKey:@"error"]];
+    }
+}
+
+#pragma mark - didFinishGetExistUserWithResult from Dao
+- (void) didFinishGetExistUserWithResult:(NSArray *) resultArray
+{
+    NSLog(@"didFinishGetExistUserWithResult resultArray:%@",resultArray);
+    
+    // After API Response change to TabController
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tabBarController = (UITabBarController *)[storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    
+    //    if user already exist, send him to dashboard
+    //    if([[resultArray valueForKey:@"successful"] isEqualToString:@"YES"])
+    tabBarController.selectedIndex = 0;
+    
+    //[self performSegueWithIdentifier:@"segueToTabBar" sender:self.btnLogin];
+    [self presentViewController:tabBarController animated:NO completion:nil];
+    
+}
+
+
+#pragma mark - popAlert helper Method
+
+- (void)popAlert:(NSString*)title msg:(NSString *)msg
+{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:title
+                          message:msg
+                          delegate:self
+                          cancelButtonTitle:@"Cancel"
+                          otherButtonTitles:@"OK", nil];
+    [alert show];
+}
 
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 //{
@@ -116,13 +138,17 @@
 
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//example of how to share a link
+- (IBAction)shareLink:(FBSDKShareButton *)sender {
+    [fb shareLinkWithURL:@"https://www.youtube.com/watch?v=KxJLYM9XOT4" Title:@"tilte" Description:@"desc" ImageUrl:@"http://www.dummymag.com//media/img/dummy-logo.png"];
 }
-*/
-
 @end
