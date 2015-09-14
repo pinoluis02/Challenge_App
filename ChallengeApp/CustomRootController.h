@@ -8,40 +8,33 @@
 
 #import <UIKit/UIKit.h>
 #import "ExpandableTableViewController.h"
-#import "ChallengeTableViewController.h"
+#import "CustomTableViewController.h"
+#import "Challenge.h"
+#import "Evidence.h"
 
 @class Challenge;
-typedef NS_ENUM(NSUInteger, TabBarOptions) {
-    GlobalOptionsTabBarType = 1,
-    UserOptionsTabBarType = 2
-};
-
 
 @interface CustomRootController : UIViewController <UITabBarControllerDelegate>
-@property (nonatomic) TabBarOptions tabBarType;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *globalOptionsTabBarVerticalSpaceConstraint;
-@property (weak, nonatomic) IBOutlet UITabBar *globalOptionsTabBar;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userOptionsTabBarVerticalSpaceConstraint;
-@property (weak, nonatomic) IBOutlet UITabBar *userOptionsTabBar;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewVerticalTopSpaceConstraint;
+@property BOOL isFirstControllerInNavigation;
 @property (strong, nonatomic) NSString *idLoginUser;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentViewVerticalBottonSpaceConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *commandMenuViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *mainViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *commandMenuView;
 @property (weak, nonatomic) IBOutlet UIView *tableContentView;
 @property (weak, nonatomic) IBOutlet UIView *mainItemView;
--(void)coordinateMainContentViewHeightWithMenuHeight:(CGFloat)height;
-+(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item;
--(void)coordinateItemSelection:(NSObject *)item
-           selectedByLongPress:(BOOL)longPress;
--(void)respondToMenuItemSelection:(NSString *)command;
-@property int userId;
-
-@property ChallengeTableViewController * tableContentController;
+@property CustomTableViewController * tableContentController;
 @property ExpandableTableViewController * commandMenuController;
 @property UIViewController * mainItemController;
-@property Challenge * selectedItem;
+@property id selectedItem;
+-(void)setUpMenuContent;
+-(void)setUpMainViewContent;
+-(void)setUpTableContent;
+-(void)coordinateMenuHeightChange:(CGFloat)height;
+-(void)coordinateMenuItemSelection:(NSString *)command;
+-(void)coordinateTableItemSelection:(NSObject *)item           selectedByLongPress:(BOOL)longPress;
+-(void)coordinateMainItemSelection:(NSObject *)item            selectedByLongPress:(BOOL)longPress;
 
++(NSArray *)loadMenuItemsForEvidence;
++(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item;
 @end

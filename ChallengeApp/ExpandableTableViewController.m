@@ -124,12 +124,11 @@
 }
 
 -(void)notifyCoordinatorOfCommandSelection:(NSString *)command{
-    [self.coordinatorController respondToMenuItemSelection:command];
+    [self.coordinatorController coordinateMenuItemSelection:command];
 }
 
 -(void)CollapseRows:(NSArray*)ar
 {
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
 	for(NSDictionary *dInner in ar )
     {
 		NSUInteger indexToRemove=[self.itemsInTable indexOfObjectIdenticalTo:dInner];
@@ -163,12 +162,11 @@
 -(void)notifyCoordinatorOfSizeChange{
     CGFloat height = self.menuTableView.rowHeight;
     height *= [self.menuTableView numberOfRowsInSection:0];
-    [self.coordinatorController coordinateMainContentViewHeightWithMenuHeight:height];
+    [self.coordinatorController coordinateMenuHeightChange:height];
 }
 
 - (UITableViewCell*)createCellWithTitle:(NSString *)title image:(UIImage *)image  indexPath:(NSIndexPath*)indexPath
 {
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
     NSString *CellIdentifier = @"ExpandableTableViewCell";
     ExpandableTableViewCell* cell = [self.menuTableView dequeueReusableCellWithIdentifier:CellIdentifier];
 //    first menu item is handled as a header
@@ -213,7 +211,6 @@
 -(void)showSubItems :(id) sender
 {
 
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
     UIButton *btn = (UIButton*)sender;
     CGRect buttonFrameInTableView = [btn convertRect:btn.bounds toView:self.menuTableView];
     NSIndexPath *indexPath = [self.menuTableView indexPathForRowAtPoint:buttonFrameInTableView.origin];

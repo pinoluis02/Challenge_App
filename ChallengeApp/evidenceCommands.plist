@@ -6,25 +6,13 @@
 	<array>
 		<dict>
 			<key>Name</key>
-			<string>New Challenge</string>
-			<key>level</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Take Challenge</string>
+			<string>Challenge Evidence</string>
 			<key>level</key>
 			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>Name</key>
 			<string>Share</string>
-			<key>level</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>Name</key>
-			<string>Donate</string>
 			<key>level</key>
 			<integer>0</integer>
 		</dict>

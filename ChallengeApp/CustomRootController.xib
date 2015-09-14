@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomRootController">
@@ -9,122 +9,49 @@
                 <outlet property="commandMenuView" destination="DBq-WN-Lsa" id="hA8-SZ-BX0"/>
                 <outlet property="commandMenuViewHeightConstraint" destination="xUu-hN-99A" id="G4k-At-tjy"/>
                 <outlet property="contentView" destination="jqu-M4-mZO" id="0hA-Cb-koa"/>
-                <outlet property="contentViewVerticalBottonSpaceConstraint" destination="6bM-3X-HuF" id="2On-9i-2rK"/>
-                <outlet property="contentViewVerticalTopSpaceConstraint" destination="VqD-Pq-n3B" id="SDF-UG-ydc"/>
-                <outlet property="globalOptionsTabBar" destination="Hjo-2f-UAV" id="B4h-x8-gjl"/>
-                <outlet property="globalOptionsTabBarVerticalSpaceConstraint" destination="lu7-zd-rac" id="gkh-qA-E8B"/>
                 <outlet property="mainItemView" destination="JPN-pt-lkt" id="adG-4T-JOV"/>
                 <outlet property="mainViewHeightConstraint" destination="8q0-KO-D1c" id="GF1-Tc-Qkz"/>
                 <outlet property="tableContentView" destination="KXf-Yy-Aoy" id="HFs-72-vCA"/>
-                <outlet property="userOptionsTabBar" destination="iTE-4E-Uqx" id="zNv-pQ-UWV"/>
-                <outlet property="userOptionsTabBarVerticalSpaceConstraint" destination="EqO-np-7PE" id="XMH-jL-dub"/>
-                <outlet property="view" destination="FMY-iK-tQ3" id="WlV-O0-Vgf"/>
+                <outlet property="view" destination="jqu-M4-mZO" id="iSy-N5-XlU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="FMY-iK-tQ3">
+        <view contentMode="scaleToFill" id="jqu-M4-mZO" userLabel="contentView">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqu-M4-mZO" userLabel="contentView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPN-pt-lkt" userLabel="mainItem">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                            <color key="backgroundColor" red="0.2496751931" green="1" blue="0.27617261720000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="8q0-KO-D1c"/>
-                            </constraints>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-Yy-Aoy" userLabel="tableContentView">
-                            <rect key="frame" x="0.0" y="50" width="600" height="549"/>
-                            <color key="backgroundColor" red="1" green="0.065531124829999995" blue="0.08477256373" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBq-WN-Lsa" userLabel="menuView">
-                            <rect key="frame" x="0.0" y="599" width="600" height="1"/>
-                            <color key="backgroundColor" red="0.46687148029999997" green="0.72606928660000003" blue="0.19199296569999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="xUu-hN-99A"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.87077809343434343" green="0.77468434609578396" blue="0.22004461556745955" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPN-pt-lkt" userLabel="mainItem">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <color key="backgroundColor" red="0.2496751931" green="1" blue="0.27617261720000003" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="bottom" secondItem="DBq-WN-Lsa" secondAttribute="top" id="0nQ-pr-ZRT"/>
-                        <constraint firstAttribute="trailing" secondItem="JPN-pt-lkt" secondAttribute="trailing" id="1mb-66-SBs"/>
-                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="5cw-B0-T5w"/>
-                        <constraint firstItem="DBq-WN-Lsa" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="Hkg-BL-p0n"/>
-                        <constraint firstItem="DBq-WN-Lsa" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="P2h-TD-RvT"/>
-                        <constraint firstItem="JPN-pt-lkt" firstAttribute="top" secondItem="jqu-M4-mZO" secondAttribute="top" id="TEg-aL-a7n"/>
-                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="bcm-JL-wHr"/>
-                        <constraint firstItem="DBq-WN-Lsa" firstAttribute="bottom" secondItem="jqu-M4-mZO" secondAttribute="bottom" id="gjZ-On-pGs"/>
-                        <constraint firstItem="KXf-Yy-Aoy" firstAttribute="top" secondItem="JPN-pt-lkt" secondAttribute="bottom" id="kOS-RW-4u7"/>
-                        <constraint firstItem="JPN-pt-lkt" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="w0u-aG-4mL"/>
+                        <constraint firstAttribute="height" constant="50" id="8q0-KO-D1c"/>
                     </constraints>
                 </view>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTE-4E-Uqx" userLabel="user context tab bar">
-                    <rect key="frame" x="0.0" y="50" width="600" height="49"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem tag="1" enabled="NO" title="user" image="this user context (5)" id="Iib-Rt-BIf" userLabel="context indicator"/>
-                        <tabBarItem tag="2" title="Incomplete" image="incomplete challenges" id="l4K-x1-EX5" userLabel="incomplete items"/>
-                        <tabBarItem tag="3" title="Notifications" image="challenge notifications" id="53R-Iv-1Zy" userLabel="invitations"/>
-                        <tabBarItem tag="4" title="Completed" image="completed challenges" id="tjd-nd-mkV" userLabel="completed"/>
-                    </items>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="pTO-ej-LK6"/>
-                    </connections>
-                </tabBar>
-                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hjo-2f-UAV" userLabel="global context tab bar">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem tag="5" enabled="NO" title="world" image="world context (2)" id="Sct-Qf-LGv" userLabel="context"/>
-                        <tabBarItem tag="6" title="all" image="show all" id="o2b-0P-aaq" userLabel="all"/>
-                        <tabBarItem tag="7" title="popular" image="favorites" id="9ZJ-pU-gZZ" userLabel="favorites"/>
-                        <tabBarItem tag="8" title="recent" image="recent" id="Umi-ds-8Zx" userLabel="recent"/>
-                        <tabBarItem tag="9" title="search" image="search" id="2Ry-oS-whM" userLabel="search"/>
-                    </items>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="FGR-qM-XSO"/>
-                    </connections>
-                </tabBar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-Yy-Aoy" userLabel="tableContentView">
+                    <rect key="frame" x="0.0" y="50" width="600" height="549"/>
+                    <color key="backgroundColor" red="1" green="0.065531124829999995" blue="0.08477256373" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBq-WN-Lsa" userLabel="menuView">
+                    <rect key="frame" x="0.0" y="599" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.46687148029999997" green="0.72606928660000003" blue="0.19199296569999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="xUu-hN-99A"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.87077809343434343" green="0.77468434609578396" blue="0.22004461556745955" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="jqu-M4-mZO" firstAttribute="bottom" secondItem="FMY-iK-tQ3" secondAttribute="bottom" id="6bM-3X-HuF"/>
-                <constraint firstItem="iTE-4E-Uqx" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" constant="50" id="EqO-np-7PE"/>
-                <constraint firstItem="jqu-M4-mZO" firstAttribute="leading" secondItem="FMY-iK-tQ3" secondAttribute="leading" id="Lb9-i4-nXB"/>
-                <constraint firstItem="jqu-M4-mZO" firstAttribute="trailing" secondItem="FMY-iK-tQ3" secondAttribute="trailing" id="Met-ZP-24F"/>
-                <constraint firstItem="iTE-4E-Uqx" firstAttribute="width" secondItem="jqu-M4-mZO" secondAttribute="width" id="UOv-gf-TaW"/>
-                <constraint firstItem="Hjo-2f-UAV" firstAttribute="width" secondItem="FMY-iK-tQ3" secondAttribute="width" id="VDs-Wf-vpf"/>
-                <constraint firstItem="jqu-M4-mZO" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" id="VqD-Pq-n3B"/>
-                <constraint firstItem="Hjo-2f-UAV" firstAttribute="top" secondItem="FMY-iK-tQ3" secondAttribute="top" id="lu7-zd-rac"/>
-                <constraint firstItem="Hjo-2f-UAV" firstAttribute="centerX" secondItem="FMY-iK-tQ3" secondAttribute="centerX" id="q6n-Lc-aCd"/>
-                <constraint firstItem="iTE-4E-Uqx" firstAttribute="centerX" secondItem="jqu-M4-mZO" secondAttribute="centerX" id="yLx-mn-wmY"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="bottom" secondItem="DBq-WN-Lsa" secondAttribute="top" id="0nQ-pr-ZRT"/>
+                <constraint firstAttribute="trailing" secondItem="JPN-pt-lkt" secondAttribute="trailing" id="1mb-66-SBs"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="5cw-B0-T5w"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="Hkg-BL-p0n"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="P2h-TD-RvT"/>
+                <constraint firstItem="JPN-pt-lkt" firstAttribute="top" secondItem="jqu-M4-mZO" secondAttribute="top" id="TEg-aL-a7n"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="bcm-JL-wHr"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="bottom" secondItem="jqu-M4-mZO" secondAttribute="bottom" id="gjZ-On-pGs"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="top" secondItem="JPN-pt-lkt" secondAttribute="bottom" id="kOS-RW-4u7"/>
+                <constraint firstItem="JPN-pt-lkt" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="w0u-aG-4mL"/>
             </constraints>
         </view>
-        <viewController id="t1D-8G-qLx">
-            <layoutGuides>
-                <viewControllerLayoutGuide type="top" id="tp4-Bx-WAf"/>
-                <viewControllerLayoutGuide type="bottom" id="kaj-lr-mxZ"/>
-            </layoutGuides>
-            <view key="view" contentMode="scaleToFill" id="D7E-9D-ynK">
-                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            </view>
-        </viewController>
     </objects>
-    <resources>
-        <image name="challenge notifications" width="30" height="30"/>
-        <image name="completed challenges" width="30" height="30"/>
-        <image name="favorites" width="30" height="30"/>
-        <image name="incomplete challenges" width="30" height="30"/>
-        <image name="recent" width="30" height="30"/>
-        <image name="search" width="30" height="30"/>
-        <image name="show all" width="30" height="30"/>
-        <image name="this user context (5)" width="30" height="30"/>
-        <image name="world context (2)" width="30" height="30"/>
-    </resources>
 </document>

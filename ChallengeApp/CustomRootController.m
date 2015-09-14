@@ -10,14 +10,17 @@
 
 @interface CustomRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
+//    id mSelectedItem;
 }
 @end
 
 @implementation CustomRootController
 
 - (void)viewWillAppear:(BOOL)animated {
+    if(self.isFirstControllerInNavigation){
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -34,90 +37,44 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 }
 
+//-(id)selectedItem{
+//    return mSelectedItem;
+//}
+//
+//-(void)setSelectedItem:(id)value{
+//    mSelectedItem = value;
+//    [self selectedItemSet];
+//}
+//
+//- (void)selectedItemSet {
+//    
+//}
 
 
--(void)setUpMenuContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
-
--(void)setUpMainViewContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
--(void)setUpTableContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
--(void)updateViewConstraints{
-    if(!tabBarVerticalSpaceConstraintFixed){
-//        http://stackoverflow.com/questions/19078278/is-there-any-way-to-add-constraint-between-a-view-and-the-top-layout-guide-in-a/26397943#26397943
-        [super viewWillLayoutSubviews];
 
-//        To set up constraint to the bottomGuide use code similar to:
-//        id<UILayoutSupport> bottomLayoutGuide = self.bottomLayoutGuide;
-//        CGRect screenRect = [[UIScreen mainScreen] bounds];
-//        CGFloat screenHeight = screenRect.size.height;
-//        [self.contextTabBar sizeToFit];
-//        CGFloat tabBarHeight = self.contextTabBar.bounds.size.height;
-//        self.tabBarVerticalSpaceConstraint.constant = screenHeight - [bottomLayoutGuide length] - tabBarHeight;
-
-//        Fix selected tab bar.
-         id<UILayoutSupport> topLayoutGuide = self.topLayoutGuide;
-        
-        
-        self.globalOptionsTabBar.hidden = true;
-        self.userOptionsTabBar.hidden = true;
-        
-        self.userOptionsTabBarVerticalSpaceConstraint.constant = [topLayoutGuide length];
-
-
-        NSLayoutConstraint * visibleTabBarVerticalConstraint;
-        UITabBar * visibleTabBar;
-        switch (self.tabBarType) {
-            case GlobalOptionsTabBarType:
-                visibleTabBar = self.globalOptionsTabBar;
-                visibleTabBarVerticalConstraint = self.globalOptionsTabBarVerticalSpaceConstraint;
-                break;
-            case UserOptionsTabBarType:
-                visibleTabBar = self.userOptionsTabBar;
-                visibleTabBarVerticalConstraint = self.userOptionsTabBarVerticalSpaceConstraint;
-                break;
-            default:
-                break;
-        }
-
-        visibleTabBar.selectedItem = visibleTabBar.items[1];
-        [self tabBar:visibleTabBar didSelectItem:visibleTabBar.selectedItem];
-        
-        visibleTabBar.hidden = false;
-//        topLayoutGuide is statusBar height.
-//        NB. visibleTabBar.bounds.size.height and tabViewController.tabBar.frame.size.height return 0
-        visibleTabBarVerticalConstraint.constant = [topLayoutGuide length];
-        [visibleTabBar sizeToFit];
-        CGFloat tabBarHeight  = visibleTabBar.frame.size.height;
-        self.contentViewVerticalTopSpaceConstraint.constant = [topLayoutGuide length] + tabBarHeight;
-        
-        tabBarVerticalSpaceConstraintFixed = true;
-    }
-    [super updateViewConstraints];
+-(void)setUpMenuContent{
+    NSString * msg = [[NSString alloc] initWithFormat:@"%@.%@ Subclasses need to overwrite this method", [self class], NSStringFromSelector(_cmd)];
+    NSAssert(NO, msg);
 }
 
 
-//NB: each item should draw itself correctly based on its own type, and based on that the controller will show the appropiate commands
+-(void)setUpMainViewContent{
+    NSString * msg = [[NSString alloc] initWithFormat:@"%@.%@ Subclasses need to overwrite this method", [self class], NSStringFromSelector(_cmd)];
+    NSAssert(NO, msg);
+}
 
-- (void)tabBar:(UITabBar *)tabBar
- didSelectItem:(UITabBarItem *)item{
-    self.tableContentController.contentType = item.tag;
-
+-(void)setUpTableContent{
+    NSString * msg = [[NSString alloc] initWithFormat:@"%@.%@ Subclasses need to overwrite this method", [self class], NSStringFromSelector(_cmd)];
+    NSAssert(NO, msg);
 }
 
 
--(void)coordinateMainContentViewHeightWithMenuHeight:(CGFloat)height{
+-(void)coordinateMenuHeightChange:(CGFloat)height{
     if(height == 0)
     {
         height = 1; //Set it to zero and is gone for sure, don't know why though.
@@ -126,22 +83,24 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 
--(void)respondToMenuItemSelection:(NSString *)command{
+-(void)coordinateMenuItemSelection:(NSString *)command{
     if([command isEqualToString:@"Cancel"]){
         self.commandMenuController.itemsInTable = nil;
     }
 }
 
 
--(void)coordinateItemSelection:(Challenge *)item
+-(void)coordinateTableItemSelection:(NSObject *)item
            selectedByLongPress:(BOOL)longPress;
 {
-        NSAssert(NO, @"Subclasses need to overwrite this method");
+    NSString * msg = [[NSString alloc] initWithFormat:@"%@.%@ Subclasses need to overwrite this method", [self class], NSStringFromSelector(_cmd)];
+    NSAssert(NO, msg);
 }
 
--(void)coordinateMainItemSelection:(Challenge *)item
+-(void)coordinateMainItemSelection:(NSObject *)item
                selectedByLongPress:(BOOL)longPress{
-        NSAssert(NO, @"Subclasses need to overwrite this method");
+    NSString * msg = [[NSString alloc] initWithFormat:@"%@.%@ Subclasses need to overwrite this method", [self class], NSStringFromSelector(_cmd)];
+    NSAssert(NO, msg);
 }
 
 /*
@@ -154,6 +113,12 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 */
 
++(NSArray *)loadMenuItemsForEvidence{
+    NSDictionary * dict;
+        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"evidenceCommands" ofType:@"plist"]];
+    NSArray * items =  [dict valueForKey:@"Items"];
+    return  items;
+}
 
 +(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item{
     NSDictionary * dict;
