@@ -41,6 +41,8 @@
     
     NSLog(@"type : %@", type);
     NSLog(@"resultDictionary: %@", resultDictionary);
+    
+    NSDictionary *challengeRequestsDictionary = [resultDictionary objectForKey:@"challengerequests"];
     NSDictionary *evidencesDictionary = [resultDictionary objectForKey:@"evidences"];
     resultDictionary = [resultDictionary objectForKey:@"challenges"];
     
@@ -64,7 +66,7 @@
     }else if ([type isEqualToString:@"getChallengesRequestByUserId"]) {
         resultType = @10;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallenge:resultDictionary];
+        self.resultArrayModel = [parsingChallenge getParsingChallengeRequests:challengeRequestsDictionary];
     }else if ([type isEqualToString:@"putChallengesRequestStatus"]) {
         resultType = @20;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
@@ -72,11 +74,17 @@
     }else if ([type isEqualToString:@"getChallengesEvidencesByUserId"]) {
         resultType = @30;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallenge:resultDictionary];
+        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:evidencesDictionary];
+        for (Challenge *challege in self.resultArrayModel) {
+            NSLog(@"challege.title %@", challege.title);
+            NSLog(@"descriptionItem %@", challege.descriptionItem);
+        }
+        NSLog(@"self.resultArrayModel:%@",self.resultArrayModel);
     }else if ([type isEqualToString:@"getChallengesPendingEvidencesByUserId"]) {
         resultType = @31;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallenge:resultDictionary];
+        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:evidencesDictionary];
+
     }else if ([type isEqualToString:@"postChallenge"]) {
         resultType = @21;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];

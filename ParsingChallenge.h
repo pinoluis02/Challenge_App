@@ -19,5 +19,6 @@
 -(NSMutableArray *)getParsingChallenge:(NSDictionary *) dictonaryJson;
 -(NSMutableArray *)getParsingMessage:(NSString *) result;
 -(NSMutableArray *)getParsingEvidence:(NSDictionary *) dictonaryJson;
-
+-(NSMutableArray *)getParsingChallengeEvidence:(NSDictionary *) dictonaryJson;
+-(NSMutableArray *)getParsingChallengeRequests:(NSDictionary *) dictonaryJson;
 @end
