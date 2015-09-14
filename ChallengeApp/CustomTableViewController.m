@@ -8,7 +8,6 @@
 
 #import "CustomTableViewController.h"
 #import "RegularItemTableViewCell.h"
-#import "ChallengeEvidenceTableViewController.h"
 #import "ChallengeEvidenceTableViewCell.h"
 #import "Challenge.h"
 #import "ChallengesRootController.h"
