@@ -141,8 +141,11 @@ bool tabBarVerticalSpaceConstraintFixed;
     customCell.challengeDescription.text = item.descriptionItem;
     customCell.author.text = item.nameAuthor;
     customCell.pubDate.text = item.creationDate;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
-    UIImage * image = [UIImage imageWithData:imageData];
+    UIImage * image = nil;
+    if(![item.urlThumbnail isKindOfClass:[NSNull class]]){
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
+        image = [UIImage imageWithData:imageData];
+    }
     [customCell.image setImage:image];
     return customCell;
     

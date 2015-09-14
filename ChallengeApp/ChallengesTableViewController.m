@@ -38,8 +38,12 @@
         customCell.challengeDescription.text = cast.descriptionItem;
         customCell.author.text = cast.nameAuthor;
         customCell.pubDate.text = cast.creationDate;
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.urlThumbnail]];
-        UIImage * image = [UIImage imageWithData:imageData];
+        UIImage * image = nil;
+        if(![cast.urlThumbnail isKindOfClass:[NSNull class]]){
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.urlThumbnail]];
+            image = [UIImage imageWithData:imageData];
+        }
+    
         [customCell.thumbnail setImage:image];
         cell = customCell;
     return cell;

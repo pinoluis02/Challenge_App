@@ -16,7 +16,7 @@
         Challenge *challenge = [Challenge alloc];
         challenge.title = [snippet objectForKey:@"title"];
         challenge.descriptionItem = [snippet objectForKey:@"description"];
-        challenge.urlThumbnail = [snippet objectForKey:@"urlresource"];
+        challenge.urlThumbnail = [snippet objectForKey:@"url_thumbnail"];
         challenge.urlResource = [snippet objectForKey:@"urlresource"];
         NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
         [resultArray addObject:challenge];
@@ -59,7 +59,7 @@
         Challenge *challenge = [Challenge alloc];
         challenge.title = [[snippet objectForKey:@"challenge"] objectForKey:@"title"];
         challenge.descriptionItem = [[snippet objectForKey:@"challenge"] objectForKey:@"description"];
-        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"url_thumbnail"];
         challenge.urlResource = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
         NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
         [resultArray addObject:challenge];
@@ -74,7 +74,7 @@
         Challenge *challenge = [Challenge alloc];
         challenge.title = [[snippet objectForKey:@"challenge"] objectForKey:@"title"];
         challenge.descriptionItem = [[snippet objectForKey:@"challenge"] objectForKey:@"description"];
-        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"url_thumbnail"];
         challenge.urlResource = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
         NSLog(@"challenge.urlThumbnail: %@", challenge.urlThumbnail);
         [resultArray addObject:challenge];

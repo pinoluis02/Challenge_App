@@ -40,8 +40,11 @@
         customCell.evidenceDescription.text = loremLipsum;
         customCell.authorUsername.text = @"Nivardo's";
         customCell.creationDate.text = cast.created_at;
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
-        UIImage * image = [UIImage imageWithData:imageData];
+        UIImage * image = nil;
+        if(![cast.imageUrl isKindOfClass:[NSNull class]]){
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
+            image = [UIImage imageWithData:imageData];
+        }
         [customCell.thumbnail setImage:image];
         cell = customCell;
    
