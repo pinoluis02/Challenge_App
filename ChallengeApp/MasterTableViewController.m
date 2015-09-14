@@ -7,8 +7,9 @@
 //
 
 #import "MasterTableViewController.h"
-#import "RegularItemTableViewCell.h"
-#import "ChallengeEvidenceTableViewCell.h"
+#import "ChallengeTableViewCellCompact.h"
+#import "EvidenceTableViewCellCompact.h"
+#import "UserCommentTableViewCell.h"
 #import "Challenge.h"
 #import "ChallengesRootController.h"
 
@@ -22,7 +23,8 @@
 
 
 -(NSString *)nibName{
-    return @"MasterTableViewController";
+    NSString * classNameStr = NSStringFromClass([MasterTableViewController class]);
+    return classNameStr;
 }
 
 -(NSArray*)itemsArray{
@@ -37,11 +39,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINib *cellNib = [UINib nibWithNibName:@"RegularItemTableViewCell" bundle:nil];
-    [self.tableView registerNib: cellNib forCellReuseIdentifier:@"RegularItemTableViewCell"];
+     NSString * classNameStr = NSStringFromClass([ChallengeTableViewCellCompact class]);
+    UINib *cellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.tableView registerNib: cellNib forCellReuseIdentifier:classNameStr];
 
-    UINib *evidenceCellNib = [UINib nibWithNibName:@"ChallengeEvidenceTableViewCell" bundle:nil];
-    [self.tableView registerNib: evidenceCellNib forCellReuseIdentifier:@"ChallengeEvidenceTableViewCell"];
+    classNameStr = NSStringFromClass([EvidenceTableViewCellCompact class]);
+    UINib *evidenceCellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.tableView registerNib: evidenceCellNib forCellReuseIdentifier:classNameStr];
+    
+    classNameStr = NSStringFromClass([UserCommentTableViewCell class]);
+    UINib *userCommentesCellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.tableView registerNib: userCommentesCellNib forCellReuseIdentifier:classNameStr];
     
     self.tableView.estimatedRowHeight = 68.0;
     self.tableView.rowHeight = UITableViewAutomaticDimension;

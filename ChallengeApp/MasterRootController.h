@@ -37,4 +37,6 @@
 -(void)coordinateTableItemSelection:(NSObject *)item selectedByLongPress:(BOOL)longPress;
 +(NSArray *)loadMenuItemsForEvidence;
 +(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item;
++(UIView*)createTableHeaderViewForChallenge: (Challenge *)object;
++(UIView*)createTableHeaderViewForEvidence: (Evidence *)object;
 @end

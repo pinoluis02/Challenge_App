@@ -7,6 +7,8 @@
 //
 
 #import "EvidencesRootController.h"
+#import "UserCommentsRootController.h"
+#import "ChallengeTableViewCellCompact.h"
 #import "NSDate+Utils.h"
 
 @interface EvidencesRootController ()
@@ -21,7 +23,7 @@
 
 - (void)viewDidLoad {
     self.tableControllerClass = [EvidencesTableViewController class];
-    self.nextRootControllerClass = [EvidencesRootController class];
+    self.nextRootControllerClass = [UserCommentsRootController class];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self fetchData:self.selectedItem];
@@ -46,13 +48,16 @@
     }
 }
 
-
+-(UIView*)createTableHeaderView: (id)object{
+    return [MasterRootController createTableHeaderViewForChallenge:object];
+    
+}
 
 
 
 -(void)setDemoData{
     
-       
+    
     Evidence * itemOne = [Evidence new];
     
     itemOne.evidenceId = @"1";

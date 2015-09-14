@@ -7,7 +7,8 @@
 //
 
 #import "ChallengesTableViewController.h"
-#import "RegularItemTableViewCell.h"
+#import "ChallengeTableViewCellCompact.h"
+#import "ChallengeTableViewCellFull.h"
 
 @interface ChallengesTableViewController ()
 
@@ -32,7 +33,8 @@
     Challenge * item = [self.itemsArray objectAtIndex:indexPath.row];
     UITableViewCell * cell;
         Challenge * cast = (Challenge *)item;
-        RegularItemTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
+        NSString * classNameStr = NSStringFromClass([ChallengeTableViewCellCompact class]);
+        ChallengeTableViewCellCompact *customCell = [tableView dequeueReusableCellWithIdentifier:classNameStr forIndexPath:indexPath];
         
         customCell.title.text = cast.title;
         customCell.challengeDescription.text = cast.descriptionItem;

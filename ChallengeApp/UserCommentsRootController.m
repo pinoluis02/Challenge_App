@@ -6,10 +6,12 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
+#import "MasterRootController.h"
 #import "UserCommentsRootController.h"
 #import "UserCommentsTableViewController.h"
 #import "Comment.h"
 #import "NSDate+Utils.h"
+
 
 @interface UserCommentsRootController ()
 {
@@ -21,11 +23,6 @@
 
 @implementation UserCommentsRootController
 
-
-
--(NSString *)nibName{
-    return @"CustomRootController";
-}
 
 
 - (void)viewDidLoad {
@@ -52,6 +49,21 @@
     {
         [self setDemoData];
     }
+}
+
+-(UIView *)createTableHeaderView: (id)object{
+   
+    UIView * cell = nil;
+    //The view must be either a evidence related one or a challenge related one.
+    if([object class] == [Evidence class]){
+       cell = [MasterRootController createTableHeaderViewForEvidence:object];
+    }
+    else if([object class] == [Challenge class]){
+       cell = [MasterRootController createTableHeaderViewForChallenge:object];
+    }
+
+    return cell;
+
 }
 
 -(void)setDemoData{
