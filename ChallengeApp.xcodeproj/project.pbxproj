@@ -156,9 +156,6 @@
 		04C3C8C61BA0B5E30048996F /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connection.m; path = ChallengeApp/Connection.m; sourceTree = "<group>"; };
 		04C3C8C71BA0B5E30048996F /* JSONParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONParsing.h; path = ChallengeApp/JSONParsing.h; sourceTree = "<group>"; };
 		04C3C8C81BA0B5E30048996F /* JSONParsing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONParsing.m; path = ChallengeApp/JSONParsing.m; sourceTree = "<group>"; };
-		04CA04181BA352C70066239E /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ChallengeApp/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		04CA04191BA352C70066239E /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ChallengeApp/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		04CA041C1BA353D20066239E /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ChallengeApp/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		04CB5AD31BA3364800C8D232 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		04CB5B101BA340E500C8D232 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		04CB5B121BA3412D00C8D232 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -485,8 +482,8 @@
 		04DDC3A21BA11050004C20E5 /* Facebook */ = {
 			isa = PBXGroup;
 			children = (
-				043859EE1BA628B500DA51B6 /* FbSingleton.h */,
-				043859EF1BA628B500DA51B6 /* FbSingleton.m */,
+				043859F41BA6756800DA51B6 /* FbSingleton.h */,
+				043859F51BA6756800DA51B6 /* FbSingleton.m */,
 			);
 			name = Facebook;
 			sourceTree = "<group>";
@@ -728,7 +725,6 @@
 				04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */,
 				0480B0591B9E0BB7007E71A2 /* CustomRootController.m in Sources */,
 				04E63E1B1BA6237400A89E2C /* UserCommentsTableViewController.m in Sources */,
-				043859F31BA62AD800DA51B6 /* Comment.m in Sources */,
 				0455588B1BA0E41E006A4C87 /* MakeDonationViewController.m in Sources */,
 				0490F4801B9B5D5800318EFB /* ChallengeApp.xcdatamodeld in Sources */,
 				046A6D541BA10E3A00488A09 /* UserCommentTableViewCell.m in Sources */,
