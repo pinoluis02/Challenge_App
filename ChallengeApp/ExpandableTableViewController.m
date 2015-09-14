@@ -8,7 +8,7 @@
 
 #import "ExpandableTableViewController.h"
 #import "ExpandableTableViewCell.h"
-#import "customRootController.h"
+#import "MasterRootController.h"
 
 @interface ExpandableTableViewController ()
 {

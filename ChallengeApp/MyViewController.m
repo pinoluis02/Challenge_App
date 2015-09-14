@@ -8,7 +8,7 @@
 
 #import "MyViewController.h"
 #import "CreateNewChallengeViewController.h"
-#import "customRootController.h"
+#import "MasterRootController.h"
 #import "ContactsViewController.h"
 
 @interface MyViewController ()
@@ -36,7 +36,7 @@
     
     //REACHABILITY
     NSString *url = @"http://www.facebook.com";
-    NSURL *hostaddress = [[NSURL URLWithString:url] host];
+    NSString *hostaddress = [[NSURL URLWithString:url] host];
     Reachability* r=[Reachability reachabilityWithHostName:hostaddress];
     NetworkStatus internetStatus=[r currentReachabilityStatus];
     if(internetStatus == NotReachable) {

@@ -10,10 +10,9 @@
 #import "Evidence.h"
 #import "Challenge.h"
 
-@class CustomRootController;
+@class MasterRootController;
 
-
-@interface CustomTableViewController : UITableViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
-@property CustomRootController * coordinatorController;
+@interface MasterTableViewController : UITableViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
+@property MasterRootController * coordinatorController;
 @property NSArray * itemsArray;
 @end

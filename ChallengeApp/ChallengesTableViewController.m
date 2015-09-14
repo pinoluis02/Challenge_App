@@ -7,6 +7,7 @@
 //
 
 #import "ChallengesTableViewController.h"
+#import "RegularItemTableViewCell.h"
 
 @interface ChallengesTableViewController ()
 
@@ -24,8 +25,23 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSString *)nibName{
-    return @"CustomTableViewController";
-}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    Challenge * item = [self.itemsArray objectAtIndex:indexPath.row];
+    UITableViewCell * cell;
+        Challenge * cast = (Challenge *)item;
+        RegularItemTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"RegularItemTableViewCell" forIndexPath:indexPath];
+        
+        customCell.title.text = cast.title;
+        customCell.challengeDescription.text = cast.descriptionItem;
+        customCell.author.text = cast.nameAuthor;
+        customCell.pubDate.text = cast.creationDate;
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.urlThumbnail]];
+        UIImage * image = [UIImage imageWithData:imageData];
+        [customCell.thumbnail setImage:image];
+        cell = customCell;
+    return cell;
+}
 @end

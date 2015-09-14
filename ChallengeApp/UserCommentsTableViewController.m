@@ -24,9 +24,5 @@
     // Dispose of any resources that can be recreated.
 }
 
--(NSString *)nibName{
-    return @"CustomTableViewController";
-}
-
 
 @end

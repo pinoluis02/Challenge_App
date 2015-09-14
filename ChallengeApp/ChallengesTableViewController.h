@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "CustomTableViewController.h"
+#import "MasterTableViewController.h"
 
-@interface ChallengesTableViewController : CustomTableViewController
+@interface ChallengesTableViewController : MasterTableViewController
 
 @end

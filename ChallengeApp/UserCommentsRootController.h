@@ -7,7 +7,7 @@
 //
 
 #import "MasterRootController.h"
-#import "EvidencesTableViewController.h"
+#import "UserCommentsTableViewController.h"
 
-@interface EvidencesRootController : MasterRootController <UIGestureRecognizerDelegate>
+@interface UserCommentsRootController : MasterRootController <UIGestureRecognizerDelegate>
 @end

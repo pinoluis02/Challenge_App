@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "EvidencesRootController.h"
+#import "MasterRootController.h"
 #import "ChallengesTableViewController.h"
 #import "ChallengeDao.h"
 
@@ -22,14 +22,8 @@ typedef NS_ENUM(NSUInteger, ChallengeTableViewControllerContent) {
     UserCompleteChallenges = 4
 };
 
-@interface ChallengesRootController : CustomRootController<ChallengeDelegate>
+@interface ChallengesRootController : MasterRootController<ChallengeDelegate>
 @property ChallengeTableViewControllerContent contentType;
 @property ChallengeDao * challengeDao;
 @property NSArray * challengesArray;
--(void)setUpMenuContent;
--(void)setUpMainViewContent;
--(void)setUpTableContent;
--(void)coordinateMenuHeightChange:(CGFloat)height;
--(void)coordinateTableItemSelection:(Challenge *)item            selectedByLongPress:(BOOL)longPress;
--(void)coordinateMainItemSelection:(NSObject *)item            selectedByLongPress:(BOOL)longPress;
 @end

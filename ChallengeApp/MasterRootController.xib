@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomRootController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MasterRootController">
             <connections>
                 <outlet property="commandMenuView" destination="DBq-WN-Lsa" id="hA8-SZ-BX0"/>
                 <outlet property="commandMenuViewHeightConstraint" destination="xUu-hN-99A" id="G4k-At-tjy"/>

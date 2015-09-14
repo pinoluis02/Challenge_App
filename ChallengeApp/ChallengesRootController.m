@@ -7,39 +7,26 @@
 //
 
 #import "ChallengesRootController.h"
+#import "EvidencesRootController.h"
 #import "NSDate+Utils.h"
 
 @interface ChallengesRootController ()
 {
-ChallengeTableViewControllerContent mContentType;
-    CGFloat mainViewHeight;
+
 }
 @end
 
 @implementation ChallengesRootController
 
 
--(ChallengeTableViewControllerContent)contentType{
-    return mContentType;
-}
-
--(void)setContentType:(ChallengeTableViewControllerContent)contentType{
-    mContentType = contentType;
-    [self fetchData:contentType];
-}
-
-
--(NSString *)nibName{
-    return @"CustomRootController";
-}
-
-
 -(void)updateViewConstraints{
-    self.mainViewHeightConstraint.constant = mainViewHeight;
     [super updateViewConstraints];
 }
 
 - (void)viewDidLoad {
+    self.tableControllerClass = [ChallengesTableViewController class];
+    self.nextRootControllerClass = [EvidencesRootController class];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //    Networking code
@@ -47,7 +34,7 @@ ChallengeTableViewControllerContent mContentType;
     self.challengeDao.delegate = self;
     self.isFirstControllerInNavigation = true;
     //maybe we downloaded the files before the viewLoad event
-    self.tableContentController.itemsArray = self.challengesArray;
+    [self fetchData:self.contentType];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,69 +42,6 @@ ChallengeTableViewControllerContent mContentType;
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark -
-#pragma mark overrides
-
--(void)setUpMenuContent{
-    ExpandableTableViewController *commandMenuController = [ExpandableTableViewController new];
-    self.commandMenuController = commandMenuController;
-    [self addChildViewController:commandMenuController];
-    [self.commandMenuView addSubview:commandMenuController.view];
-    commandMenuController.view.frame = CGRectMake(0, 0, self.commandMenuView.frame.size.width,  self.commandMenuView.frame.size.height);
-    commandMenuController.coordinatorController = self;
-}
-
-
--(void)setUpMainViewContent{
-    mainViewHeight = 1;
-    [self.view setNeedsUpdateConstraints];
-}
-
--(void)setUpTableContent{
-    ChallengesTableViewController * tableContentController = [ChallengesTableViewController new];
-    self.tableContentController = tableContentController;
-    [self addChildViewController:tableContentController];
-    [self.tableContentView addSubview:tableContentController.tableView];
-    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
-    tableContentController.coordinatorController = self;
-}
-
-
--(void)coordinateMainItemSelection:(Challenge *)item
-               selectedByLongPress:(BOOL)longPress{
-    NSAssert(NO, @"ChallengesRootController shouldn't have a main item.");
-}
-
--(void)coordinateTableItemSelection:(Challenge *)item
-           selectedByLongPress:(BOOL)longPress;
-{
-    
-    if(longPress){
-        //unrelated, invited, accepted (incomplete), rejected, completed.
-        NSArray * items = [CustomRootController loadMenuItemsForChallengeItem:item];
-        self.commandMenuController.itemsInTable = items;
-    }
-    else{
-        EvidencesRootController * newSpan = [EvidencesRootController new];
-        newSpan.selectedItem = item;
-        [self.navigationController pushViewController:newSpan animated:true];
-        self.navigationController.navigationBar.translucent = false;
-        self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
-        
-    }
-    
-}
-
--(void)coordinateMenuHeightChange:(CGFloat)height{
-    [super coordinateMenuHeightChange:height];
-}
-
--(void)coordinateMenuItemSelection:(NSString *)command{
-    [super coordinateMenuItemSelection:command];
-}
-
-#pragma mark -
 
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
     
