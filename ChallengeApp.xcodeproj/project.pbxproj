@@ -39,6 +39,8 @@
 		0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */; };
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
+		0494FD651BA691AB008EFC3D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494FD641BA691AB008EFC3D /* Reachability.m */; };
+		0494FD671BA69476008EFC3D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494FD661BA69476008EFC3D /* SystemConfiguration.framework */; };
 		04B3C10A1BA0818A00A6D81C /* RegularItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */; };
 		04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C01BA0B5E30048996F /* Challenge.m */; };
 		04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */; };
@@ -144,6 +146,9 @@
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		0494FD631BA691AB008EFC3D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		0494FD641BA691AB008EFC3D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		0494FD661BA69476008EFC3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularItemTableViewCell.xib; sourceTree = "<group>"; };
 		04C3C8BF1BA0B5E30048996F /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = ChallengeApp/Challenge.h; sourceTree = "<group>"; };
 		04C3C8C01BA0B5E30048996F /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = ChallengeApp/Challenge.m; sourceTree = "<group>"; };
@@ -208,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0494FD671BA69476008EFC3D /* SystemConfiguration.framework in Frameworks */,
 				04CB5B211BA5552F00C8D232 /* QuartzCore.framework in Frameworks */,
 				043859FA1BA6757800DA51B6 /* FBSDKCoreKit.framework in Frameworks */,
 				04CB5B1B1BA3427000C8D232 /* UIKit.framework in Frameworks */,
@@ -346,6 +352,7 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				0494FD621BA69197008EFC3D /* Reachability */,
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
 				04DDC3A21BA11050004C20E5 /* Facebook */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
@@ -402,6 +409,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0494FD621BA69197008EFC3D /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				0494FD631BA691AB008EFC3D /* Reachability.h */,
+				0494FD641BA691AB008EFC3D /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +455,7 @@
 		04CB5AD51BA3366C00C8D232 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0494FD661BA69476008EFC3D /* SystemConfiguration.framework */,
 				043859F71BA6757800DA51B6 /* FBSDKCoreKit.framework */,
 				043859F81BA6757800DA51B6 /* FBSDKLoginKit.framework */,
 				043859F91BA6757800DA51B6 /* FBSDKShareKit.framework */,
@@ -705,6 +722,7 @@
 				046A6D541BA10E3A00488A09 /* UserCommentTableViewCell.m in Sources */,
 				0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */,
 				04F013B01BA55545003F2DE8 /* ExpandableTableViewCell.m in Sources */,
+				0494FD651BA691AB008EFC3D /* Reachability.m in Sources */,
 				043859F61BA6756800DA51B6 /* FbSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
