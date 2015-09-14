@@ -22,6 +22,9 @@
 		046A6D541BA10E3A00488A09 /* UserCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046A6D521BA10E3A00488A09 /* UserCommentTableViewCell.m */; };
 		046A6D551BA10E3A00488A09 /* UserCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046A6D531BA10E3A00488A09 /* UserCommentTableViewCell.xib */; };
 		046A6D581BA1108000488A09 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 046A6D571BA1108000488A09 /* NSDate+Utils.m */; };
+		0473DDB41BA73D0E00102308 /* SendChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */; };
+		0473DDB91BA73E2600102308 /* SendChallengeCustomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0473DDB71BA73E2600102308 /* SendChallengeCustomeTableViewCell.m */; };
+		0473DDBA1BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0473DDB81BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib */; };
 		0480B0591B9E0BB7007E71A2 /* CustomRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480B0571B9E0BB7007E71A2 /* CustomRootController.m */; };
 		0480B05A1B9E0BB7007E71A2 /* CustomRootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0480B0581B9E0BB7007E71A2 /* CustomRootController.xib */; };
 		0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480B0681B9F9DCD007E71A2 /* ContactsViewController.m */; };
@@ -37,6 +40,7 @@
 		0490F4E71B9CCCEC00318EFB /* CreateNewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */; };
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0490F4EE1B9D56AD00318EFB /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
+		0492CAB21BA66EC0001A21DB /* FriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CAB11BA66EC0001A21DB /* FriendList.m */; };
 		04B3C10A1BA0818A00A6D81C /* RegularItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */; };
 		04C3C8C91BA0B5E30048996F /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C01BA0B5E30048996F /* Challenge.m */; };
 		04C3C8CA1BA0B5E30048996F /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */; };
@@ -111,6 +115,11 @@
 		046A6D531BA10E3A00488A09 /* UserCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommentTableViewCell.xib; sourceTree = "<group>"; };
 		046A6D561BA1108000488A09 /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
 		046A6D571BA1108000488A09 /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		0473DDB11BA73D0E00102308 /* SendChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendChallengeViewController.h; sourceTree = "<group>"; };
+		0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendChallengeViewController.m; sourceTree = "<group>"; };
+		0473DDB61BA73E2600102308 /* SendChallengeCustomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendChallengeCustomeTableViewCell.h; sourceTree = "<group>"; };
+		0473DDB71BA73E2600102308 /* SendChallengeCustomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendChallengeCustomeTableViewCell.m; sourceTree = "<group>"; };
+		0473DDB81BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendChallengeCustomeTableViewCell.xib; sourceTree = "<group>"; };
 		0480B0561B9E0BB7007E71A2 /* CustomRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRootController.h; sourceTree = "<group>"; };
 		0480B0571B9E0BB7007E71A2 /* CustomRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRootController.m; sourceTree = "<group>"; };
 		0480B0581B9E0BB7007E71A2 /* CustomRootController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomRootController.xib; sourceTree = "<group>"; };
@@ -135,6 +144,8 @@
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		0492CAB01BA66E4C001A21DB /* FriendList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendList.h; sourceTree = "<group>"; };
+		0492CAB11BA66EC0001A21DB /* FriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendList.m; sourceTree = "<group>"; };
 		04B3C1091BA0818A00A6D81C /* RegularItemTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegularItemTableViewCell.xib; sourceTree = "<group>"; };
 		04C3C8BF1BA0B5E30048996F /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = ChallengeApp/Challenge.h; sourceTree = "<group>"; };
 		04C3C8C01BA0B5E30048996F /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = ChallengeApp/Challenge.m; sourceTree = "<group>"; };
@@ -317,6 +328,7 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				0492CAA91BA66417001A21DB /* Add Friends to Challenge */,
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
 				04DDC3A21BA11050004C20E5 /* Facebook */,
 				04C3C8CF1BA0B5FA0048996F /* dao */,
@@ -372,6 +384,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0492CAA91BA66417001A21DB /* Add Friends to Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				0473DDB11BA73D0E00102308 /* SendChallengeViewController.h */,
+				0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */,
+				0473DDB81BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib */,
+				0473DDB61BA73E2600102308 /* SendChallengeCustomeTableViewCell.h */,
+				0473DDB71BA73E2600102308 /* SendChallengeCustomeTableViewCell.m */,
+			);
+			name = "Add Friends to Challenge";
+			sourceTree = "<group>";
+		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +409,8 @@
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
 				04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */,
+				0492CAB01BA66E4C001A21DB /* FriendList.h */,
+				0492CAB11BA66EC0001A21DB /* FriendList.m */,
 			);
 			name = models;
 			path = ..;
@@ -606,6 +632,7 @@
 				04F013BD1BA559BD003F2DE8 /* ChallengeTableViewController.xib in Resources */,
 				04F013C51BA569F9003F2DE8 /* ExpandableTableViewCell.xib in Resources */,
 				0490F4A11B9BB2D000318EFB /* CreateNewChallengeViewController.xib in Resources */,
+				0473DDBA1BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib in Resources */,
 				0480B06B1B9F9DCD007E71A2 /* ContactsViewController.xib in Resources */,
 				0490F4861B9B5D5800318EFB /* Main.storyboard in Resources */,
 				044048421BA08D34008AA356 /* OriginalItemTableViewCell.xib in Resources */,
@@ -655,6 +682,9 @@
 				046A6D4F1BA10E1C00488A09 /* ChallengeEvidenceTableViewCell.m in Sources */,
 				046A6D4B1BA10B4900488A09 /* ChallengeCommentsTableViewController.m in Sources */,
 				044048481BA09622008AA356 /* OriginalItemTableViewCell.m in Sources */,
+				0473DDB91BA73E2600102308 /* SendChallengeCustomeTableViewCell.m in Sources */,
+				0473DDB41BA73D0E00102308 /* SendChallengeViewController.m in Sources */,
+				0492CAB21BA66EC0001A21DB /* FriendList.m in Sources */,
 				04C3C8CB1BA0B5E30048996F /* ChallengeDao.m in Sources */,
 				04CB5B1F1BA4E12400C8D232 /* NetworkManager.m in Sources */,
 				04F013B21BA55545003F2DE8 /* ExpandableTableViewController.m in Sources */,
