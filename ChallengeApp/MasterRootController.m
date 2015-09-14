@@ -7,14 +7,16 @@
 //
 
 #import "MasterRootController.h"
-#import "OriginalItemTableViewCell.h"
+#import "ChallengeTableViewCellFull.h"
+#import "EvidenceTableViewCellFull.h"
 
 @interface MasterRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
 //    id mSelectedItem;
         CGFloat mainViewHeight;
-        UILongPressGestureRecognizer * mainViewLpgr;
+        UILongPressGestureRecognizer * tableHeaderLpgr;
         UILongPressGestureRecognizer * tableLpgr;
+        UITapGestureRecognizer * tableHeaderTapGr;
 }
 @end
 
@@ -23,7 +25,8 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 
 -(NSString *)nibName{
-    return @"CustomRootController";
+    NSString * classNameStr = NSStringFromClass([MasterRootController class]);
+    return classNameStr;
 }
 - (void)viewWillAppear:(BOOL)animated {
     if(self.isFirstControllerInNavigation){
@@ -52,20 +55,6 @@ bool tabBarVerticalSpaceConstraintFixed;
     self.mainViewHeightConstraint.constant = mainViewHeight;
     [super updateViewConstraints];
 }
-
-
-//-(id)selectedItem{
-//    return mSelectedItem;
-//}
-//
-//-(void)setSelectedItem:(id)value{
-//    mSelectedItem = value;
-//    [self selectedItemSet];
-//}
-//
-//- (void)selectedItemSet {
-//    
-//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -130,6 +119,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     }
 }
 
+
 -(UIView*)createTableHeaderView: (id)object{
     NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OriginalItemTableViewCell"
                                                       owner:self
@@ -152,46 +142,50 @@ bool tabBarVerticalSpaceConstraintFixed;
 }
 
 
+
 -(void)setUpTableContent{
     MasterTableViewController * tableContentController = [self.tableControllerClass new];
     self.tableContentController = tableContentController;
     [self addChildViewController:tableContentController];
     [self.tableContentView addSubview:tableContentController.tableView];
-    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
+//    tableContentController.tableView.frame = CGRectMake(0, 0, self.tableContentView.frame.size.width,  self.tableContentView.frame.size.height);
     tableContentController.coordinatorController = self;
     
     UIView * header = [self createTableHeaderView:self.selectedItem];
-    [self.tableContentController.tableView setTableHeaderView:header];
     
-    mainViewLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnHeaderView:)];
-    mainViewLpgr.minimumPressDuration = 1.0; //seconds
-    mainViewLpgr.delegate = self;
-    [self.mainItemView addGestureRecognizer:mainViewLpgr];
+    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+    CGRect frame = header.frame;
+    frame.size.height = height;
+    header.frame = frame;
+    
+    self.tableContentController.tableView.tableHeaderView = header;
+    
+    tableHeaderLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnHeaderView:)];
+    tableHeaderLpgr.minimumPressDuration = 1.0; //seconds
+    tableHeaderLpgr.delegate = self;
+    [header addGestureRecognizer:tableHeaderLpgr];
+    
+    tableHeaderTapGr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapOnHeaderView:)];
+    tableHeaderTapGr.delegate = self;
+    [header addGestureRecognizer:tableHeaderTapGr];
 
-//    tableLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnTable:)];
-//    tableLpgr.minimumPressDuration = 1.0; //seconds
-//    tableLpgr.delegate = self;
-//    [self.tableContentController.tableView addGestureRecognizer:tableLpgr];
+    tableLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnTable:)];
+    tableLpgr.minimumPressDuration = 1.0; //seconds
+    tableLpgr.delegate = self;
+    [self.tableContentController.tableView addGestureRecognizer:tableLpgr];
+    
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-       NSLog(@"gestureRecognizerShouldBegin \n %@", gestureRecognizer);
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-        NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer: \n\t g1: %@ \t\n g2:%@", gestureRecognizer, otherGestureRecognizer);
-    return YES;
+- (void)handleTapOnHeaderView:(UILongPressGestureRecognizer *)gestureRecognizer{
+        [self itemSelectionHandler:self.selectedItem selectedByLongPress:NO];
 }
 
 -(void)handleLongPressOnHeaderView:(UILongPressGestureRecognizer *)recognizer{
-    NSLog(@"handleLongPressOnHeaderView");
     [self itemSelectionHandler:self.selectedItem selectedByLongPress:YES];
 }
 
 - (void)handleLongPressOnTable:(UILongPressGestureRecognizer *)gestureRecognizer
 {
-        NSLog(@"handleLongPressOnTable");
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         
         CGPoint p = [gestureRecognizer locationInView:self.tableContentController.tableView];
@@ -199,12 +193,54 @@ bool tabBarVerticalSpaceConstraintFixed;
         NSIndexPath *indexPath = [self.tableContentController.tableView indexPathForRowAtPoint:p];
         if (indexPath == nil) {
             return;
-        } else {
+        } else {            
             id item = self.tableContentController.itemsArray[indexPath.row];
             [self itemSelectionHandler:item selectedByLongPress:YES];
         }
     }
 }
+
+
++(UIView*)createTableHeaderViewForChallenge: (Challenge *)object{
+    NSString * classNameStr = NSStringFromClass([ChallengeTableViewCellFull class]);
+    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:classNameStr
+                                                      owner:self
+                                                    options:nil];
+    Challenge * item = object;
+    ChallengeTableViewCellFull * customCell = [ nibViews objectAtIndex: 0];
+    customCell.title.text = item.title;
+    customCell.challengeDescription.text = item.descriptionItem;
+    customCell.author.text = item.nameAuthor;
+    customCell.pubDate.text = item.creationDate;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
+    UIImage * image = [UIImage imageWithData:imageData];
+    [customCell.image setImage:image];
+    return customCell;
+    
+}
+
+
++(UIView*)createTableHeaderViewForEvidence: (Evidence *)object{
+    NSString * classNameStr = NSStringFromClass([EvidenceTableViewCellFull class]);
+    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:classNameStr
+                                                      owner:self
+                                                    options:nil];
+    
+    Evidence * item = object;
+    EvidenceTableViewCellFull * customCell = [ nibViews objectAtIndex: 0];
+    NSString * loremLipsum = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+    
+    
+    customCell.evidenceDescription.text = loremLipsum;
+    customCell.authorUsername.text = @"Nivardo's";
+    customCell.creationDate.text = item.created_at;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.imageUrl]];
+    UIImage * image = [UIImage imageWithData:imageData];
+    [customCell.thumbnail setImage:image];
+    return  customCell;
+    
+}
+
 
 
 +(NSArray *)loadMenuItemsForEvidence{
@@ -239,6 +275,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     NSArray * items =  [dict valueForKey:@"Items"];
     return  items;
 }
+
 
 
 @end

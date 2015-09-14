@@ -7,7 +7,7 @@
 //
 
 #import "EvidencesTableViewController.h"
-#import "ChallengeEvidenceTableViewCell.h"
+#import "EvidenceTableViewCellCompact.h"
 
 @interface EvidencesTableViewController ()
 
@@ -30,13 +30,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    Challenge * item = [self.itemsArray objectAtIndex:indexPath.row];
+    Evidence * cast = [self.itemsArray objectAtIndex:indexPath.row];
     UITableViewCell * cell;
+    NSString * classNameStr = NSStringFromClass([EvidenceTableViewCellCompact class]);
+    EvidenceTableViewCellCompact *customCell = [tableView dequeueReusableCellWithIdentifier:classNameStr forIndexPath:indexPath];
+    
+    
         NSString * loremLipsum = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
         
-        
-        ChallengeEvidenceTableViewCell *customCell = [tableView dequeueReusableCellWithIdentifier:@"ChallengeEvidenceTableViewCell" forIndexPath:indexPath];
-        Evidence * cast = (Evidence *)item;
+    
         customCell.evidenceDescription.text = loremLipsum;
         customCell.authorUsername.text = @"Nivardo's";
         customCell.creationDate.text = cast.created_at;

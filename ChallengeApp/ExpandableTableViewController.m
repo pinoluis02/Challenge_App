@@ -39,8 +39,9 @@
 
     
     self.menuTableView = (UITableView*)self.view;
-    UINib *cellNib = [UINib nibWithNibName:@"ExpandableTableViewCell" bundle:nil];
-    [self.menuTableView registerNib: cellNib forCellReuseIdentifier:@"ExpandableTableViewCell"];
+     NSString * classNameStr = NSStringFromClass([ExpandableTableViewCell class]);
+    UINib *cellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.menuTableView registerNib: cellNib forCellReuseIdentifier:classNameStr];
 
     //    WARNING: Don't remove this, this is the simplest way to the total height required by the table's cell.
     self.menuTableView.rowHeight = 36;

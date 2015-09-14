@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OriginalItemTableViewCell : UITableViewCell
+@interface ChallengeTableViewCellFull : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *author;
 @property (weak, nonatomic) IBOutlet UILabel *pubDate;
