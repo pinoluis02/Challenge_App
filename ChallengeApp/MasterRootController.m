@@ -137,7 +137,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     
     UIView * header = [self createTableHeaderView:self.selectedItem];
     
-    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGRect frame = header.frame;
     frame.size.height = height;
     header.frame = frame;
@@ -199,6 +199,18 @@ bool tabBarVerticalSpaceConstraintFixed;
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
     UIImage * image = [UIImage imageWithData:imageData];
     [customCell.image setImage:image];
+    [customCell setNeedsLayout];
+    [customCell layoutIfNeeded];
+    
+//    [customCell.contentView removeFromSuperview];
+//    CGRect screenRect = [[UIScreen mainScreen] bounds];
+//    CGFloat screenWidth = screenRect.size.width;
+//    UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, customCell.bounds.size.height)];
+//    customCell.contentView.frame = CGRectMake(0, 0, screenWidth, 600);
+//    [v addSubview:customCell.contentView];
+//    v.frame = customCell.frame;
+//    return v;
+    
     return customCell;
     
 }

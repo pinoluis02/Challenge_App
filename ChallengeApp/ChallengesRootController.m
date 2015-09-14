@@ -45,7 +45,7 @@
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
 //    NSLog(@"contentType:%@",[self contentypeToString:contentType]);
     
-    BOOL debug = false;
+    BOOL debug = true;
     if(!debug)
     {
         switch (contentType) {

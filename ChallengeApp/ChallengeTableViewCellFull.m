@@ -20,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+-(void)layoutSubviews{
+//    http://roadfiresoftware.com/2015/05/how-to-size-a-table-header-view-using-auto-layout-in-interface-builder/
+    [super layoutSubviews];
+//    self.challengeDescription.preferredMaxLayoutWidth = self.challengeDescription.bounds.size.width;
+}
+
 @end
