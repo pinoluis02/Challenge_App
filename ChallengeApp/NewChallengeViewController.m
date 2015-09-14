@@ -21,13 +21,18 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface NewChallengeViewController ()
+enum {
+    kSendBufferSize = 32768
+};
+
+@interface NewChallengeViewController () <NSStreamDelegate>
 {
     MPMoviePlayerController *_player;
 //    IBOutlet  UIImageView *image;
 }
 
 @property (strong, nonatomic) MPMoviePlayerController *player;
+
 // things for IB
 
 @property (nonatomic, strong, readwrite) IBOutlet UITextField * urlText;
@@ -37,8 +42,14 @@
 @property (nonatomic, strong) NSString * passwordText;
 
 
+// Properties that don't need to be seen by the outside world.
+
+@property (nonatomic, assign, readonly ) BOOL              isSending;
+
 @property (nonatomic, strong, readwrite) NSOutputStream *  networkStream;
 @property (nonatomic, strong, readwrite) NSInputStream *   fileStream;
+
+@property (nonatomic, assign, readonly ) uint8_t *         buffer;
 
 @property (weak, nonatomic) IBOutlet UIView *movieView; // this should point to a view where the movie will play
 
@@ -46,6 +57,9 @@
 @end
 
 @implementation NewChallengeViewController
+{
+    uint8_t                     _buffer[kSendBufferSize];
+}
 
 - (void)viewDidLoad
 {
@@ -60,7 +74,7 @@
     _player.view.frame = CGRectMake(30, 464, 150, 150);
     [self.view addSubview:_player.view];
     
-    _player.shouldAutoplay = YES;
+    _player.shouldAutoplay = NO;
     [_player prepareToPlay];
 }
 
@@ -119,6 +133,9 @@
         UIImagePickerController *picker= [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+        picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+        
         picker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage, nil];
         
         [self presentModalViewController:picker animated:YES];
@@ -131,6 +148,8 @@
 {
     NSLog(@"This is the image PickerController");
     
+    NSLog(@"Info ->%@", info);
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     NSLog(@"progressIndicatorView");
@@ -138,6 +157,7 @@
     self.ChooseFromGallery.hidden =YES;
     
     NSURL *urlvideo = [info objectForKey:UIImagePickerControllerMediaURL];
+    
     NSLog(@"urlvideo is ->%@",urlvideo);
     
     NSError *error = nil;
@@ -149,6 +169,8 @@
     CMTime duration = playerItem.duration;
     float seconds = CMTimeGetSeconds(duration);
     NSLog(@"duration: %.2f", seconds);
+    
+    NSLog(@"urlVideo Path ->%@", [urlvideo path]);
     
     NSString *urlString=[urlvideo path];
     NSLog(@"urlString for file ->%@", urlString);
@@ -166,18 +188,24 @@
     NSLog(@"URL Video -> %@", urlvideo);
     
     [self startSend:urlString];
+//    [self startSend:urlvideo];
 }
 
 - (void)startSend:(NSString *)filePath
 {
-    NSLog(@"filePath for file -> %@", filePath);
+    NSLog(@"filePath for file ->%@", filePath);
     
     BOOL                    success;
     NSURL *                 url;
     
+    NSLog(@"____filePath ->%@", filePath);
+    
     assert(filePath != nil);
     assert([[NSFileManager defaultManager] fileExistsAtPath:filePath]);
-    assert( [filePath.pathExtension isEqual:@"MOV"] || [filePath.pathExtension isEqual:@"jpg"] || [filePath.pathExtension isEqual:@"png"] );
+    assert( [filePath.pathExtension isEqual:@"MOV"]
+         || [filePath.pathExtension isEqual:@"JPG"]
+         || [filePath.pathExtension isEqual:@"PNG"]
+        );
     
     assert(self.networkStream == nil);      // don't tap send twice in a row!
     assert(self.fileStream == nil);         // ditto
@@ -190,11 +218,10 @@
     
 //    NSString * urlText = @"ftp://ftp.drivehq.com/My%20Documents/";
     
-    NSLog(@"urlText -> %@", urlText);
+    NSLog(@"urlText ->%@", urlText);
     
     url = [[NetworkManager sharedInstance] smartURLForString:urlText];
-    
-    NSLog(@"url -> %@", url);
+    NSLog(@"url ->%@", url);
     success = (url != nil);
     
     if (success)
@@ -203,9 +230,13 @@
         // Add the last part of the file name to the end of the URL to form the final
         // URL that we're going to put to.
         
-        url = CFBridgingRelease(
-                                CFURLCreateCopyAppendingPathComponent(NULL, (__bridge CFURLRef) url, (__bridge CFStringRef) [filePath lastPathComponent], false)
-                                );
+        NSLog(@"filePath lastPathComponent ->%@", [filePath lastPathComponent]);
+        
+        url = CFBridgingRelease( CFURLCreateCopyAppendingPathComponent(NULL, (__bridge CFURLRef) url, (__bridge CFStringRef) [filePath lastPathComponent], false) );
+        
+        NSLog(@"url CFBridgingRelease ->%@", url);
+        NSLog(@"filePatch ->%@", filePath);
+        
         success = (url != nil);
     }
     
@@ -227,7 +258,7 @@
     [self.fileStream open];
     
     // Open a CFFTPStream for the URL.
-    
+    NSLog(@"Open CFFTP url ->%@", url);
     self.networkStream = CFBridgingRelease( CFWriteStreamCreateWithFTPURL(NULL, (__bridge CFURLRef) url));
     
     assert(self.networkStream != nil);
@@ -293,6 +324,16 @@
     [aProgressView addSubview:self.progressLabel];
     [aProgressView addSubview:_progressIndicator];
     [self.view addSubview:aProgressView];
+}
+
+- (uint8_t *)buffer
+{
+    return self->_buffer;
+}
+
+- (BOOL)isSending
+{
+    return (self.networkStream != nil);
 }
 
 @end
