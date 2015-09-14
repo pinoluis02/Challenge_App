@@ -96,6 +96,7 @@
 
 @protocol ChallengeDelegate <NSObject>
 
+@optional
 -(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray;
 -(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray;
 -(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray;
@@ -126,6 +127,7 @@
 
 -(void)  didFinishGetExistUserWithResult:(NSArray *) resultArray;
 @end
+
 
 
 @interface ChallengeDao : NSObject <ConnectionDelegate, JSONParsingDelegate>
