@@ -18,10 +18,11 @@
 @property (strong, nonatomic) NSString *idAuthor;
 @property (strong, nonatomic) NSString *nameAuthor;
 @property (strong, nonatomic) NSString *creationDate;
-@property (strong, nonatomic) NSString *userStatus;
+
 @property (strong, nonatomic) NSString *donation;
 @property (strong, nonatomic) NSString *idPayPal;
 @property (strong, nonatomic) NSString *organization;
-//@property (strong, nonatomic) NSString *idUser;
+@property (strong, nonatomic) NSString *hashtags;
+@property (strong, nonatomic) NSString *userStatus;
 @property float mount;
 @end

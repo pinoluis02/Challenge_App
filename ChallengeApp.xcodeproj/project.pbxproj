@@ -78,6 +78,8 @@
 		04F013D01BA5838E003F2DE8 /* unrelatedChallengeCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F013CF1BA5838E003F2DE8 /* unrelatedChallengeCommands.plist */; };
 		04F013D31BA5A4C6003F2DE8 /* ChallengesRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F013D21BA5A4C6003F2DE8 /* ChallengesRootController.m */; };
 		4121429F1BA35C8000C792ED /* ParsingChallenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4121429E1BA35C8000C792ED /* ParsingChallenge.m */; };
+		415847A41BA6AF590027965B /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 415847A31BA6AF590027965B /* NSString+URLEncode.m */; };
+		415847A81BA6B01A0027965B /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 415847A71BA6B01A0027965B /* Message.m */; };
 		416B9F081BA2244D00761422 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F071BA2244D00761422 /* Evidence.m */; };
 		416B9F0E1BA2B9D800761422 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F0D1BA2B9D800761422 /* User.m */; };
 /* End PBXBuildFile section */
@@ -202,6 +204,10 @@
 		04F013D21BA5A4C6003F2DE8 /* ChallengesRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChallengesRootController.m; sourceTree = "<group>"; };
 		4121429D1BA35C8000C792ED /* ParsingChallenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingChallenge.h; sourceTree = "<group>"; };
 		4121429E1BA35C8000C792ED /* ParsingChallenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingChallenge.m; sourceTree = "<group>"; };
+		415847A21BA6AF590027965B /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		415847A31BA6AF590027965B /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		415847A61BA6B01A0027965B /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		415847A71BA6B01A0027965B /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		416B9F061BA2244D00761422 /* Evidence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Evidence.h; path = ChallengeApp/Evidence.h; sourceTree = "<group>"; };
 		416B9F071BA2244D00761422 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Evidence.m; path = ChallengeApp/Evidence.m; sourceTree = "<group>"; };
 		416B9F0C1BA2B9D800761422 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ChallengeApp/User.h; sourceTree = "<group>"; };
@@ -431,6 +437,8 @@
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
 				04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */,
+				415847A61BA6B01A0027965B /* Message.h */,
+				415847A71BA6B01A0027965B /* Message.m */,
 			);
 			name = models;
 			path = ..;
@@ -439,6 +447,7 @@
 		04C3C8CF1BA0B5FA0048996F /* dao */ = {
 			isa = PBXGroup;
 			children = (
+				415847A51BA6AF5D0027965B /* Categories */,
 				4121429D1BA35C8000C792ED /* ParsingChallenge.h */,
 				4121429E1BA35C8000C792ED /* ParsingChallenge.m */,
 				04C3C8C31BA0B5E30048996F /* ChallengeDao.h */,
@@ -565,6 +574,15 @@
 				04F013C41BA569F9003F2DE8 /* ExpandableTableViewCell.xib */,
 			);
 			name = cells;
+			sourceTree = "<group>";
+		};
+		415847A51BA6AF5D0027965B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				415847A21BA6AF590027965B /* NSString+URLEncode.h */,
+				415847A31BA6AF590027965B /* NSString+URLEncode.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -696,6 +714,8 @@
 				044048451BA09547008AA356 /* RegularItemTableViewCell.m in Sources */,
 				0480B06A1B9F9DCD007E71A2 /* ContactsViewController.m in Sources */,
 				0440484D1BA09AF1008AA356 /* CustomTableViewController.m in Sources */,
+				415847A41BA6AF590027965B /* NSString+URLEncode.m in Sources */,
+				415847A81BA6B01A0027965B /* Message.m in Sources */,
 				416B9F0E1BA2B9D800761422 /* User.m in Sources */,
 				046A6D481BA10AFF00488A09 /* ChallengeEvidenceTableViewController.m in Sources */,
 				04C3C8CD1BA0B5E30048996F /* JSONParsing.m in Sources */,

@@ -179,14 +179,14 @@
     itemOne.challengeId = @"1";
     itemOne.imageUrl = @"http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eecf65c5a16f7/thumbnail_8877914413458619170.jpg";
     itemOne.videoUrl = @"http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eecf65c5a16f7/thumbnail_8877914413458619170.jpg";
-    itemOne.date = [[NSDate date] shortFormattedDateString];
+    itemOne.created_at = [[NSDate date] shortFormattedDateString];
     
     Evidence * itemTwo = [Evidence new];
     itemTwo.evidenceId = @"1";
     itemTwo.challengeId = @"1";
     itemTwo.imageUrl = @"http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eecf65c5a16f7/thumbnail_8877914413458619170.jpg";
     itemTwo.videoUrl = @"http://i.cdn.turner.com/asfix/repository//8a25c3920eec2495010eecf65c5a16f7/thumbnail_8877914413458619170.jpg";
-    itemTwo.date = [[NSDate date] shortFormattedDateString];
+    itemTwo.created_at = [[NSDate date] shortFormattedDateString];
     
     
     NSArray * resultsArray = @[itemOne, itemTwo];
