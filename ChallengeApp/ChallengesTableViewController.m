@@ -36,6 +36,7 @@
         
         customCell.title.text = cast.title;
         customCell.challengeDescription.text = cast.descriptionItem;
+        customCell.challengeDescription.numberOfLines = 5;
         customCell.author.text = cast.nameAuthor;
         customCell.pubDate.text = cast.creationDate;
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.urlThumbnail]];

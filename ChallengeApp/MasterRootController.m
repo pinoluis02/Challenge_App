@@ -163,32 +163,21 @@ bool tabBarVerticalSpaceConstraintFixed;
     mainViewLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnHeaderView:)];
     mainViewLpgr.minimumPressDuration = 1.0; //seconds
     mainViewLpgr.delegate = self;
-    [self.mainItemView addGestureRecognizer:mainViewLpgr];
+    [header addGestureRecognizer:mainViewLpgr];
 
-//    tableLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnTable:)];
-//    tableLpgr.minimumPressDuration = 1.0; //seconds
-//    tableLpgr.delegate = self;
-//    [self.tableContentController.tableView addGestureRecognizer:tableLpgr];
+    tableLpgr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressOnTable:)];
+    tableLpgr.minimumPressDuration = 1.0; //seconds
+    tableLpgr.delegate = self;
+    [self.tableContentController.tableView addGestureRecognizer:tableLpgr];
 }
 
-- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
-       NSLog(@"gestureRecognizerShouldBegin \n %@", gestureRecognizer);
-    return YES;
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-        NSLog(@"shouldRecognizeSimultaneouslyWithGestureRecognizer: \n\t g1: %@ \t\n g2:%@", gestureRecognizer, otherGestureRecognizer);
-    return YES;
-}
 
 -(void)handleLongPressOnHeaderView:(UILongPressGestureRecognizer *)recognizer{
-    NSLog(@"handleLongPressOnHeaderView");
     [self itemSelectionHandler:self.selectedItem selectedByLongPress:YES];
 }
 
 - (void)handleLongPressOnTable:(UILongPressGestureRecognizer *)gestureRecognizer
 {
-        NSLog(@"handleLongPressOnTable");
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         
         CGPoint p = [gestureRecognizer locationInView:self.tableContentController.tableView];
