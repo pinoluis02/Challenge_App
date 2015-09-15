@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "FriendList.h"
+#import "FBFriend.h"
 
-@implementation FriendList
+@implementation FBFriend
 
 @end

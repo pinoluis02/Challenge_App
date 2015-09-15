@@ -39,8 +39,8 @@
     NSString *type = [resultDictionary objectForKey:@"resultType"];
     NSString *result = [resultDictionary objectForKey:@"result"];
     
-    NSLog(@"type : %@", type);
-    NSLog(@"resultDictionary: %@", resultDictionary);
+//    NSLog(@"type : %@", type);
+//    NSLog(@"resultDictionary: %@", resultDictionary);
     
     NSDictionary *challengeRequestsDictionary = [resultDictionary objectForKey:@"challengerequests"];
     NSDictionary *evidencesDictionary = [resultDictionary objectForKey:@"evidences"];

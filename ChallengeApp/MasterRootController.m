@@ -9,6 +9,7 @@
 #import "MasterRootController.h"
 #import "ChallengeTableViewCellFull.h"
 #import "EvidenceTableViewCellFull.h"
+#import "SendChallengeViewController.h"
 
 @interface MasterRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
@@ -92,6 +93,15 @@ bool tabBarVerticalSpaceConstraintFixed;
     if([command isEqualToString:@"Cancel"]){
         self.commandMenuController.itemsInTable = nil;
     }
+    else if([command isEqualToString:@"Share"]){
+//        [[FbSingleton sharedInstance] shareLinkWithURL:<#(NSString *)#> Title:self.it Description:<#(NSString *)#> ImageUrl:<#(NSString *)#>];
+    }
+    else if([command isEqualToString:@"Challenge People"]){
+        self.commandMenuController.itemsInTable = nil;
+        SendChallengeViewController * shareController = [SendChallengeViewController new];
+        [self pushToNavigationController:shareController];
+    }
+
 }
 
 
@@ -112,13 +122,16 @@ bool tabBarVerticalSpaceConstraintFixed;
     else{
         MasterRootController * newRootController = [self.nextRootControllerClass new];
         newRootController.selectedItem = item;
-        self.navigationController.navigationBar.translucent = false;
-        self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
-        [self.navigationController pushViewController:newRootController animated:true];
-        
+        [self pushToNavigationController:newRootController];
     }
 }
 
+-(void)pushToNavigationController:(UIViewController *)controller{
+    self.navigationController.navigationBar.translucent = false;
+    self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.navigationController pushViewController:controller animated:true];
+
+}
 
 -(UIView*)createTableHeaderView: (id)object{
     return nil;
@@ -137,7 +150,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     
     UIView * header = [self createTableHeaderView:self.selectedItem];
     
-    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGRect frame = header.frame;
     frame.size.height = height;
     header.frame = frame;
@@ -199,6 +212,18 @@ bool tabBarVerticalSpaceConstraintFixed;
     NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.urlThumbnail]];
     UIImage * image = [UIImage imageWithData:imageData];
     [customCell.image setImage:image];
+    [customCell setNeedsLayout];
+    [customCell layoutIfNeeded];
+    
+//    [customCell.contentView removeFromSuperview];
+//    CGRect screenRect = [[UIScreen mainScreen] bounds];
+//    CGFloat screenWidth = screenRect.size.width;
+//    UIView * v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, customCell.bounds.size.height)];
+//    customCell.contentView.frame = CGRectMake(0, 0, screenWidth, 600);
+//    [v addSubview:customCell.contentView];
+//    v.frame = customCell.frame;
+//    return v;
+    
     return customCell;
     
 }
