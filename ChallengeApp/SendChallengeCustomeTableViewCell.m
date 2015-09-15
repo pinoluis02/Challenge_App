@@ -20,29 +20,6 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
-}
-
-- (IBAction)selectFriendButton:(id)sender
-{
-
-    NSLog(@"Button Pressend from Custome Cell");
-    
-    if ([self.selectFriendButton isSelected])
-    {
-        [self.selectFriendButton setImage:[UIImage imageNamed:@"RoundCheck.png"] forState:UIControlStateSelected];
-    }
-    else
-    {
-        [self.selectFriendButton setImage:[UIImage imageNamed:@"RoundUnCheck.png"] forState:UIControlStateNormal];
-    }
-    
-    
-}
 
 
 @end

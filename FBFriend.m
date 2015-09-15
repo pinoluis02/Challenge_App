@@ -9,5 +9,7 @@
 #import "FBFriend.h"
 
 @implementation FBFriend
-
+-(NSString *)description{
+    return self.userName;
+}
 @end
