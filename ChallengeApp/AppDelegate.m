@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "CreateNewChallengeViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
@@ -21,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-   // tabBarController.selectedIndex = 0;
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    tabBarController.selectedIndex = 3;
     [FBSDKLoginButton class];
     
     return YES;

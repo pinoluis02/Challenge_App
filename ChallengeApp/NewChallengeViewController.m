@@ -15,20 +15,32 @@
 #import <AVFoundation/AVPlayerItem.h>
 
 #import <CoreMedia/CoreMedia.h>
+#import "MakeDonationViewController.h"
 
 #import "NetworkManager.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <QuartzCore/QuartzCore.h>
+#import "UploadEvidenceViewController.h"
 
 enum {
     kSendBufferSize = 32768
 };
 
+NSString * descriptionPlaceholderText = @"[Insert description here ..]";
 @interface NewChallengeViewController () <NSStreamDelegate>
 {
     MPMoviePlayerController *_player;
 //    IBOutlet  UIImageView *image;
+    NSString * createNewChallengeView_donationAmount;
+    NSString * createNewChallengeView_donationPaypalId;
+    NSString * createNewChallengeView_donationOrganization;
+    NSString * createNewChallengeView_resourceType;
+    NSString * createNewChallengeView_resourceUrl;
+    NSString * createNewChallengeView_thumbnailUrl;
+    
+    BOOL donationViewVisible;
 }
 
 @property (strong, nonatomic) MPMoviePlayerController *player;
@@ -61,33 +73,67 @@ enum {
     uint8_t _buffer[kSendBufferSize];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+        [self.navigationController setNavigationBarHidden:YES animated:animated];
+        [super viewWillAppear:animated];
+    
+//    unwind happens before this event, if the donationViewVisible is set, the user used navigationController to go back.
+    if(donationViewVisible){
+        self.switchView.on = NO;
+        donationViewVisible = false;
+    }
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [super viewWillDisappear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//    [self mediaPlayerCode];
+    [self setTextViewBorder];
+    self.donationSummary.hidden = YES;
+    self.challengeDescription.text = descriptionPlaceholderText;
     
-//    NSURL *url = [NSURL URLWithString:@"http://ebookfrenzy.com/ios_book/movie/movie.mov"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.1.20/mcs/team/challengue/videos/imagine.mp4"];
+}
+
+-(void)mediaPlayerCode{
+    //    NSURL *url = [NSURL URLWithString:@"http://ebookfrenzy.com/ios_book/movie/movie.mov"];
+    //    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=lp-EO5I60KA"];
     
- //   NSURL *url = [NSURL URLWithString:@"http://192.168.1.20/mcs/team/challengue/videos/imagine.mov"];
+    //    _player = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    //    _player.view.frame = CGRectMake(30, 464, 150, 150);
+    //    [self.view addSubview:_player.view];
+    //    _player.shouldAutoplay = NO;
+    //    [_player prepareToPlay];
     
     
    
    
 //    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=lp-EO5I60KA"];
 
-    _player = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    _player.view.frame = CGRectMake(30, 464, 150, 150);
-    [self.view addSubview:_player.view];
-    
-    _player.shouldAutoplay = NO;
-    [_player prepareToPlay];
 }
+
+
+- (void)setTextViewBorder
+{
+    UITextView * textField = self.challengeDescription;
+    textField.layer.borderWidth = 1.0f;
+    UIColor * borderColor = [[UIColor alloc] initWithWhite:.1 alpha:.125];
+    textField.layer.borderColor = [borderColor CGColor];
+    textField.layer.cornerRadius = 5;
+    textField.clipsToBounds = YES;
+    
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
     
 }
 
@@ -112,21 +158,65 @@ enum {
     NSLog(@"This is the button to add Media to the File Server");
 }
 
-- (IBAction)makeDonationSwith:(UISwitch *)sender
+- (IBAction)makeDonationSwitch:(UISwitch *)sender
 {
     if ([sender isOn])
     {
-        [self performSegueWithIdentifier:@"ShowDontationSegue" sender:self];
+        [self performSegueWithIdentifier:@"ShowDonationSegue" sender:self];
     }
-    else
-    {
-        NSLog(@"Donataion is Off");
+    else{
+//        was on
+        self.donationSummary.text = @"";
+        createNewChallengeView_donationPaypalId = @"";
+        createNewChallengeView_donationAmount = @"";
     }
+}
+
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue
+                  sender:(id)sender {
+     if([segue.identifier isEqualToString:@"gotoUploadEvidence"]){
+         UploadEvidenceViewController * uploadEvidence = segue.destinationViewController;
+         uploadEvidence.createNewChallengeView_donationAmount = createNewChallengeView_donationAmount;
+         uploadEvidence.createNewChallengeView_donationPaypalId = createNewChallengeView_donationPaypalId;
+         uploadEvidence.createNewChallengeView_title = self.challengeTitle.text;
+         uploadEvidence.createNewChallengeView_description = self.challengeDescription.text;
+         uploadEvidence.createNewChallengeView_resourceType = createNewChallengeView_resourceType;
+         uploadEvidence.createNewChallengeView_resourceUrl = createNewChallengeView_resourceUrl;
+         uploadEvidence.createNewChallengeView_thumbnailUrl = createNewChallengeView_thumbnailUrl;
+         uploadEvidence.createNewChallengeView_donationOrganization = createNewChallengeView_donationOrganization;
+         uploadEvidence.userComesFromCreateNewChallengeView = YES;
+     }
+     else{
+         donationViewVisible = true;
+     }
+ }
+
+
+-(IBAction)unwind:(UIStoryboardSegue *)seg{
+    NSLog(@"unwind");
+    MakeDonationViewController * donationController =  seg.sourceViewController;
+    createNewChallengeView_donationAmount = donationController.inputAmount.text;
+    createNewChallengeView_donationPaypalId = donationController.inputPaypalId.text;
+    createNewChallengeView_donationOrganization = donationController.organizationName;
+    self.donationSummary.hidden = NO;
+    self.donationSummary.text = [[NSString alloc]initWithFormat: @"Donating: $%ld to %@", (long)[createNewChallengeView_donationAmount integerValue], createNewChallengeView_donationPaypalId];
+    donationViewVisible = false;
+    
 }
 
 - (IBAction)submitChallengeButton:(UIButton *)sender
 {
-    NSLog(@"Submit button action pressed");
+    NSString * description = @"";
+    if(![self.challengeDescription.text isEqualToString:descriptionPlaceholderText]){
+       description = self.challengeDescription.text;
+    }
+    if(!self.challengeTitle.text){
+        return;
+    }
+    
+    NSString * segueIdentifier = @"gotoUploadEvidence";
+    [self performSegueWithIdentifier:segueIdentifier sender:self];
 }
 
 - (IBAction)ChooseFromGallery:(id)sender
@@ -144,7 +234,7 @@ enum {
         
         picker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage, nil];
         
-        [self presentModalViewController:picker animated:YES];
+        [self presentViewController:picker animated:YES completion:nil];
     }
     
     NSLog(@"Choose From Gallery Ended");
@@ -160,7 +250,7 @@ enum {
     
     NSLog(@"progressIndicatorView");
     [self progressIndicatorView];
-    self.ChooseFromGallery.hidden =YES;
+    self.ChooseFromGallery.hidden = YES;
     
     NSURL *urlvideo = [info objectForKey:UIImagePickerControllerMediaURL];
     
@@ -322,12 +412,9 @@ enum {
     progressTitleLabel.text = @"Uploading Video";
     progressTitleLabel.textColor = [UIColor blackColor];
     
-    self.progressLabel = [[UILabel alloc]initWithFrame:CGRectMake(90, 80, 70, 15)];
-    [self.progressLabel setBackgroundColor:[UIColor whiteColor]];
     _progressIndicator = [[UIProgressView alloc] init];
     _progressIndicator.frame = CGRectMake(30,65,140,20);
     [aProgressView addSubview:progressTitleLabel];
-    [aProgressView addSubview:self.progressLabel];
     [aProgressView addSubview:_progressIndicator];
     [self.view addSubview:aProgressView];
 }

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+extern NSString * descriptionPlaceholderText;
 @interface NewChallengeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImagePickerController *videoPicker;
@@ -20,17 +20,17 @@
     UIView * aProgressView ;
 }
 
-- (IBAction)addMediaButton:(UIButton *)sender;
-- (IBAction)makeDonationSwith:(UISwitch *)sender;
-- (IBAction)submitChallengeButton:(UIButton *)sender;
-
-
-
-- (IBAction)ChooseFromGallery:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *ChooseFromGallery;
-
-@property (strong,nonatomic) IBOutlet UILabel *progressLabel;
 @property(strong,nonatomic)IBOutlet  UIProgressView *progressIndicator;
+@property(strong,nonatomic)IBOutlet  UILabel *donationSummary;
+@property(strong,nonatomic)IBOutlet  UITextView *challengeDescription;
+@property(strong,nonatomic)IBOutlet  UITextField *challengeTitle;
+@property(strong,nonatomic)IBOutlet  UISwitch *switchView;
+- (IBAction)addMediaButton:(UIButton *)sender;
+- (IBAction)makeDonationSwitch:(UISwitch *)sender;
+- (IBAction)submitChallengeButton:(UIButton *)sender;
+- (IBAction)ChooseFromGallery:(id)sender;
+
 
 @end
 

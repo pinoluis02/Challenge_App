@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KYV-PR-a6U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="efK-Xu-Bwk">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -28,7 +28,7 @@
                         <segue destination="gDR-RK-se0" kind="relationship" relationship="viewControllers" id="1nh-5d-Ql6"/>
                         <segue destination="D5F-Yo-5eY" kind="relationship" relationship="viewControllers" id="eYx-MQ-uD0"/>
                         <segue destination="6Z2-Wh-riS" kind="relationship" relationship="viewControllers" id="OUl-wn-7eS"/>
-                        <segue destination="Qhu-7W-LcX" kind="relationship" relationship="viewControllers" id="Jee-xh-UXo"/>
+                        <segue destination="GMF-D7-3j8" kind="relationship" relationship="viewControllers" id="bRJ-aw-RIJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kn3-fW-l8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,20 +198,7 @@
                 <viewController id="KYV-PR-a6U" customClass="UploadEvidenceViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTA-Lj-fn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="1204"/>
-        </scene>
-        <!--Create New Challenge View Controller-->
-        <scene sceneID="K04-qu-DXr">
-            <objects>
-                <viewController id="BKs-ED-vfI" customClass="CreateNewChallengeViewController" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="WP3-uN-Hbx"/>
-                    <connections>
-                        <segue destination="u7p-3z-kkX" kind="show" identifier="CreateDonationSegue" id="hGz-b9-AM6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rPE-ab-pwa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2558" y="412"/>
+            <point key="canvasLocation" x="2545" y="2000"/>
         </scene>
         <!--Send Challenge View Controller-->
         <scene sceneID="f7B-Xt-Fkz">
@@ -248,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-PP-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2558" y="1198"/>
+            <point key="canvasLocation" x="3370" y="1198"/>
         </scene>
         <!--Send Challenge Container View Controller-->
         <scene sceneID="1pt-KX-NVh">
@@ -264,39 +251,28 @@
                 <viewController id="u7p-3z-kkX" customClass="NewChallengeViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="uq0-3B-Nxp"/>
                     <connections>
-                        <segue destination="EBM-Lr-Ivf" kind="show" identifier="ShowDontationSegue" id="B1V-7D-SZR"/>
+                        <segue destination="EBM-Lr-Ivf" kind="show" identifier="ShowDonationSegue" id="BrT-hg-OaZ"/>
+                        <segue destination="KYV-PR-a6U" kind="presentation" identifier="gotoUploadEvidence" id="huw-q9-ruz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtT-4b-TW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="1198"/>
+            <point key="canvasLocation" x="1816" y="1218"/>
         </scene>
         <!--Make Donation View Controller-->
         <scene sceneID="j9K-l9-1EW">
             <objects>
-                <viewController id="EBM-Lr-Ivf" customClass="MakeDonationViewController" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZE9-8e-ego" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1848" y="2043"/>
-        </scene>
-        <!--create-->
-        <scene sceneID="j5U-ZF-peo">
-            <objects>
-                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Qhu-7W-LcX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="create" image="new challenge icon" id="5ZA-ZS-aWP"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cD6-P6-i2R">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController id="EBM-Lr-Ivf" customClass="MakeDonationViewController" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8HG-qE-Qo6"/>
                     <connections>
-                        <segue destination="u7p-3z-kkX" kind="relationship" relationship="rootViewController" id="1QL-x3-MIf"/>
+                        <segue destination="DSe-TL-6Q7" kind="unwind" identifier="unwindFromMakeDonation" unwindAction="unwind:" id="g9b-qn-Ued"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="54x-Ba-8kY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZE9-8e-ego" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Title" id="cJU-FI-sOQ"/>
+                <exit id="DSe-TL-6Q7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1848" y="412"/>
+            <point key="canvasLocation" x="1880" y="2000"/>
         </scene>
         <!--dashboard-->
         <scene sceneID="nhv-3R-rmK">
@@ -387,6 +363,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1nh-5d-Ql6"/>
-        <segue reference="hGz-b9-AM6"/>
     </inferredMetricsTieBreakers>
 </document>

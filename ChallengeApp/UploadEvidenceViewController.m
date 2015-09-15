@@ -32,6 +32,8 @@
     NSString * titleChallenge = @"Title for the challenge";
     
     self.titleChallengeLabel.text =titleChallenge;
+    self.challengeDao = [[ChallengeDao alloc]init];
+    self.challengeDao.delegate = self;
 
     self.challengeDao = [[ChallengeDao alloc] init];
     self.challengeDao.delegate = self;
@@ -55,6 +57,10 @@
 }
 */
 
+-(void)didFinishAddChallengeWithResult:(NSArray *)resultArray{
+    NSLog(@"didFinishAddChallengeWithResult:%@",resultArray);
+}
+
 - (IBAction)sendEvidenceButton:(UIButton *)sender
 {
 //    self.urlResource;
@@ -66,7 +72,7 @@
     else
     {
         NSLog(@"add Description -> %@", self.addDescriptionText.text);
-        NSLog(@"add Hashtad     -> %@", self.addDescriptionText.text);
+        NSLog(@"add Hashtags     -> %@", self.addDescriptionText.text);
         
         NSString * descriptionText = self.addDescriptionText.text;
         NSString * aditionalHashtags =  self.addDescriptionText.text;
@@ -77,6 +83,48 @@
         self.warningLabel.text = @"";
         [self.challengeDao postChallengeEvidence:@1 userId:@1 mediaUrl:self.urlResource mediaType:self.typeResource];
         // Funtion to send the variables for Details and Hashtags to the next method
+        [self PostToServer];
+    }
+}
+
+-(void)PostToServer{
+    if(self.userComesFromCreateNewChallengeView){
+        Challenge * challenge = [Challenge new];
+//        @property (strong, nonatomic) NSString *idChallenge;
+//        @property (strong, nonatomic) NSString *title;
+//        @property (strong, nonatomic) NSString *descriptionItem;
+//        @property (strong, nonatomic) NSString *type;
+//        @property (strong, nonatomic) NSString *urlResource;
+//        @property (strong, nonatomic) NSString *urlThumbnail;
+//        @property (strong, nonatomic) NSString *idAuthor;
+//        @property (strong, nonatomic) NSString *nameAuthor;
+//        @property (strong, nonatomic) NSString *creationDate;
+//        @property (strong, nonatomic) NSString *donation;
+//        @property (strong, nonatomic) NSString *idPayPal;
+//        @property (strong, nonatomic) NSString *organization;
+//        @property (strong, nonatomic) NSString *hashtags;
+//        @property (strong, nonatomic) NSString *userStatus;
+//        @property float mount;
+
+        challenge.title = self.createNewChallengeView_title;
+        challenge.descriptionItem = self.createNewChallengeView_description;
+        challenge.type = self.createNewChallengeView_resourceType;
+        challenge.urlResource = self.createNewChallengeView_resourceUrl;
+        challenge.urlThumbnail = self.createNewChallengeView_thumbnailUrl;
+        challenge.idAuthor = [FbSingleton sharedInstance].userLoggedIn.userId;
+        challenge.nameAuthor = [FbSingleton sharedInstance].userLoggedIn.userName;
+        challenge.creationDate = [[NSString alloc] initWithString:[NSDate date].shortFormattedDateString];
+        challenge.donation = self.createNewChallengeView_donationAmount;
+        challenge.idPayPal = self.createNewChallengeView_donationPaypalId;
+        challenge.organization = self.createNewChallengeView_donationOrganization;
+        challenge.hashtags = self.addHashtadText.text;
+        [self.challengeDao postChallenge:challenge];
+    }
+    else{
+//    create new evidence for existing challenge
+        NSNumber * challengeid = [NSNumber numberWithInteger:[self.selectedItem.idChallenge integerValue]];
+        NSNumber * userId = [NSNumber numberWithInteger:[[FbSingleton sharedInstance].userLoggedIn.userId integerValue]];
+        [self.challengeDao postChallengeEvidence:challengeid userId:userId mediaUrl:mediaUrl mediaType:mediaType];
     }
 }
 # pragma mark - OAUTH 1.0a STEP 1

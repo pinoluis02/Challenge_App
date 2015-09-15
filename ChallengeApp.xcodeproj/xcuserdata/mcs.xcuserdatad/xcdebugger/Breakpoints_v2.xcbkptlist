@@ -284,12 +284,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChallengeApp/NewChallengeViewController.m"
-            timestampString = "463885105.929761"
+            timestampString = "464007788.033589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-addMediaButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -300,12 +300,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChallengeApp/NewChallengeViewController.m"
-            timestampString = "463886793.929703"
+            timestampString = "464007788.033589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "-progressIndicatorView"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "-startSend:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -316,12 +316,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChallengeApp/NewChallengeViewController.m"
-            timestampString = "463885747.861897"
+            timestampString = "464007788.033589"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "-unwind:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

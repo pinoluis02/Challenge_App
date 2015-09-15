@@ -9,19 +9,19 @@
 #import "Dropbox.h"
 #import "OAuthLoginViewController.h"
 #import <UIKit/UIKit.h>
+#import "ChallengeDao.h"
 
-@interface UploadEvidenceViewController : UIViewController
+@interface UploadEvidenceViewController : UIViewController <ChallengeDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *titleChallengeLabel;
 @property (strong, nonatomic) IBOutlet UITextField *addDescriptionText;
 @property (strong, nonatomic) IBOutlet UITextField *addHashtadText;
-
 @property (strong, nonatomic) IBOutlet UILabel *warningLabel;
-
 @property (strong, nonatomic) IBOutlet UIButton *sendEvidenceButton;
 @property (strong, nonatomic) IBOutlet UIButton *addMediaButton;
 @property (strong, nonatomic) NSString *urlResource;
 @property (strong, nonatomic) NSString *typeResource;
 
+@property Challenge * selectedItem;
 //@property (strong, nonatomic) NSString * descriptionText;
 //@property (strong, nonatomic) NSString * aditionalHashtags;
 
