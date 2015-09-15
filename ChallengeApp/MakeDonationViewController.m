@@ -73,6 +73,7 @@ numberOfRowsInComponent:(NSInteger)component{
 {
     NSString * fakePaypalId = [[NSString alloc] initWithFormat:@"00-000-00-000%ld", (long)row];
     self.inputPaypalId.text = fakePaypalId;
+    self.organizationName = [self pickerView:self.pickerCharityOrganization titleForRow:row forComponent:0];
 }
 
 //http://hugolarcher.com/uitextfield-allowing-only-decimal-characters/
@@ -95,22 +96,6 @@ numberOfRowsInComponent:(NSInteger)component{
     // return NO because we're manually setting the value
     return NO;
 }
-//
-//func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-//    // Find out what the text field will be after adding the current edit
-//    let text = (textField.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
-//    
-//    if let intVal = text.toInt() {
-//        // Text field converted to an Int
-//        button.enabled = true
-//    } else {
-//        // Text field is not an Int
-//        button.enabled = false
-//    }
-//    
-//    // Return true so the text field will be changed
-//    return true
-//}
 
 
 - (void)didReceiveMemoryWarning {

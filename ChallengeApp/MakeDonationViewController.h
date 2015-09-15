@@ -14,5 +14,6 @@ extern NSString * customCharityOrganizationOptionString;
 @property(strong,nonatomic) IBOutlet  UITextField *inputAmount;
 @property(strong,nonatomic) IBOutlet  UITextField *inputPaypalId;
 @property(strong,nonatomic) IBOutlet  UIButton *btnAccept;
+@property(strong,nonatomic) NSString *organizationName;
 -(IBAction) btnAcceptClicked:(id)sender;
 @end

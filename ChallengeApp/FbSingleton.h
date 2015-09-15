@@ -38,7 +38,7 @@
 -(void) startDownloadingUserFriends;
 -(void) shareLinkWithURL:(NSString*)url Title:(NSString*)title Description:(NSString*)description ImageUrl:(NSString*)imageUrl;
 
-+ (id)sharedInstance;
++ (FbSingleton*)sharedInstance;
 
 
 @end

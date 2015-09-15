@@ -22,6 +22,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
+#import "UploadEvidenceViewController.h"
 
 enum {
     kSendBufferSize = 32768
@@ -32,8 +33,13 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
 {
     MPMoviePlayerController *_player;
 //    IBOutlet  UIImageView *image;
-    NSString * donationAmount;
-    NSString * donationPaypalId;
+    NSString * createNewChallengeView_donationAmount;
+    NSString * createNewChallengeView_donationPaypalId;
+    NSString * createNewChallengeView_donationOrganization;
+    NSString * createNewChallengeView_resourceType;
+    NSString * createNewChallengeView_resourceUrl;
+    NSString * createNewChallengeView_thumbnailUrl;
+    
     BOOL donationViewVisible;
 }
 
@@ -106,6 +112,9 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     //    [_player prepareToPlay];
     
     
+   
+   
+//    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=lp-EO5I60KA"];
 
 }
 
@@ -158,25 +167,40 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     else{
 //        was on
         self.donationSummary.text = @"";
-        donationPaypalId = @"";
-        donationAmount = @"";
+        createNewChallengeView_donationPaypalId = @"";
+        createNewChallengeView_donationAmount = @"";
     }
 }
 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue
                   sender:(id)sender {
-     donationViewVisible = true;
+     if([segue.identifier isEqualToString:@"gotoUploadEvidence"]){
+         UploadEvidenceViewController * uploadEvidence = segue.destinationViewController;
+         uploadEvidence.createNewChallengeView_donationAmount = createNewChallengeView_donationAmount;
+         uploadEvidence.createNewChallengeView_donationPaypalId = createNewChallengeView_donationPaypalId;
+         uploadEvidence.createNewChallengeView_title = self.challengeTitle.text;
+         uploadEvidence.createNewChallengeView_description = self.challengeDescription.text;
+         uploadEvidence.createNewChallengeView_resourceType = createNewChallengeView_resourceType;
+         uploadEvidence.createNewChallengeView_resourceUrl = createNewChallengeView_resourceUrl;
+         uploadEvidence.createNewChallengeView_thumbnailUrl = createNewChallengeView_thumbnailUrl;
+         uploadEvidence.createNewChallengeView_donationOrganization = createNewChallengeView_donationOrganization;
+         uploadEvidence.userComesFromCreateNewChallengeView = YES;
+     }
+     else{
+         donationViewVisible = true;
+     }
  }
 
 
 -(IBAction)unwind:(UIStoryboardSegue *)seg{
     NSLog(@"unwind");
     MakeDonationViewController * donationController =  seg.sourceViewController;
-    donationAmount = donationController.inputAmount.text;
-    donationPaypalId = donationController.inputPaypalId.text;
+    createNewChallengeView_donationAmount = donationController.inputAmount.text;
+    createNewChallengeView_donationPaypalId = donationController.inputPaypalId.text;
+    createNewChallengeView_donationOrganization = donationController.organizationName;
     self.donationSummary.hidden = NO;
-    self.donationSummary.text = [[NSString alloc]initWithFormat: @"Donating: $%ld to %@", (long)[donationAmount integerValue], donationPaypalId];
+    self.donationSummary.text = [[NSString alloc]initWithFormat: @"Donating: $%ld to %@", (long)[createNewChallengeView_donationAmount integerValue], createNewChallengeView_donationPaypalId];
     donationViewVisible = false;
     
 }
@@ -190,6 +214,9 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     if(!self.challengeTitle.text){
         return;
     }
+    
+    NSString * segueIdentifier = @"gotoUploadEvidence";
+    [self performSegueWithIdentifier:segueIdentifier sender:self];
 }
 
 - (IBAction)ChooseFromGallery:(id)sender

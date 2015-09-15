@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="efK-Xu-Bwk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -159,7 +159,7 @@
                 <viewController id="KYV-PR-a6U" customClass="UploadEvidenceViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTA-Lj-fn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="1204"/>
+            <point key="canvasLocation" x="2545" y="2000"/>
         </scene>
         <!--Send Challenge View Controller-->
         <scene sceneID="f7B-Xt-Fkz">
@@ -213,11 +213,12 @@
                     <navigationItem key="navigationItem" id="uq0-3B-Nxp"/>
                     <connections>
                         <segue destination="EBM-Lr-Ivf" kind="show" identifier="ShowDonationSegue" id="BrT-hg-OaZ"/>
+                        <segue destination="KYV-PR-a6U" kind="presentation" identifier="gotoUploadEvidence" id="huw-q9-ruz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MtT-4b-TW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2660" y="404"/>
+            <point key="canvasLocation" x="1816" y="1218"/>
         </scene>
         <!--Make Donation View Controller-->
         <scene sceneID="j9K-l9-1EW">
@@ -232,7 +233,7 @@
                 <navigationItem title="Title" id="cJU-FI-sOQ"/>
                 <exit id="DSe-TL-6Q7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2454" y="1187"/>
+            <point key="canvasLocation" x="1880" y="2000"/>
         </scene>
         <!--dashboard-->
         <scene sceneID="nhv-3R-rmK">
