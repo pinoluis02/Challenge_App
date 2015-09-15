@@ -42,9 +42,9 @@
 //    NSLog(@"type : %@", type);
 //    NSLog(@"resultDictionary: %@", resultDictionary);
     
-    NSDictionary *challengeRequestsDictionary = [resultDictionary objectForKey:@"challengerequests"];
-    NSDictionary *evidencesDictionary = [resultDictionary objectForKey:@"evidences"];
-    resultDictionary = [resultDictionary objectForKey:@"challenges"];
+   // NSDictionary *challengeRequestsDictionary = [resultDictionary objectForKey:@"challengerequests"];
+   // NSDictionary *evidencesDictionary = [resultDictionary objectForKey:@"evidences"];
+   // resultDictionary = [resultDictionary objectForKey:@"challenges"];
     
     self.resultArrayModel = [[NSMutableArray alloc] init];
     if ([type isEqualToString:@"getAllChallenges"]) {
@@ -66,7 +66,7 @@
     }else if ([type isEqualToString:@"getChallengesRequestByUserId"]) {
         resultType = @10;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallengeRequests:challengeRequestsDictionary];
+        self.resultArrayModel = [parsingChallenge getParsingChallengeRequests:resultDictionary];
     }else if ([type isEqualToString:@"putChallengesRequestStatus"]) {
         resultType = @20;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
@@ -74,17 +74,11 @@
     }else if ([type isEqualToString:@"getChallengesEvidencesByUserId"]) {
         resultType = @30;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:evidencesDictionary];
-        for (Challenge *challege in self.resultArrayModel) {
-            NSLog(@"challege.title %@", challege.title);
-            NSLog(@"descriptionItem %@", challege.descriptionItem);
-        }
-        NSLog(@"self.resultArrayModel:%@",self.resultArrayModel);
+        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:resultDictionary];
     }else if ([type isEqualToString:@"getChallengesPendingEvidencesByUserId"]) {
         resultType = @31;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:evidencesDictionary];
-
+        self.resultArrayModel = [parsingChallenge getParsingChallengeEvidence:resultDictionary];
     }else if ([type isEqualToString:@"postChallenge"]) {
         resultType = @21;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
@@ -110,7 +104,7 @@
     }else if ([type isEqualToString:@"getChallengesEvidencesByChallengeId"]) {
         resultType = @34;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];
-        self.resultArrayModel = [parsingChallenge getParsingEvidence:evidencesDictionary];
+        self.resultArrayModel = [parsingChallenge getParsingEvidence:resultDictionary];
     }else if ([type isEqualToString:@"putChallengesEvidenceStatus"]) {
         resultType = @35;
         ParsingChallenge *parsingChallenge = [ParsingChallenge alloc];

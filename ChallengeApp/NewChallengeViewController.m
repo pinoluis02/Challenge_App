@@ -58,7 +58,7 @@ enum {
 
 @implementation NewChallengeViewController
 {
-    uint8_t                     _buffer[kSendBufferSize];
+    uint8_t _buffer[kSendBufferSize];
 }
 
 - (void)viewDidLoad
@@ -66,8 +66,14 @@ enum {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSURL *url = [NSURL URLWithString:@"http://ebookfrenzy.com/ios_book/movie/movie.mov"];
+//    NSURL *url = [NSURL URLWithString:@"http://ebookfrenzy.com/ios_book/movie/movie.mov"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.1.20/mcs/team/challengue/videos/imagine.mp4"];
     
+ //   NSURL *url = [NSURL URLWithString:@"http://192.168.1.20/mcs/team/challengue/videos/imagine.mov"];
+    
+    
+   
+   
 //    NSURL *url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=lp-EO5I60KA"];
 
     _player = [[MPMoviePlayerController alloc] initWithContentURL:url];

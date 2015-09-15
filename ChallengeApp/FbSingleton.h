@@ -10,6 +10,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import "FBFriend.h"
 
 
 @class FbSingleton;
@@ -26,11 +27,12 @@
 
 @property (nonatomic, weak) id<FBclassDelegate> delegate;
 
+@property FBFriend *userLoggedIn;
 @property NSArray  *friendsFbUser;
-@property NSString *idFbUser;
-@property NSString *nameFbUser;
-@property NSString *emailFbUser;
-@property NSString *urlImageFbUser;
+//@property NSString *idFbUser;
+//@property NSString *nameFbUser;
+//@property NSString *emailFbUser;
+//@property NSString *urlImageFbUser;
 
 -(void) startDownloadingUserInfo;
 -(void) startDownloadingUserFriends;

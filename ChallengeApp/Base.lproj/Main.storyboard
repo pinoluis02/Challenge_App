@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KYV-PR-a6U">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -307,7 +307,7 @@
         <image name="world context" width="30" height="19"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="1nh-5d-Ql6"/>
         <segue reference="hGz-b9-AM6"/>
-        <segue reference="zGH-TN-UGp"/>
     </inferredMetricsTieBreakers>
 </document>
