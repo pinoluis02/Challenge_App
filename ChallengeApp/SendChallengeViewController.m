@@ -23,15 +23,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+        
     self.friendArray = [[NSMutableArray alloc ]init];
     
     [self setValuesToArray];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"SendChallengeCustomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"FriendsCell"];
     self.tableView.rowHeight = 110;
-    
-    
     
     [self.tableView reloadData];
     
@@ -61,8 +59,8 @@
     FbSingleton *fb = [FbSingleton sharedInstance];
     NSArray *friends = fb.friendsFbUser;
     
-//    for (int x=0; x<=friends.count; x++)
-    for (int x=0; x<=10; x++)
+    for (int x=0; x<=friends.count; x++)
+//    for (int x=0; x<=10; x++)
     {
         FriendList * friendElements = [[FriendList alloc]init];
         
