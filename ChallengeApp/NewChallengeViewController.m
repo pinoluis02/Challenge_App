@@ -27,6 +27,7 @@ enum {
     kSendBufferSize = 32768
 };
 
+NSString * descriptionPlaceholderText = @"[Insert description here ..]";
 @interface NewChallengeViewController () <NSStreamDelegate>
 {
     MPMoviePlayerController *_player;
@@ -90,6 +91,8 @@ enum {
 //    [self mediaPlayerCode];
     [self setTextViewBorder];
     self.donationSummary.hidden = YES;
+    self.challengeDescription.text = descriptionPlaceholderText;
+    
 }
 
 -(void)mediaPlayerCode{
@@ -180,6 +183,10 @@ enum {
 
 - (IBAction)submitChallengeButton:(UIButton *)sender
 {
+    NSString * description = @"";
+    if(![self.challengeDescription.text isEqualToString:descriptionPlaceholderText]){
+       description = self.challengeDescription.text;
+    }
     if(!self.challengeTitle.text){
         return;
     }

@@ -216,7 +216,7 @@
                 <navigationItem title="Title" id="cJU-FI-sOQ"/>
                 <exit id="DSe-TL-6Q7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2604" y="1223"/>
+            <point key="canvasLocation" x="2454" y="1187"/>
         </scene>
         <!--dashboard-->
         <scene sceneID="nhv-3R-rmK">

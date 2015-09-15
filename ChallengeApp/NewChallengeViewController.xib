@@ -64,7 +64,7 @@
                                 <action selector="submitChallengeButton:" destination="-1" eventType="touchUpInside" id="A5W-pl-91o"/>
                             </connections>
                         </button>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="[Insert description here ..]" translatesAutoresizingMaskIntoConstraints="NO" id="Fto-r6-ZFQ">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fto-r6-ZFQ">
                             <rect key="frame" x="30" y="117" width="524" height="52"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+extern NSString * descriptionPlaceholderText;
 @interface NewChallengeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIImagePickerController *videoPicker;
