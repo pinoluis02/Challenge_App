@@ -11,7 +11,7 @@
                 <viewController id="CXS-Hy-Akf" customClass="SendChallengeViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDz-uQ-eeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-429" y="-522"/>
+            <point key="canvasLocation" x="-293" y="-409"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RPw-cf-Djv">
@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-sE-Q3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="394"/>
+            <point key="canvasLocation" x="1169" y="412"/>
         </scene>
         <!--My View Controller-->
         <scene sceneID="zH8-dF-DyU">
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIy-cV-0Kf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="378"/>
+            <point key="canvasLocation" x="-293" y="412"/>
         </scene>
         <!--Create New Challenge View Controller-->
         <scene sceneID="K04-qu-DXr">
@@ -202,6 +202,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-PP-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2558" y="1198"/>
+        </scene>
+        <!--Send Challenge Container View Controller-->
+        <scene sceneID="1pt-KX-NVh">
+            <objects>
+                <viewController id="yrB-3h-kxH" customClass="SendChallengeContainerViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pI0-Hr-Xrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="1198"/>
         </scene>
         <!--New Challenge View Controller-->
         <scene sceneID="ZPf-6B-PbR">
@@ -260,7 +268,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0p-hQ-gsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="1050"/>
+            <point key="canvasLocation" x="-1065" y="412"/>
         </scene>
         <!--contacts-->
         <scene sceneID="JOG-hd-56l">

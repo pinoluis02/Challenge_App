@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
+//Post challenge request - 
+
 #import "SendChallengeViewController.h"
 #import "SendChallengeCustomeTableViewCell.h"
 
@@ -132,6 +134,5 @@
         [checkedItems removeObject:friend];
     }
 }
-
 
 @end
