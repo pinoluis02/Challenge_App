@@ -37,8 +37,6 @@
     tableViewController.view.frame = CGRectMake(0,0, screenRect.size.width, screenRect.size.height);
 }
 
-
-
 /*
 #pragma mark - Navigation
 
