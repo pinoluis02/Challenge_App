@@ -11,4 +11,5 @@
 
 @interface SendChallengeViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NSMutableArray * friendArray;
+
 @end
