@@ -60,8 +60,8 @@
     FbSingleton *fb = [FbSingleton sharedInstance];
     NSArray *friends = fb.friendsFbUser;
     
-    for (int x=0; x<=friends.count; x++)
-//    for (int x=0; x<=10; x++)
+//    for (int x=0; x<=friends.count; x++)
+    for (int x=0; x<=10; x++)
     {
         FBFriend * friendElement = [[FBFriend alloc]init];
         
@@ -97,7 +97,7 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(SendChallengeCustomeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    FBFriend * newFriend = (FBFriend *)[self.friendArray objectAtIndex:indexPath.row];\
+    FBFriend * newFriend = (FBFriend *)[self.friendArray objectAtIndex:indexPath.row];
     NSString * userName = newFriend.userName;
     cell.rightLabel.text = userName;
 //    cell.rightLabel.text = [self.items objectAtIndex:indexPath.row];
