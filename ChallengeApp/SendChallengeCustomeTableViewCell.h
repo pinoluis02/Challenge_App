@@ -9,14 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SendChallengeCustomeTableViewCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *userURLimageView;
-
-@property (strong, nonatomic) IBOutlet UILabel *leftLabel;
-@property (strong, nonatomic) IBOutlet UILabel *rightLabel;
-@property (strong, nonatomic) IBOutlet UILabel *middleLabel;
-
-@property (strong, nonatomic) IBOutlet UIButton *selectFriendButton;
-
-- (IBAction)selectFriendButton:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UILabel *username;
+@property (strong, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (strong, nonatomic) IBOutlet UIButton *checkButton;
+@property (strong, nonatomic) IBOutlet UIView *setUpMark;
 @end

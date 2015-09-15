@@ -12,9 +12,9 @@
 #import "FBFriend.h"
 
 @interface SendChallengeViewController ()
-
-@property (strong, nonatomic) NSArray * items;
-
+{
+    NSMutableArray * checkedItems;
+}
 @end
 
 @implementation SendChallengeViewController
@@ -31,6 +31,11 @@
     NSString * classNameStr = NSStringFromClass([SendChallengeCustomeTableViewCell class]);
     [self.tableView registerNib:[UINib nibWithNibName:classNameStr bundle:nil] forCellReuseIdentifier:classNameStr];
     self.tableView.rowHeight = 110;
+    
+    checkedItems = [NSMutableArray array];
+    self.tableView.estimatedRowHeight = 44.0;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.delegate = self;
     
     [self.tableView reloadData];
     
@@ -107,25 +112,8 @@
     UIImage * image = [UIImage imageWithData:imageData];
     cell.profilePicture.image = image;
     cell.checkButton.tag = indexPath.row;
+    
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(SendChallengeCustomeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    FBFriend * newFriend = (FBFriend *)[self.friendArray objectAtIndex:indexPath.row];
-    
-    NSString * userName = newFriend.userName;
-    cell.rightLabel.text = userName;
-    
-    NSURL *url = [NSURL URLWithString: newFriend.imageURL];
-    
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    UIImage *image = [UIImage imageWithData:data];
-    cell.userURLimageView = [[UIImageView alloc] initWithImage:image];
-    
-//    cell.rightLabel.text = [self.items objectAtIndex:indexPath.row];
 }
 
 - (void)selectFriendButton:(id)sender
