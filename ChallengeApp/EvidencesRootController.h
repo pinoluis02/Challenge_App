@@ -8,6 +8,9 @@
 
 #import "MasterRootController.h"
 #import "EvidencesTableViewController.h"
+#import "ChallengeDao.h"
 
-@interface EvidencesRootController : MasterRootController <UIGestureRecognizerDelegate>
+@interface EvidencesRootController : MasterRootController <UIGestureRecognizerDelegate, ChallengeDelegate>
+@property ChallengeDao * challengeDao;
+@property NSArray * evidenceArray;
 @end

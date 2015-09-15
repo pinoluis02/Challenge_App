@@ -29,21 +29,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+
     
     Evidence * cast = [self.itemsArray objectAtIndex:indexPath.row];
     UITableViewCell * cell;
     NSString * classNameStr = NSStringFromClass([EvidenceTableViewCellCompact class]);
     EvidenceTableViewCellCompact *customCell = [tableView dequeueReusableCellWithIdentifier:classNameStr forIndexPath:indexPath];
-    
-    
-        NSString * loremLipsum = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
         
     
-        customCell.evidenceDescription.text = loremLipsum;
-        customCell.authorUsername.text = @"Nivardo's";
+        customCell.evidenceDescription.text = cast.descriptionEvidence;
+        customCell.authorUsername.text = cast.userName;
         customCell.creationDate.text = cast.created_at;
-        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
-        UIImage * image = [UIImage imageWithData:imageData];
+        UIImage * image = [UIImage imageNamed:@"missing"];
+        if(![cast.imageUrl isKindOfClass:[NSNull class]]){
+            NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
+            image = [UIImage imageWithData:imageData];
+        }
         [customCell.thumbnail setImage:image];
         cell = customCell;
    

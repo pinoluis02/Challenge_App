@@ -60,7 +60,7 @@
             }break;
             case SearchChallenges:{
                 ChallengeCriteria * criteria = [ChallengeCriteria new];
-                criteria.title   = @"el bebe";
+                criteria.title   = @"Ice Bucket";
                 criteria.hashtag = @"nil";
                 criteria.userId  = @"nil";
                 [self.challengeDao searchChallenges:criteria];

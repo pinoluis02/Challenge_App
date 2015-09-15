@@ -230,8 +230,11 @@ bool tabBarVerticalSpaceConstraintFixed;
     customCell.evidenceDescription.text = loremLipsum;
     customCell.authorUsername.text = @"Nivardo's";
     customCell.creationDate.text = item.created_at;
-    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.imageUrl]];
-    UIImage * image = [UIImage imageWithData:imageData];
+    UIImage * image = [UIImage imageNamed:@"missing"];
+    if(![item.imageUrl isKindOfClass:[NSNull class]]){
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.  imageUrl]];
+        image = [UIImage imageWithData:imageData];
+    }
     [customCell.thumbnail setImage:image];
     return  customCell;
     

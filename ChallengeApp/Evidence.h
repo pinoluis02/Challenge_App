@@ -20,4 +20,8 @@
 @property (strong, nonatomic) NSString *challengeId;
 @property BOOL                          hasevidence;
 
+@property (strong, nonatomic) NSString *userName;
+@property (strong, nonatomic) NSString *descriptionEvidence;
+@property (strong, nonatomic) NSString *userfacebookId;
+
 @end
