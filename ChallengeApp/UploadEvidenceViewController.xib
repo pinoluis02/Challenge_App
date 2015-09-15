@@ -60,8 +60,8 @@
                                 <action selector="sendEvidenceButton:" destination="-1" eventType="touchUpInside" id="NAU-L7-E1F"/>
                             </connections>
                         </button>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="746" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTt-hb-CqX">
-                            <rect key="frame" x="10" y="138" width="580" height="0.0"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="746" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OTt-hb-CqX">
+                            <rect key="frame" x="10" y="108" width="580" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -106,7 +106,7 @@
                         <constraint firstItem="1AH-oc-PvV" firstAttribute="leading" secondItem="DJZ-li-bvU" secondAttribute="leading" constant="46" id="HHg-tF-Rub"/>
                         <constraint firstItem="1AH-oc-PvV" firstAttribute="top" secondItem="DJZ-li-bvU" secondAttribute="top" constant="30" id="RH2-Ug-rhu"/>
                         <constraint firstItem="R3h-FN-rlh" firstAttribute="top" secondItem="fpO-qi-yqV" secondAttribute="bottom" constant="44" id="V95-FN-8My"/>
-                        <constraint firstItem="OTt-hb-CqX" firstAttribute="top" secondItem="mSq-tP-SRM" secondAttribute="bottom" constant="20" id="aqv-78-gSC"/>
+                        <constraint firstItem="OTt-hb-CqX" firstAttribute="top" secondItem="mSq-tP-SRM" secondAttribute="bottom" constant="10" id="aqv-78-gSC"/>
                         <constraint firstItem="fpO-qi-yqV" firstAttribute="top" secondItem="Pal-Vy-Q5r" secondAttribute="bottom" constant="27" id="cjX-ew-uX8"/>
                         <constraint firstItem="mSq-tP-SRM" firstAttribute="top" secondItem="1AH-oc-PvV" secondAttribute="bottom" constant="5" id="d0M-Pc-ZWJ"/>
                         <constraint firstItem="mSq-tP-SRM" firstAttribute="centerX" secondItem="1AH-oc-PvV" secondAttribute="centerX" id="ey3-pq-73t"/>
