@@ -25,6 +25,10 @@
     self.tableControllerClass = [EvidencesTableViewController class];
     self.nextRootControllerClass = [UserCommentsRootController class];
     [super viewDidLoad];
+    
+    self.challengeDao = [[ChallengeDao alloc] init];
+    self.challengeDao.delegate = self;
+
     // Do any additional setup after loading the view.
     [self fetchData:self.selectedItem];
     
@@ -38,10 +42,13 @@
 
 
 -(void) fetchData:(Challenge *)challenge{
-    BOOL debug = true;
+    BOOL debug = false;
     if(!debug)
     {
-//     network code   
+//     network code
+        NSLog(@"self.selectedItem:%@",self.selectedItem);
+        Challenge *ch = self.selectedItem;
+        [self.challengeDao getChallengesEvidencesByChallengeId:ch.idChallenge];
     }else
     {
         [self setDemoData];
@@ -77,6 +84,14 @@
     NSArray * resultsArray = @[itemOne, itemTwo];
     
     self.tableContentController.itemsArray = resultsArray;
+}
+
+-(void)  didFinishGetChallengesEvidencesByChallengeIdWithResult:(NSArray *) resultArray {
+    NSLog(@"didFinishGetChallengesEvidencesByChallengeIdWithResult count = %ld", [resultArray count]);
+    //    Setting both dummy objects, when model is ready leave only one
+    self.evidenceArray = resultArray;
+    self.tableContentController.itemsArray = self.evidenceArray;
+    
 }
 
 @end

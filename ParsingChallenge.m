@@ -14,26 +14,27 @@
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     for (NSDictionary *snippet in dictonaryJson) {
         Challenge * challenge = [Challenge new];
-        challenge.idChallenge = [snippet objectForKey:@"id"];
-        challenge.title = [snippet objectForKey:@"title"];
-        challenge.descriptionItem = [snippet objectForKey:@"description"];
-         challenge.type = [snippet objectForKey:@"typeresource"];
-        challenge.urlResource = [snippet objectForKey:@"urlresource"];
-        challenge.urlThumbnail = [snippet objectForKey:@"url_thumbnail"];
+        challenge.idChallenge = [[snippet objectForKey:@"challenge"] objectForKey:@"id"];
+        challenge.title = [[snippet objectForKey:@"challenge"] objectForKey:@"title"];
+        challenge.descriptionItem = [[snippet objectForKey:@"challenge"] objectForKey:@"description"];
+         challenge.type = [[snippet objectForKey:@"challenge"] objectForKey:@"typeresource"];
+        challenge.urlResource = [[snippet objectForKey:@"challenge"] objectForKey:@"urlresource"];
+        challenge.urlThumbnail = [[snippet objectForKey:@"challenge"] objectForKey:@"url_thumbnail"];
         if([challenge.urlThumbnail isKindOfClass:[NSNull class]]) {
             challenge.urlThumbnail = @"http://www.telebajar.com/wp-content/themes/TechNews/images/img_not_available.png";
         }
         if([challenge.urlResource isKindOfClass:[NSNull class]]) {
             challenge.urlResource = @"http://www.telebajar.com/wp-content/themes/TechNews/images/img_not_available.png";
         }
-        challenge.idAuthor = [snippet objectForKey:@"user_id"];;
-        challenge.nameAuthor = @"Brendon Small";
-        challenge.creationDate = [snippet objectForKey:@"created_at"];
+        challenge.idAuthor = [[snippet objectForKey:@"user"] objectForKey:@"facebookUser"];
+        challenge.nameAuthor = [[snippet objectForKey:@"user"] objectForKey:@"username"];
+        challenge.creationDate = [[snippet objectForKey:@"challenge"] objectForKey:@"created_at"];
         //unrelated, notified, accepted (incomplete), rejected, completed.
         challenge.userStatus = @"unrelated";
-        challenge.donation = @"0.0";
-        challenge.idPayPal = nil;
-        challenge.organization = @"Red cross";
+        
+        challenge.donation = [[snippet objectForKey:@"challenge"] objectForKey:@"defaultAmount"];
+        challenge.idPayPal = [[snippet objectForKey:@"organization"] objectForKey:@"paypalAccount"];
+        challenge.organization = [[snippet objectForKey:@"organization"] objectForKey:@"companyName"];
         [resultArray addObject:challenge];
     }
     return resultArray;
@@ -52,15 +53,21 @@
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
     for (NSDictionary *snippet in dictonaryJson) {
         Evidence *evidence = [Evidence alloc];
-        evidence.evidenceId = [snippet objectForKey:@"id"];
-        evidence.userId = [snippet objectForKey:@"user_id"];
-        evidence.imageUrl = [snippet objectForKey:@"imageUrl"];
-        evidence.videoUrl = [snippet objectForKey:@"videoUrl"];
-        evidence.mediaType = [snippet objectForKey:@"mediaType"];
-        evidence.created_at = [snippet objectForKey:@"created_at"];
-        evidence.updated_at = [snippet objectForKey:@"updated_at"];
-        evidence.challengeId = [snippet objectForKey:@"challenge_id"];
-        evidence.hasevidence = [snippet objectForKey:@"hasevidence"];
+        evidence.evidenceId = [[snippet objectForKey:@"challengeresponse"] objectForKey:@"id"];
+        evidence.userId = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"user_id"];
+        evidence.imageUrl = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"imageUrl"];
+        evidence.videoUrl = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"videoUrl"];
+        evidence.mediaType = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"mediaType"];
+        evidence.created_at = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"created_at"];
+        evidence.updated_at = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"updated_at"];
+        evidence.challengeId = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"challenge_id"];
+        evidence.hasevidence = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"hasevidence"];
+      
+        //evidence.descriptionEvidence = [[snippet objectForKey:@"challengeresponse"]  objectForKey:@"descriptionEvidence"];
+        evidence.descriptionEvidence = @"Dammn...... Alright guys!!";
+        
+        evidence.userName = [[snippet objectForKey:@"user"]  objectForKey:@"username"];
+        evidence.userfacebookId = [[snippet objectForKey:@"user"]  objectForKey:@"facebookUser"];
         [resultArray addObject:evidence];
     }
     NSLog(@"resultArray: %lu", [resultArray count]);
