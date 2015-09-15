@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FriendList : NSObject
+@interface FBFriend : NSObject
 
 @property (nonatomic, strong) NSString * userId;
 @property (nonatomic, strong) NSString * userName;

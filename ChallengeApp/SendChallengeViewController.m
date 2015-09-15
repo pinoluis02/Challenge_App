@@ -9,7 +9,7 @@
 #import "SendChallengeViewController.h"
 #import "SendChallengeCustomeTableViewCell.h"
 
-#import "FriendList.h"
+#import "FBFriend.h"
 
 @interface SendChallengeViewController ()
 
@@ -27,8 +27,9 @@
     self.friendArray = [[NSMutableArray alloc ]init];
     
     [self setValuesToArray];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SendChallengeCustomeTableViewCell" bundle:nil] forCellReuseIdentifier:@"FriendsCell"];
+
+    NSString * classNameStr = NSStringFromClass([SendChallengeCustomeTableViewCell class]);
+    [self.tableView registerNib:[UINib nibWithNibName:classNameStr bundle:nil] forCellReuseIdentifier:classNameStr];
     self.tableView.rowHeight = 110;
     
     
@@ -64,33 +65,31 @@
 //    for (int x=0; x<=friends.count; x++)
     for (int x=0; x<=10; x++)
     {
-        FriendList * friendElements = [[FriendList alloc]init];
+        FBFriend * friendElement = [[FBFriend alloc]init];
         
         NSString * userIdString   = [NSString stringWithFormat:@"Friend userId %d", x];
         NSString * userNameString = [NSString stringWithFormat:@"Friend userName %d", x];
         NSString * imageURLString = [NSString stringWithFormat:@"Friend imageURL %d", x];
         
-        friendElements.userId = userIdString;
-        friendElements.userName = userNameString;
-        friendElements.imageURL = imageURLString;
+        friendElement.userId = userIdString;
+        friendElement.userName = userNameString;
+        friendElement.imageURL = imageURLString;
         
-        [self.friendArray addObject:friendElements];
+        [self.friendArray addObject:friendElement];
     }
     [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"%lu", (unsigned long)[self.friendArray count]);
-    return [self.friendArray count];
-    
-//    return [self.items count];
+    NSUInteger c = [self.friendArray count];
+    return c;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"UITableViewCell");
-    SendChallengeCustomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"FriendsCell"];
+    NSString * classNameStr = NSStringFromClass([SendChallengeCustomeTableViewCell class]);
+    SendChallengeCustomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:classNameStr];
    
     [cell.selectFriendButton addTarget:self action:@selector(actionButton:) forControlEvents: UIControlEventTouchUpInside];
     
@@ -100,12 +99,9 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(SendChallengeCustomeTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    FriendList * newFriend = (FriendList *)[self.friendArray objectAtIndex:indexPath.row];\
+    FBFriend * newFriend = (FBFriend *)[self.friendArray objectAtIndex:indexPath.row];\
     NSString * userName = newFriend.userName;
-    
-    NSLog(@"User Name %@", userName);
     cell.rightLabel.text = userName;
-    
 //    cell.rightLabel.text = [self.items objectAtIndex:indexPath.row];
 }
 

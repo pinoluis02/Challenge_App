@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040D4BE81BA7517300D2BFC4 /* EvidenceTableViewCellCompact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040D4BE71BA7517300D2BFC4 /* EvidenceTableViewCellCompact.xib */; };
+		04362F051BA7A730003A7D58 /* SendChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04362F041BA7A730003A7D58 /* SendChallengeViewController.xib */; };
 		043859FA1BA6757800DA51B6 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F71BA6757800DA51B6 /* FBSDKCoreKit.framework */; };
 		043859FB1BA6757800DA51B6 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F81BA6757800DA51B6 /* FBSDKLoginKit.framework */; };
 		043859FC1BA6757800DA51B6 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043859F91BA6757800DA51B6 /* FBSDKShareKit.framework */; };
@@ -40,7 +41,7 @@
 		049899DD1BA79EEC00917F13 /* Evidence.m in Sources */ = {isa = PBXBuildFile; fileRef = 416B9F071BA2244D00761422 /* Evidence.m */; };
 		049899DE1BA79EEC00917F13 /* Challenge.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C01BA0B5E30048996F /* Challenge.m */; };
 		049899DF1BA79EEC00917F13 /* ChallengeCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */; };
-		049899E01BA79EEC00917F13 /* FriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CAB11BA66EC0001A21DB /* FriendList.m */; };
+		049899E01BA79EEC00917F13 /* FBFriend.m in Sources */ = {isa = PBXBuildFile; fileRef = 0492CAB11BA66EC0001A21DB /* FBFriend.m */; };
 		049899E11BA79EEC00917F13 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 415847A71BA6B01A0027965B /* Message.m */; };
 		049899E21BA79EEC00917F13 /* ExpandableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F013AC1BA55545003F2DE8 /* ExpandableTableViewCell.m */; };
 		049899E31BA79EEC00917F13 /* ExpandableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F013AF1BA55545003F2DE8 /* ExpandableTableViewController.m */; };
@@ -105,6 +106,7 @@
 		040D4BE41BA7516200D2BFC4 /* EvidenceTableViewCellCompact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvidenceTableViewCellCompact.h; sourceTree = "<group>"; };
 		040D4BE51BA7516A00D2BFC4 /* EvidenceTableViewCellCompact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvidenceTableViewCellCompact.m; sourceTree = "<group>"; };
 		040D4BE71BA7517300D2BFC4 /* EvidenceTableViewCellCompact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvidenceTableViewCellCompact.xib; sourceTree = "<group>"; };
+		04362F041BA7A730003A7D58 /* SendChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendChallengeViewController.xib; sourceTree = "<group>"; };
 		043859F11BA62AD800DA51B6 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		043859F21BA62AD800DA51B6 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		043859F41BA6756800DA51B6 /* FbSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FbSingleton.h; sourceTree = "<group>"; };
@@ -159,8 +161,8 @@
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
-		0492CAB01BA66E4C001A21DB /* FriendList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendList.h; sourceTree = "<group>"; };
-		0492CAB11BA66EC0001A21DB /* FriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendList.m; sourceTree = "<group>"; };
+		0492CAB01BA66E4C001A21DB /* FBFriend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBFriend.h; sourceTree = "<group>"; };
+		0492CAB11BA66EC0001A21DB /* FBFriend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBFriend.m; sourceTree = "<group>"; };
 		0494FD631BA691AB008EFC3D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0494FD641BA691AB008EFC3D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0494FD661BA69476008EFC3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -459,6 +461,7 @@
 		0492CAA91BA66417001A21DB /* Add Friends to Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				04362F041BA7A730003A7D58 /* SendChallengeViewController.xib */,
 				0473DDB11BA73D0E00102308 /* SendChallengeViewController.h */,
 				0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */,
 				0473DDB81BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib */,
@@ -490,8 +493,8 @@
 				04C3C8C01BA0B5E30048996F /* Challenge.m */,
 				04C3C8C11BA0B5E30048996F /* ChallengeCriteria.h */,
 				04C3C8C21BA0B5E30048996F /* ChallengeCriteria.m */,
-				0492CAB01BA66E4C001A21DB /* FriendList.h */,
-				0492CAB11BA66EC0001A21DB /* FriendList.m */,
+				0492CAB01BA66E4C001A21DB /* FBFriend.h */,
+				0492CAB11BA66EC0001A21DB /* FBFriend.m */,
 				415847A61BA6B01A0027965B /* Message.h */,
 				415847A71BA6B01A0027965B /* Message.m */,
 			);
@@ -734,6 +737,7 @@
 				04F013C81BA58320003F2DE8 /* incompleteChallengeCommands.plist in Resources */,
 				04E63E0A1BA5FE1B00A89E2C /* evidenceCommands.plist in Resources */,
 				04E63E051BA5F77F00A89E2C /* NestedTabController.xib in Resources */,
+				04362F051BA7A730003A7D58 /* SendChallengeViewController.xib in Resources */,
 				040D4BE81BA7517300D2BFC4 /* EvidenceTableViewCellCompact.xib in Resources */,
 				04D8E87A1B9FFB32008A5FCD /* NewChallengeViewController.xib in Resources */,
 			);
@@ -770,7 +774,7 @@
 				049899DD1BA79EEC00917F13 /* Evidence.m in Sources */,
 				049899DE1BA79EEC00917F13 /* Challenge.m in Sources */,
 				049899DF1BA79EEC00917F13 /* ChallengeCriteria.m in Sources */,
-				049899E01BA79EEC00917F13 /* FriendList.m in Sources */,
+				049899E01BA79EEC00917F13 /* FBFriend.m in Sources */,
 				049899E11BA79EEC00917F13 /* Message.m in Sources */,
 				049899E21BA79EEC00917F13 /* ExpandableTableViewCell.m in Sources */,
 				049899E31BA79EEC00917F13 /* ExpandableTableViewController.m in Sources */,

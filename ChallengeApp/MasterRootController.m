@@ -9,6 +9,7 @@
 #import "MasterRootController.h"
 #import "ChallengeTableViewCellFull.h"
 #import "EvidenceTableViewCellFull.h"
+#import "SendChallengeViewController.h"
 
 @interface MasterRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
@@ -92,6 +93,15 @@ bool tabBarVerticalSpaceConstraintFixed;
     if([command isEqualToString:@"Cancel"]){
         self.commandMenuController.itemsInTable = nil;
     }
+    else if([command isEqualToString:@"Share"]){
+//        [[FbSingleton sharedInstance] shareLinkWithURL:<#(NSString *)#> Title:self.it Description:<#(NSString *)#> ImageUrl:<#(NSString *)#>];
+    }
+    else if([command isEqualToString:@"Challenge People"]){
+        self.commandMenuController.itemsInTable = nil;
+        SendChallengeViewController * shareController = [SendChallengeViewController new];
+        [self pushToNavigationController:shareController];
+    }
+
 }
 
 
@@ -112,13 +122,16 @@ bool tabBarVerticalSpaceConstraintFixed;
     else{
         MasterRootController * newRootController = [self.nextRootControllerClass new];
         newRootController.selectedItem = item;
-        self.navigationController.navigationBar.translucent = false;
-        self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
-        [self.navigationController pushViewController:newRootController animated:true];
-        
+        [self pushToNavigationController:newRootController];
     }
 }
 
+-(void)pushToNavigationController:(UIViewController *)controller{
+    self.navigationController.navigationBar.translucent = false;
+    self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.navigationController pushViewController:controller animated:true];
+
+}
 
 -(UIView*)createTableHeaderView: (id)object{
     return nil;

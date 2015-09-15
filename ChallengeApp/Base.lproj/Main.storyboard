@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="C3b-80-JzT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CXS-Hy-Akf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Send Challenge View Controller-->
+        <scene sceneID="Uns-yK-GWY">
+            <objects>
+                <viewController id="CXS-Hy-Akf" customClass="SendChallengeViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDz-uQ-eeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-429" y="-522"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RPw-cf-Djv">
             <objects>
@@ -161,6 +169,7 @@
         <!--Send Challenge View Controller-->
         <scene sceneID="f7B-Xt-Fkz">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-PP-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="C3b-80-JzT" customClass="SendChallengeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NQT-cJ-7QJ"/>
@@ -181,9 +190,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="B3I-oI-Xil" firstAttribute="top" secondItem="NQT-cJ-7QJ" secondAttribute="bottom" id="N3H-e6-uwT"/>
+                            <constraint firstItem="RtP-RX-T5H" firstAttribute="top" secondItem="B3I-oI-Xil" secondAttribute="bottom" id="HLl-22-YbR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="B3I-oI-Xil" secondAttribute="trailing" id="QZl-4o-aOH"/>
-                            <constraint firstItem="RtP-RX-T5H" firstAttribute="top" secondItem="B3I-oI-Xil" secondAttribute="bottom" id="a2Q-oE-p12"/>
+                            <constraint firstItem="B3I-oI-Xil" firstAttribute="top" secondItem="NQT-cJ-7QJ" secondAttribute="bottom" id="jyt-Z8-koO"/>
                             <constraint firstItem="B3I-oI-Xil" firstAttribute="leading" secondItem="dEG-gm-TDm" secondAttribute="leadingMargin" id="r0F-eh-nzI"/>
                         </constraints>
                     </view>
@@ -191,7 +200,6 @@
                         <outlet property="tableView" destination="B3I-oI-Xil" id="r3x-Qf-th5"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-PP-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2558" y="1198"/>
         </scene>
@@ -252,7 +260,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0p-hQ-gsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-283" y="412"/>
+            <point key="canvasLocation" x="-343" y="1050"/>
         </scene>
         <!--contacts-->
         <scene sceneID="JOG-hd-56l">
@@ -284,5 +292,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hGz-b9-AM6"/>
+        <segue reference="zGH-TN-UGp"/>
     </inferredMetricsTieBreakers>
 </document>
