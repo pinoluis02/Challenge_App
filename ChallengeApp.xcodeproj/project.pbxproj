@@ -23,7 +23,6 @@
 		0490F4881B9B5D5800318EFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4871B9B5D5800318EFB /* Images.xcassets */; };
 		0490F48B1B9B5D5800318EFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4891B9B5D5800318EFB /* LaunchScreen.xib */; };
 		0490F4971B9B5D5900318EFB /* ChallengeAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4961B9B5D5900318EFB /* ChallengeAppTests.m */; };
-		0490F4A11B9BB2D000318EFB /* CreateNewChallengeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4A01B9BB2D000318EFB /* CreateNewChallengeViewController.xib */; };
 		0490F4EB1B9D50AE00318EFB /* notes on nibs.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */; };
 		0494FD671BA69476008EFC3D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0494FD661BA69476008EFC3D /* SystemConfiguration.framework */; };
 		049899D11BA79EEC00917F13 /* SendChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */; };
@@ -59,7 +58,6 @@
 		049899EF1BA79EEC00917F13 /* EvidenceTableViewCellCompact.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D4BE51BA7516A00D2BFC4 /* EvidenceTableViewCellCompact.m */; };
 		049899F01BA79EEC00917F13 /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 046A6D571BA1108000488A09 /* NSDate+Utils.m */; };
 		049899F11BA79EEC00917F13 /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480B0681B9F9DCD007E71A2 /* ContactsViewController.m */; };
-		049899F21BA79EEC00917F13 /* CreateNewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */; };
 		049899F31BA79EEC00917F13 /* NewChallengeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */; };
 		049899F41BA79EEC00917F13 /* MakeDonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045558891BA0E41E006A4C87 /* MakeDonationViewController.m */; };
 		049899F51BA79EEC00917F13 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4ED1B9D56AD00318EFB /* MyViewController.m */; };
@@ -155,9 +153,6 @@
 		0490F4901B9B5D5800318EFB /* ChallengeAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0490F4951B9B5D5800318EFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0490F4961B9B5D5900318EFB /* ChallengeAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChallengeAppTests.m; sourceTree = "<group>"; };
-		0490F4A01B9BB2D000318EFB /* CreateNewChallengeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateNewChallengeViewController.xib; sourceTree = "<group>"; };
-		0490F4E51B9CCCEC00318EFB /* CreateNewChallengeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateNewChallengeViewController.h; sourceTree = "<group>"; };
-		0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateNewChallengeViewController.m; sourceTree = "<group>"; };
 		0490F4EA1B9D50AE00318EFB /* notes on nibs.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "notes on nibs.txt"; sourceTree = "<group>"; };
 		0490F4EC1B9D56AD00318EFB /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
 		0490F4ED1B9D56AD00318EFB /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
@@ -355,15 +350,12 @@
 		0480B0651B9F9D93007E71A2 /* create new challenge */ = {
 			isa = PBXGroup;
 			children = (
-				0490F4E51B9CCCEC00318EFB /* CreateNewChallengeViewController.h */,
-				0490F4E61B9CCCEC00318EFB /* CreateNewChallengeViewController.m */,
-				0490F4A01B9BB2D000318EFB /* CreateNewChallengeViewController.xib */,
+				04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */,
 				04D8E8761B9FFB32008A5FCD /* NewChallengeViewController.h */,
 				04D8E8771B9FFB32008A5FCD /* NewChallengeViewController.m */,
-				04D8E8781B9FFB32008A5FCD /* NewChallengeViewController.xib */,
+				0455588A1BA0E41E006A4C87 /* MakeDonationViewController.xib */,
 				045558881BA0E41E006A4C87 /* MakeDonationViewController.h */,
 				045558891BA0E41E006A4C87 /* MakeDonationViewController.m */,
-				0455588A1BA0E41E006A4C87 /* MakeDonationViewController.xib */,
 			);
 			name = "create new challenge";
 			sourceTree = "<group>";
@@ -718,7 +710,6 @@
 				046A6D501BA10E1C00488A09 /* EvidenceTableViewCellFull.xib in Resources */,
 				04F013BD1BA559BD003F2DE8 /* MasterTableViewController.xib in Resources */,
 				04F013C51BA569F9003F2DE8 /* ExpandableTableViewCell.xib in Resources */,
-				0490F4A11B9BB2D000318EFB /* CreateNewChallengeViewController.xib in Resources */,
 				0473DDBA1BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib in Resources */,
 				0480B06B1B9F9DCD007E71A2 /* ContactsViewController.xib in Resources */,
 				0490F4861B9B5D5800318EFB /* Main.storyboard in Resources */,
@@ -792,7 +783,6 @@
 				049899EF1BA79EEC00917F13 /* EvidenceTableViewCellCompact.m in Sources */,
 				049899F01BA79EEC00917F13 /* NSDate+Utils.m in Sources */,
 				049899F11BA79EEC00917F13 /* ContactsViewController.m in Sources */,
-				049899F21BA79EEC00917F13 /* CreateNewChallengeViewController.m in Sources */,
 				049899F31BA79EEC00917F13 /* NewChallengeViewController.m in Sources */,
 				049899F41BA79EEC00917F13 /* MakeDonationViewController.m in Sources */,
 				049899F51BA79EEC00917F13 /* MyViewController.m in Sources */,

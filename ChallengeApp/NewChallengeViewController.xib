@@ -2,13 +2,17 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewChallengeViewController">
             <connections>
-                <outlet property="ChooseFromGallery" destination="Kbo-et-BxI" id="adQ-fw-X6x"/>
+                <outlet property="ChooseFromGallery" destination="wF2-0Z-5cD" id="yiF-b8-YNj"/>
                 <outlet property="activityIndicator" destination="P9q-YZ-b2x" id="Wzh-nc-axE"/>
-                <outlet property="movieView" destination="GJR-bQ-Y6b" id="VXE-Qs-Si6"/>
+                <outlet property="challengeDescription" destination="Fto-r6-ZFQ" id="2eS-Fs-1lm"/>
+                <outlet property="challengeTitle" destination="3DF-5G-btT" id="7UP-ZX-cc2"/>
+                <outlet property="donationSummary" destination="fEk-Ro-kp8" id="mK9-5Q-JDz"/>
+                <outlet property="switchView" destination="HCA-p0-Ajm" id="zB0-gs-Hgb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="Yb5-aL-gic"/>
             </connections>
         </placeholder>
@@ -17,83 +21,128 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBT-9i-bRM">
-                    <rect key="frame" x="46" y="375" width="100" height="40"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68O-1k-SgC" userLabel="content view">
+                    <rect key="frame" x="16" y="0.0" width="584" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Challenge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT4-Sw-dxk">
+                            <rect key="frame" x="30" y="16" width="236" height="25.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="black" pointSize="21"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-5G-btT">
+                            <rect key="frame" x="30" y="71" width="524" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGG-pU-4qV">
+                            <rect key="frame" x="30" y="185" width="55.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-p0-Ajm">
+                            <rect key="frame" x="505" y="180" width="51" height="31"/>
+                            <connections>
+                                <action selector="makeDonationSwitch:" destination="-1" eventType="valueChanged" id="woY-Ne-jzS"/>
+                            </connections>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donating: $0 to P12312ASRW" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEk-Ro-kp8">
+                            <rect key="frame" x="30" y="235.5" width="584" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBT-9i-bRM" userLabel="Create">
+                            <rect key="frame" x="30" y="470" width="524" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="Create challenge">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </state>
+                            <connections>
+                                <action selector="submitChallengeButton:" destination="-1" eventType="touchUpInside" id="A5W-pl-91o"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="Fto-r6-ZFQ">
+                            <rect key="frame" x="30" y="117" width="524" height="52"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CD4-DU-B83">
+                            <rect key="frame" x="217" y="286" width="150" height="154"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="P9q-YZ-b2x">
+                                    <rect key="frame" x="50" y="52" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="P9q-YZ-b2x" secondAttribute="height" multiplier="1:1" id="I18-sK-c7z"/>
+                                        <constraint firstAttribute="height" constant="50" id="p3p-vQ-MI2"/>
+                                    </constraints>
+                                </activityIndicatorView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-0Z-5cD" userLabel="select media">
+                                    <rect key="frame" x="25" y="27" width="100" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="41E-9j-GfB"/>
+                                        <constraint firstAttribute="height" secondItem="wF2-0Z-5cD" secondAttribute="width" multiplier="1:1" id="Kc8-Uu-N5Z"/>
+                                    </constraints>
+                                    <state key="normal" image="Play">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="selected" image="Play Selected"/>
+                                    <state key="highlighted" image="Play Selected"/>
+                                    <connections>
+                                        <action selector="ChooseFromGallery:" destination="-1" eventType="touchUpInside" id="6cq-QA-zVb"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="P9q-YZ-b2x" secondAttribute="centerY" id="1WQ-gZ-kz9"/>
+                                <constraint firstAttribute="width" constant="150" id="2ig-Pn-AFL"/>
+                                <constraint firstAttribute="centerY" secondItem="wF2-0Z-5cD" secondAttribute="centerY" id="e3e-kW-bIh"/>
+                                <constraint firstAttribute="width" secondItem="CD4-DU-B83" secondAttribute="height" multiplier="73:75" id="gWD-Fz-Nsx"/>
+                                <constraint firstAttribute="centerX" secondItem="P9q-YZ-b2x" secondAttribute="centerX" id="uow-hW-8Z2"/>
+                                <constraint firstAttribute="centerX" secondItem="wF2-0Z-5cD" secondAttribute="centerX" id="yrL-VL-JrX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="4ig-mv-lPu"/>
+                        <constraint firstItem="TT4-Sw-dxk" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="5J6-Md-aiV"/>
+                        <constraint firstItem="YBT-9i-bRM" firstAttribute="trailing" secondItem="68O-1k-SgC" secondAttribute="trailing" constant="-30" id="9YY-Kh-Fcw"/>
+                        <constraint firstItem="CD4-DU-B83" firstAttribute="top" secondItem="fEk-Ro-kp8" secondAttribute="bottom" constant="30" id="9i7-E3-ZYE"/>
+                        <constraint firstItem="cGG-pU-4qV" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="DPk-7d-oZf"/>
+                        <constraint firstItem="Fto-r6-ZFQ" firstAttribute="top" secondItem="3DF-5G-btT" secondAttribute="bottom" constant="16" id="Mns-Me-sgo"/>
+                        <constraint firstItem="HCA-p0-Ajm" firstAttribute="centerY" secondItem="cGG-pU-4qV" secondAttribute="centerY" id="Pg4-BN-y8M"/>
+                        <constraint firstItem="HCA-p0-Ajm" firstAttribute="trailing" secondItem="68O-1k-SgC" secondAttribute="trailing" constant="-30" id="Ugi-nD-QGW"/>
+                        <constraint firstItem="fEk-Ro-kp8" firstAttribute="top" secondItem="cGG-pU-4qV" secondAttribute="bottom" constant="30" id="Vh9-fo-PLx"/>
+                        <constraint firstItem="3DF-5G-btT" firstAttribute="trailing" secondItem="68O-1k-SgC" secondAttribute="trailing" constant="-30" id="cS5-cA-gHV"/>
+                        <constraint firstItem="YBT-9i-bRM" firstAttribute="top" secondItem="CD4-DU-B83" secondAttribute="bottom" constant="30" id="fBk-8q-ttk"/>
+                        <constraint firstItem="Fto-r6-ZFQ" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="ldD-eA-YB5"/>
+                        <constraint firstItem="Fto-r6-ZFQ" firstAttribute="trailing" secondItem="68O-1k-SgC" secondAttribute="trailing" constant="-30" id="pMw-Oa-f6v"/>
+                        <constraint firstItem="fEk-Ro-kp8" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="rhx-pD-skd"/>
+                        <constraint firstAttribute="trailing" secondItem="fEk-Ro-kp8" secondAttribute="trailing" constant="-30" id="sc5-Lj-u0O"/>
+                        <constraint firstItem="TT4-Sw-dxk" firstAttribute="top" secondItem="68O-1k-SgC" secondAttribute="top" constant="16" id="szV-Lq-n10"/>
+                        <constraint firstItem="cGG-pU-4qV" firstAttribute="top" secondItem="Fto-r6-ZFQ" secondAttribute="bottom" constant="16" id="vOG-oK-2UD"/>
+                        <constraint firstAttribute="centerX" secondItem="CD4-DU-B83" secondAttribute="centerX" id="vbe-cu-Eay"/>
+                        <constraint firstItem="3DF-5G-btT" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="vc9-Zh-Oig"/>
+                        <constraint firstItem="YBT-9i-bRM" firstAttribute="bottom" secondItem="68O-1k-SgC" secondAttribute="bottom" constant="-100" id="wZ4-f7-kHS"/>
+                        <constraint firstItem="3DF-5G-btT" firstAttribute="top" secondItem="TT4-Sw-dxk" secondAttribute="bottom" constant="30" id="wfY-YG-Yn1"/>
+                        <constraint firstItem="YBT-9i-bRM" firstAttribute="leading" secondItem="68O-1k-SgC" secondAttribute="leading" constant="30" id="wmb-GG-5mp"/>
                     </constraints>
-                    <state key="normal" image="Create">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="submitChallengeButton:" destination="-1" eventType="touchUpInside" id="A5W-pl-91o"/>
-                    </connections>
-                </button>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-p0-Ajm">
-                    <rect key="frame" x="8" y="336" width="51" height="31"/>
-                    <connections>
-                        <action selector="makeDonationSwith:" destination="-1" eventType="valueChanged" id="h61-ny-TZj"/>
-                    </connections>
-                </switch>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Make Donation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGG-pU-4qV">
-                    <rect key="frame" x="65" y="341" width="117" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3DF-5G-btT">
-                    <rect key="frame" x="8" y="252" width="350" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ame-Dp-Smj">
-                    <rect key="frame" x="8" y="290" width="350" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Create New Challenge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT4-Sw-dxk">
-                    <rect key="frame" x="10" y="65" width="172" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wF2-0Z-5cD">
-                    <rect key="frame" x="8" y="94" width="150" height="150"/>
-                    <state key="normal" title="Button" image="Play">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="selected" image="Play Selected"/>
-                    <state key="highlighted" image="Play Selected"/>
-                    <connections>
-                        <action selector="addMediaButton:" destination="-1" eventType="touchUpInside" id="cZc-Nx-7W5"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbo-et-BxI">
-                    <rect key="frame" x="13" y="423" width="220" height="44"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                    <state key="normal" title="Choose from gallery">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="ChooseFromGallery:" destination="-1" eventType="touchUpInside" id="Jc8-V6-ogA"/>
-                    </connections>
-                </button>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="P9q-YZ-b2x">
-                    <rect key="frame" x="173" y="133" width="20" height="20"/>
-                </activityIndicatorView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GJR-bQ-Y6b">
-                    <rect key="frame" x="31" y="464" width="185" height="152"/>
-                    <color key="backgroundColor" red="0.37583947182822974" green="1" blue="0.45917700547826301" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="TT4-Sw-dxk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="J2e-IH-caU"/>
+                <constraint firstAttribute="bottom" secondItem="68O-1k-SgC" secondAttribute="bottom" id="c90-jW-1xY"/>
+                <constraint firstItem="68O-1k-SgC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="jRX-eQ-VnE"/>
+                <constraint firstItem="68O-1k-SgC" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="nbb-G8-XCH"/>
+                <constraint firstItem="68O-1k-SgC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tXs-NN-n8H"/>
             </constraints>
+            <point key="canvasLocation" x="273" y="374"/>
         </view>
     </objects>
     <resources>
-        <image name="Create" width="106" height="40"/>
         <image name="Play" width="512" height="512"/>
         <image name="Play Selected" width="512" height="512"/>
     </resources>

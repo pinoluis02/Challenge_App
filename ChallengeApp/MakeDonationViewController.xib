@@ -6,7 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MakeDonationViewController">
             <connections>
-                <outlet property="pickerCharityOrganization" destination="YBl-US-p1c" id="sMg-FJ-WOI"/>
+                <outlet property="btnAccept" destination="k0D-5h-vyi" id="2qI-fY-qhU"/>
+                <outlet property="inputAmount" destination="dVZ-Tt-xLq" id="sTz-bf-ord"/>
+                <outlet property="inputPaypalId" destination="hRc-O0-Ep2" id="fkU-86-gfE"/>
+                <outlet property="pickerCharityOrganization" destination="gaO-29-SqY" id="bIX-ee-5N1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,26 +18,64 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Make Donation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWk-1p-1Rl">
-                    <rect key="frame" x="65" y="65" width="117" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh5-m6-Vex">
+                    <rect key="frame" x="30" y="30" width="540" height="25.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="21"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How would you like to support :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7e-Xg-AKa">
-                    <rect key="frame" x="8" y="139" width="244" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select organization" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dom-rr-lYB">
+                    <rect key="frame" x="30" y="85.5" width="146.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YBl-US-p1c">
-                    <rect key="frame" x="8" y="168" width="240" height="162"/>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaO-29-SqY">
+                    <rect key="frame" x="30" y="105" width="540" height="162"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="ark-Sx-hIe"/>
+                    </constraints>
                 </pickerView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PayPal-ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRc-O0-Ep2" userLabel="input-Paypal ID">
+                    <rect key="frame" x="30" y="266" width="540" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dVZ-Tt-xLq" userLabel="input-Amount">
+                    <rect key="frame" x="30" y="318" width="540" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0D-5h-vyi">
+                    <rect key="frame" x="275" y="470" width="50" height="30"/>
+                    <state key="normal" title="Donate">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAcceptClicked:" destination="-1" eventType="touchUpInside" id="37R-TE-x2D"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="XWk-1p-1Rl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="vkx-1x-GpH"/>
+                <constraint firstItem="Zh5-m6-Vex" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="CEe-Mc-xoF"/>
+                <constraint firstItem="hRc-O0-Ep2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="E2D-LY-J7X"/>
+                <constraint firstItem="Zh5-m6-Vex" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="EGa-07-Tdx"/>
+                <constraint firstItem="k0D-5h-vyi" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" constant="-100" id="G6u-WU-2YO"/>
+                <constraint firstItem="gaO-29-SqY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="L7n-oW-Ut5"/>
+                <constraint firstItem="dVZ-Tt-xLq" firstAttribute="top" secondItem="gaO-29-SqY" secondAttribute="bottom" constant="82" id="O9B-ed-uvi"/>
+                <constraint firstItem="Dom-rr-lYB" firstAttribute="top" secondItem="Zh5-m6-Vex" secondAttribute="bottom" constant="30" id="R0a-SZ-BWC"/>
+                <constraint firstItem="Zh5-m6-Vex" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-30" id="UcQ-89-ZPF"/>
+                <constraint firstItem="dVZ-Tt-xLq" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-30" id="Vip-3R-FIe"/>
+                <constraint firstItem="hRc-O0-Ep2" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-30" id="eR8-5S-2fh"/>
+                <constraint firstItem="Dom-rr-lYB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="f9a-mQ-J1u"/>
+                <constraint firstAttribute="centerX" secondItem="k0D-5h-vyi" secondAttribute="centerX" id="jDI-ec-pOV"/>
+                <constraint firstItem="dVZ-Tt-xLq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="rPl-7D-BC6"/>
+                <constraint firstItem="gaO-29-SqY" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-30" id="ucP-Uw-8XE"/>
+                <constraint firstItem="hRc-O0-Ep2" firstAttribute="top" secondItem="gaO-29-SqY" secondAttribute="bottom" constant="30" id="xAF-gu-2PR"/>
+                <constraint firstItem="gaO-29-SqY" firstAttribute="top" secondItem="Dom-rr-lYB" secondAttribute="bottom" constant="30" id="ydD-VO-9fC"/>
             </constraints>
+            <point key="canvasLocation" x="212" y="338"/>
         </view>
     </objects>
 </document>

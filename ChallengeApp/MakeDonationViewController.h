@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MakeDonationViewController : UIViewController
+extern NSString * customCharityOrganizationOptionString;
+@interface MakeDonationViewController : UIViewController<UIPickerViewDataSource, UITextFieldDelegate, UIPickerViewDelegate>
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerCharityOrganization;
-
+@property(strong,nonatomic) IBOutlet  UITextField *inputAmount;
+@property(strong,nonatomic) IBOutlet  UITextField *inputPaypalId;
+@property(strong,nonatomic) IBOutlet  UIButton *btnAccept;
+-(IBAction) btnAcceptClicked:(id)sender;
 @end

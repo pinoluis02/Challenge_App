@@ -77,7 +77,7 @@ bool tabBarVerticalSpaceConstraintFixed;
                 break;
         }
 
-        visibleTabBar.selectedItem = visibleTabBar.items[1];
+        visibleTabBar.selectedItem = visibleTabBar.items[3];
         [self tabBar:visibleTabBar didSelectItem:visibleTabBar.selectedItem];
         
         visibleTabBar.hidden = false;

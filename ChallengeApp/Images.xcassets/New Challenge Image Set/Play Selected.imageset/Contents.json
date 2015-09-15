@@ -7,15 +7,18 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "Play Selected-1.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Play Selected-1-1.png"
     }
   ],
   "info" : {
     "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "template-rendering-intent" : "original"
   }
 }

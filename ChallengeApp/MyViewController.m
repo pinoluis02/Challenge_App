@@ -7,7 +7,6 @@
 //
 
 #import "MyViewController.h"
-#import "CreateNewChallengeViewController.h"
 #import "MasterRootController.h"
 #import "ContactsViewController.h"
 
