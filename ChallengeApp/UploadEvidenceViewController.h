@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
+#import "Dropbox.h"
+#import "OAuthLoginViewController.h"
 #import <UIKit/UIKit.h>
 
 @interface UploadEvidenceViewController : UIViewController
@@ -17,6 +19,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *sendEvidenceButton;
 @property (strong, nonatomic) IBOutlet UIButton *addMediaButton;
+@property (strong, nonatomic) NSString *urlResource;
+@property (strong, nonatomic) NSString *typeResource;
 
 //@property (strong, nonatomic) NSString * descriptionText;
 //@property (strong, nonatomic) NSString * aditionalHashtags;

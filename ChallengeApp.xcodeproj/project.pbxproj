@@ -92,6 +92,8 @@
 		04F013CA1BA58346003F2DE8 /* notificationPendingChallengeCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F013C91BA58346003F2DE8 /* notificationPendingChallengeCommands.plist */; };
 		04F013CC1BA58360003F2DE8 /* completedChallengeCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F013CB1BA58360003F2DE8 /* completedChallengeCommands.plist */; };
 		04F013D01BA5838E003F2DE8 /* unrelatedChallengeCommands.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F013CF1BA5838E003F2DE8 /* unrelatedChallengeCommands.plist */; };
+		41F67DDB1BA825DC00AF069D /* Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F67DD81BA825DC00AF069D /* Dropbox.m */; };
+		41F67DDC1BA825DC00AF069D /* OAuthLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F67DDA1BA825DC00AF069D /* OAuthLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,10 @@
 		416B9F071BA2244D00761422 /* Evidence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Evidence.m; path = ChallengeApp/Evidence.m; sourceTree = "<group>"; };
 		416B9F0C1BA2B9D800761422 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ChallengeApp/User.h; sourceTree = "<group>"; };
 		416B9F0D1BA2B9D800761422 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ChallengeApp/User.m; sourceTree = "<group>"; };
+		41F67DD71BA825DC00AF069D /* Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dropbox.h; sourceTree = "<group>"; };
+		41F67DD81BA825DC00AF069D /* Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dropbox.m; sourceTree = "<group>"; };
+		41F67DD91BA825DC00AF069D /* OAuthLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthLoginViewController.h; sourceTree = "<group>"; };
+		41F67DDA1BA825DC00AF069D /* OAuthLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -497,6 +503,10 @@
 		04989A051BA7F51300917F13 /* Upload Evidence */ = {
 			isa = PBXGroup;
 			children = (
+				41F67DD71BA825DC00AF069D /* Dropbox.h */,
+				41F67DD81BA825DC00AF069D /* Dropbox.m */,
+				41F67DD91BA825DC00AF069D /* OAuthLoginViewController.h */,
+				41F67DDA1BA825DC00AF069D /* OAuthLoginViewController.m */,
 				04989A061BA7F55C00917F13 /* UploadEvidenceViewController.h */,
 				04989A071BA7F55C00917F13 /* UploadEvidenceViewController.m */,
 				04989A081BA7F55C00917F13 /* UploadEvidenceViewController.xib */,
@@ -797,6 +807,7 @@
 				04989A091BA7F55C00917F13 /* UploadEvidenceViewController.m in Sources */,
 				049899DA1BA79EEC00917F13 /* JSONParsing.m in Sources */,
 				049899DB1BA79EEC00917F13 /* Comment.m in Sources */,
+				41F67DDB1BA825DC00AF069D /* Dropbox.m in Sources */,
 				049899DC1BA79EEC00917F13 /* User.m in Sources */,
 				049899DD1BA79EEC00917F13 /* Evidence.m in Sources */,
 				049899DE1BA79EEC00917F13 /* Challenge.m in Sources */,
@@ -805,6 +816,7 @@
 				049899E11BA79EEC00917F13 /* Message.m in Sources */,
 				049899E21BA79EEC00917F13 /* ExpandableTableViewCell.m in Sources */,
 				049899E31BA79EEC00917F13 /* ExpandableTableViewController.m in Sources */,
+				41F67DDC1BA825DC00AF069D /* OAuthLoginViewController.m in Sources */,
 				049899E41BA79EEC00917F13 /* NestedTabController.m in Sources */,
 				049899E51BA79EEC00917F13 /* MasterRootController.m in Sources */,
 				049899E61BA79EEC00917F13 /* ChallengesRootController.m in Sources */,
