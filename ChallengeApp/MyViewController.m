@@ -8,7 +8,7 @@
 
 #import "MyViewController.h"
 #import "CreateNewChallengeViewController.h"
-#import "customRootController.h"
+#import "MasterRootController.h"
 #import "ContactsViewController.h"
 
 @interface MyViewController ()
@@ -34,27 +34,44 @@
     [self.loginButton setDelegate:self];
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
     
+    //REACHABILITY
+    NSString *url = @"http://www.facebook.com";
+    NSString *hostaddress = [[NSURL URLWithString:url] host];
+    Reachability* r=[Reachability reachabilityWithHostName:hostaddress];
+    NetworkStatus internetStatus=[r currentReachabilityStatus];
+    if(internetStatus == NotReachable) {
+        //inform user of unavailable network
+        
+        NSLog(@"No Connection");
+        NSString *msg = @"Your Device has NO connection, this aplication needs connection to work";
+        [self popAlert:@"Alert" msg:msg];
+        self.loginButton.enabled = NO;
+    }else{
+        self.loginButton.enabled = YES;
+   
+    }
+    
 }
 
 #pragma mark - loginButton didCompleteWithResult
 - (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult: (FBSDKLoginManagerLoginResult *)result error:(NSError *)error{
     
-    //  self.activityIndicator.hidden = NO;
-    [self.activityIndicator startAnimating];
-    self.loginButton.hidden = YES;
-    
-    if (error)
-    {
-        // There is an error here.
-        NSLog(@"ERROR:%@",error);
-        [self popAlert:@"Error" msg:[NSString stringWithFormat:@"%@",error]];
-    }
-    else
-        if(result.token)   // This means if There is current access token.
+        //  self.activityIndicator.hidden = NO;
+        [self.activityIndicator startAnimating];
+        self.loginButton.hidden = YES;
+        
+        if (error)
         {
-            [fb startDownloadingUserInfo];
-            [fb startDownloadingUserFriends];
+            // There is an error here.
+            NSLog(@"ERROR:%@",error);
+            [self popAlert:@"Error" msg:[NSString stringWithFormat:@"%@",error]];
         }
+        else
+            if(result.token)   // This means if There is current access token.
+            {
+                [fb startDownloadingUserInfo];
+                [fb startDownloadingUserFriends];
+            }
 }
 
 #pragma mark - loginButtonDidLogOut

@@ -30,6 +30,12 @@
 		</dict>
 		<dict>
 			<key>Name</key>
+			<string>Comment</string>
+			<key>level</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>Name</key>
 			<string>Cancel</string>
 			<key>level</key>
 			<integer>0</integer>

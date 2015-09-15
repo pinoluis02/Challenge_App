@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user avatar placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ghw-ZI-ghq">
-                        <rect key="frame" x="38" y="70.5" width="60" height="60"/>
+                        <rect key="frame" x="38" y="70" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ghw-ZI-ghq" secondAttribute="height" multiplier="1:1" id="ZN6-q0-Zdl"/>
                             <constraint firstAttribute="width" constant="60" id="kYu-27-aL8"/>
@@ -46,7 +46,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="ozN-Vn-6g3" secondAttribute="bottom" constant="30" id="8i8-FW-6RZ"/>
+                    <constraint firstAttribute="bottom" secondItem="ozN-Vn-6g3" secondAttribute="bottom" constant="30" id="8i8-FW-6RZ"/>
                     <constraint firstItem="fBp-ZY-Ecs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="DZI-Xg-fQD"/>
                     <constraint firstItem="fBp-ZY-Ecs" firstAttribute="leading" secondItem="ghw-ZI-ghq" secondAttribute="trailing" constant="30" id="MUK-Af-YbU"/>
                     <constraint firstItem="ghw-ZI-ghq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="QnJ-nb-fHX"/>

@@ -6,14 +6,16 @@
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "CustomRootController.h"
+#import "NestedTabController.h"
+#import "ChallengesRootController.h"
 
-@interface CustomRootController (){
+@interface NestedTabController (){
 bool tabBarVerticalSpaceConstraintFixed;
+    UINavigationController * rootController;
 }
 @end
 
-@implementation CustomRootController
+@implementation NestedTabController
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -27,27 +29,11 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setUpMainViewContent];
-    [self setUpMenuContent];
-    [self setUpTableContent];
+
 
 }
 
 
-
--(void)setUpMenuContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
-
--(void)setUpMainViewContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
--(void)setUpTableContent{
-    NSAssert(NO, @"Subclasses need to overwrite this method");
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -112,74 +98,18 @@ bool tabBarVerticalSpaceConstraintFixed;
 
 - (void)tabBar:(UITabBar *)tabBar
  didSelectItem:(UITabBarItem *)item{
-    self.tableContentController.contentType = item.tag;
+    if(rootController){
+        [rootController removeFromParentViewController ];
+    }
+    ChallengesRootController * root = [ChallengesRootController new];
+    root.contentType = item.tag;
+    UINavigationController * embededRoot = [[UINavigationController alloc] initWithRootViewController:root];
+    [self.contentView addSubview:embededRoot.view];
+    embededRoot.view.frame = CGRectMake(0, 0, self.contentView.frame.size.width,  self.contentView.frame.size.height);
+    rootController = embededRoot;
 
 }
 
-
--(void)coordinateMainContentViewHeightWithMenuHeight:(CGFloat)height{
-    if(height == 0)
-    {
-        height = 1; //Set it to zero and is gone for sure, don't know why though.
-    }
-    self.commandMenuViewHeightConstraint.constant = height;
-}
-
-
--(void)respondToMenuItemSelection:(NSString *)command{
-    if([command isEqualToString:@"Cancel"]){
-        self.commandMenuController.itemsInTable = nil;
-    }
-}
-
-
--(void)coordinateItemSelection:(Challenge *)item
-           selectedByLongPress:(BOOL)longPress;
-{
-        NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
--(void)coordinateMainItemSelection:(Challenge *)item
-               selectedByLongPress:(BOOL)longPress{
-        NSAssert(NO, @"Subclasses need to overwrite this method");
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-
-+(NSArray *)loadMenuItemsForChallengeItem:(Challenge *)item{
-    NSDictionary * dict;
-    if([item.userStatus isEqualToString:@"unrelated"]){
-        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
-    }
-    else if([item.userStatus isEqualToString:@"notified"]){
-        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"notificationPendingChallengeCommands" ofType:@"plist"]];
-    }
-    else if([item.userStatus isEqualToString:@"accepted"]){
-        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"incompleteChallengeCommands" ofType:@"plist"]];
-    }
-    else if([item.userStatus isEqualToString:@"rejected"]){
-        //        For this version rejected items behave the same as unrelated items.
-        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
-    }
-    else if([item.userStatus isEqualToString:@"completed"]){
-        dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"completedChallengeCommands" ofType:@"plist"]];
-    }
-    else{
-        NSAssert(false, @"you made a mistake programmer");
-    }
-    
-    NSArray * items =  [dict valueForKey:@"Items"];
-    return  items;
-}
 
 
 @end

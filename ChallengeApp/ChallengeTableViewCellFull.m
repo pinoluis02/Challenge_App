@@ -1,14 +1,14 @@
 //
-//  RegularItemTableViewCell.m
+//  OriginalItemTableViewCell.m
 //  ChallengeApp
 //
 //  Created by MCS on 9/9/15.
 //  Copyright (c) 2015 MCS. All rights reserved.
 //
 
-#import "RegularItemTableViewCell.h"
+#import "ChallengeTableViewCellFull.h"
 
-@implementation RegularItemTableViewCell
+@implementation ChallengeTableViewCellFull
 
 - (void)awakeFromNib {
     // Initialization code

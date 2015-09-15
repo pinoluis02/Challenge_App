@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CustomRootController;
+@class MasterRootController;
 
 @protocol ExpandableTableViewContainer <NSObject>
 -(void)respondToExpandableTableHeightChange:(CGFloat)height;
@@ -18,5 +18,5 @@
 @property(nonatomic,strong) NSArray *items;
 @property (nonatomic, retain) NSArray *itemsInTable;
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
-@property CustomRootController * coordinatorController;
+@property MasterRootController * coordinatorController;
 @end

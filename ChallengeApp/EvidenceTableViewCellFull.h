@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChallengeEvidenceTableViewCell : UITableViewCell
+@interface EvidenceTableViewCellFull : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *authorUsername;
 @property (weak, nonatomic) IBOutlet UILabel *creationDate;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbnail;

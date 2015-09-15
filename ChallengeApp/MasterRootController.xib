@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MasterRootController">
+            <connections>
+                <outlet property="commandMenuView" destination="DBq-WN-Lsa" id="hA8-SZ-BX0"/>
+                <outlet property="commandMenuViewHeightConstraint" destination="xUu-hN-99A" id="G4k-At-tjy"/>
+                <outlet property="contentView" destination="jqu-M4-mZO" id="0hA-Cb-koa"/>
+                <outlet property="mainItemView" destination="JPN-pt-lkt" id="adG-4T-JOV"/>
+                <outlet property="mainViewHeightConstraint" destination="8q0-KO-D1c" id="GF1-Tc-Qkz"/>
+                <outlet property="tableContentView" destination="KXf-Yy-Aoy" id="HFs-72-vCA"/>
+                <outlet property="view" destination="jqu-M4-mZO" id="iSy-N5-XlU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jqu-M4-mZO" userLabel="contentView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JPN-pt-lkt" userLabel="mainItem">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <color key="backgroundColor" red="0.2496751931" green="1" blue="0.27617261720000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="8q0-KO-D1c"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXf-Yy-Aoy" userLabel="tableContentView">
+                    <rect key="frame" x="0.0" y="50" width="600" height="549"/>
+                    <color key="backgroundColor" red="1" green="0.065531124829999995" blue="0.08477256373" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBq-WN-Lsa" userLabel="menuView">
+                    <rect key="frame" x="0.0" y="599" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.46687148029999997" green="0.72606928660000003" blue="0.19199296569999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="xUu-hN-99A"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.87077809343434343" green="0.77468434609578396" blue="0.22004461556745955" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="bottom" secondItem="DBq-WN-Lsa" secondAttribute="top" id="0nQ-pr-ZRT"/>
+                <constraint firstAttribute="trailing" secondItem="JPN-pt-lkt" secondAttribute="trailing" id="1mb-66-SBs"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="5cw-B0-T5w"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="Hkg-BL-p0n"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="P2h-TD-RvT"/>
+                <constraint firstItem="JPN-pt-lkt" firstAttribute="top" secondItem="jqu-M4-mZO" secondAttribute="top" id="TEg-aL-a7n"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="trailing" secondItem="jqu-M4-mZO" secondAttribute="trailing" id="bcm-JL-wHr"/>
+                <constraint firstItem="DBq-WN-Lsa" firstAttribute="bottom" secondItem="jqu-M4-mZO" secondAttribute="bottom" id="gjZ-On-pGs"/>
+                <constraint firstItem="KXf-Yy-Aoy" firstAttribute="top" secondItem="JPN-pt-lkt" secondAttribute="bottom" id="kOS-RW-4u7"/>
+                <constraint firstItem="JPN-pt-lkt" firstAttribute="leading" secondItem="jqu-M4-mZO" secondAttribute="leading" id="w0u-aG-4mL"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

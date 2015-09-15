@@ -23,7 +23,6 @@
     // Override point for customization after application launch.
     //UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
    // tabBarController.selectedIndex = 0;
-    
     [FBSDKLoginButton class];
     
     return YES;

@@ -8,7 +8,7 @@
 
 #import "ExpandableTableViewController.h"
 #import "ExpandableTableViewCell.h"
-#import "customRootController.h"
+#import "MasterRootController.h"
 
 @interface ExpandableTableViewController ()
 {
@@ -39,8 +39,9 @@
 
     
     self.menuTableView = (UITableView*)self.view;
-    UINib *cellNib = [UINib nibWithNibName:@"ExpandableTableViewCell" bundle:nil];
-    [self.menuTableView registerNib: cellNib forCellReuseIdentifier:@"ExpandableTableViewCell"];
+     NSString * classNameStr = NSStringFromClass([ExpandableTableViewCell class]);
+    UINib *cellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.menuTableView registerNib: cellNib forCellReuseIdentifier:classNameStr];
 
     //    WARNING: Don't remove this, this is the simplest way to the total height required by the table's cell.
     self.menuTableView.rowHeight = 36;
@@ -124,12 +125,11 @@
 }
 
 -(void)notifyCoordinatorOfCommandSelection:(NSString *)command{
-    [self.coordinatorController respondToMenuItemSelection:command];
+    [self.coordinatorController coordinateMenuItemSelection:command];
 }
 
 -(void)CollapseRows:(NSArray*)ar
 {
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
 	for(NSDictionary *dInner in ar )
     {
 		NSUInteger indexToRemove=[self.itemsInTable indexOfObjectIdenticalTo:dInner];
@@ -163,12 +163,11 @@
 -(void)notifyCoordinatorOfSizeChange{
     CGFloat height = self.menuTableView.rowHeight;
     height *= [self.menuTableView numberOfRowsInSection:0];
-    [self.coordinatorController coordinateMainContentViewHeightWithMenuHeight:height];
+    [self.coordinatorController coordinateMenuHeightChange:height];
 }
 
 - (UITableViewCell*)createCellWithTitle:(NSString *)title image:(UIImage *)image  indexPath:(NSIndexPath*)indexPath
 {
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
     NSString *CellIdentifier = @"ExpandableTableViewCell";
     ExpandableTableViewCell* cell = [self.menuTableView dequeueReusableCellWithIdentifier:CellIdentifier];
 //    first menu item is handled as a header
@@ -213,7 +212,6 @@
 -(void)showSubItems :(id) sender
 {
 
-    NSLog(@"%@.%@", [self class], NSStringFromSelector(_cmd));
     UIButton *btn = (UIButton*)sender;
     CGRect buttonFrameInTableView = [btn convertRect:btn.bounds toView:self.menuTableView];
     NSIndexPath *indexPath = [self.menuTableView indexPathForRowAtPoint:buttonFrameInTableView.origin];
