@@ -20,6 +20,10 @@ extern NSString * descriptionPlaceholderText;
     UIView * aProgressView ;
 }
 
+@property (strong, nonatomic) NSString * titleChallege;
+@property (strong, nonatomic) NSString * DescriptionChallenge;
+@property (strong, nonatomic) NSString * urlVideoDropbox;
+
 @property (strong, nonatomic) IBOutlet UIButton *ChooseFromGallery;
 @property(strong,nonatomic)IBOutlet  UIProgressView *progressIndicator;
 @property(strong,nonatomic)IBOutlet  UILabel *donationSummary;

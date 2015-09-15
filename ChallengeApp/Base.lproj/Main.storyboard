@@ -352,6 +352,25 @@
             </objects>
             <point key="canvasLocation" x="-3835" y="-2972"/>
         </scene>
+<!--create new-->
+<scene sceneID="kG2-7n-qKu">
+<objects>
+<navigationController automaticallyAdjustsScrollViewInsets="NO" id="GMF-D7-3j8" sceneMemberID="viewController">
+<tabBarItem key="tabBarItem" title="create new" image="new challenge icon" id="IP8-HW-KcC"/>
+<toolbarItems/>
+<navigationBar key="navigationBar" contentMode="scaleToFill" id="YHj-DJ-gva">
+<rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+</navigationBar>
+<nil name="viewControllers"/>
+<connections>
+<segue destination="u7p-3z-kkX" kind="relationship" relationship="rootViewController" id="ORt-x5-Xgv"/>
+</connections>
+</navigationController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="3Wu-rq-3hB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1848" y="404"/>
+</scene>
     </scenes>
     <resources>
         <image name="contacts icon" width="30" height="30"/>

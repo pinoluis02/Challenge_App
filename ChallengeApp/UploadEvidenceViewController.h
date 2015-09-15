@@ -18,8 +18,17 @@
 @property (strong, nonatomic) IBOutlet UILabel *warningLabel;
 @property (strong, nonatomic) IBOutlet UIButton *sendEvidenceButton;
 @property (strong, nonatomic) IBOutlet UIButton *addMediaButton;
-@property (strong, nonatomic) NSString *urlResource;
-@property (strong, nonatomic) NSString *typeResource;
+@property ChallengeDao * challengeDao;
+@property NSString * createNewChallengeView_donationAmount;
+@property NSString * createNewChallengeView_donationPaypalId;
+@property NSString * createNewChallengeView_title;
+@property NSString * createNewChallengeView_description;
+@property NSString * createNewChallengeView_resourceType;
+@property NSString * createNewChallengeView_resourceUrl;
+@property NSString * createNewChallengeView_thumbnailUrl;
+@property NSString * createNewChallengeView_donationOrganization;
+
+@property BOOL userComesFromCreateNewChallengeView;
 
 @property Challenge * selectedItem;
 //@property (strong, nonatomic) NSString * descriptionText;

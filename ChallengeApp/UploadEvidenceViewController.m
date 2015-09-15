@@ -10,15 +10,25 @@
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "Dropbox.h"
 #import "ChallengeDao.h"
+#import "FbSingleton.h"
+#import "FBFriend.h"
+#import "Challenge.h"
+#import "NSDate+Utils.h"
 
-@interface UploadEvidenceViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate, ChallengeDelegate>
-
+@interface UploadEvidenceViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate, ChallengeDelegate> {
+NSString * mediaUrl;
+NSString * mediaType;
+}
 @property (nonatomic, strong) NSURLSessionUploadTask *uploadTask;
 @property (weak, nonatomic) IBOutlet UIProgressView *progress;
 @property (weak, nonatomic) IBOutlet UIView *uploadView;
 @property (nonatomic, strong) NSArray *photoThumbnails;
 @property (nonatomic, strong) NSURLSession *session;
-@property ChallengeDao * challengeDao;
+//@property ChallengeDao * challengeDao;
+
+//@property (nonatomic, strong) NSArray *photoThumbnails;
+//@property (nonatomic, strong) NSURLSession *session;
+//@property ChallengeDao * challengeDao;
 
 @end
 
@@ -35,8 +45,8 @@
     self.challengeDao = [[ChallengeDao alloc]init];
     self.challengeDao.delegate = self;
 
-    self.challengeDao = [[ChallengeDao alloc] init];
-    self.challengeDao.delegate = self;
+//    self.challengeDao = [[ChallengeDao alloc] init];
+//    self.challengeDao.delegate = self;
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -81,50 +91,9 @@
         NSLog(@"%@", aditionalHashtags);
         
         self.warningLabel.text = @"";
-        [self.challengeDao postChallengeEvidence:@1 userId:@1 mediaUrl:self.urlResource mediaType:self.typeResource];
+        [self.challengeDao postChallengeEvidence:@1 userId:@1 mediaUrl:mediaUrl mediaType:mediaType];
         // Funtion to send the variables for Details and Hashtags to the next method
         [self PostToServer];
-    }
-}
-
--(void)PostToServer{
-    if(self.userComesFromCreateNewChallengeView){
-        Challenge * challenge = [Challenge new];
-//        @property (strong, nonatomic) NSString *idChallenge;
-//        @property (strong, nonatomic) NSString *title;
-//        @property (strong, nonatomic) NSString *descriptionItem;
-//        @property (strong, nonatomic) NSString *type;
-//        @property (strong, nonatomic) NSString *urlResource;
-//        @property (strong, nonatomic) NSString *urlThumbnail;
-//        @property (strong, nonatomic) NSString *idAuthor;
-//        @property (strong, nonatomic) NSString *nameAuthor;
-//        @property (strong, nonatomic) NSString *creationDate;
-//        @property (strong, nonatomic) NSString *donation;
-//        @property (strong, nonatomic) NSString *idPayPal;
-//        @property (strong, nonatomic) NSString *organization;
-//        @property (strong, nonatomic) NSString *hashtags;
-//        @property (strong, nonatomic) NSString *userStatus;
-//        @property float mount;
-
-        challenge.title = self.createNewChallengeView_title;
-        challenge.descriptionItem = self.createNewChallengeView_description;
-        challenge.type = self.createNewChallengeView_resourceType;
-        challenge.urlResource = self.createNewChallengeView_resourceUrl;
-        challenge.urlThumbnail = self.createNewChallengeView_thumbnailUrl;
-        challenge.idAuthor = [FbSingleton sharedInstance].userLoggedIn.userId;
-        challenge.nameAuthor = [FbSingleton sharedInstance].userLoggedIn.userName;
-        challenge.creationDate = [[NSString alloc] initWithString:[NSDate date].shortFormattedDateString];
-        challenge.donation = self.createNewChallengeView_donationAmount;
-        challenge.idPayPal = self.createNewChallengeView_donationPaypalId;
-        challenge.organization = self.createNewChallengeView_donationOrganization;
-        challenge.hashtags = self.addHashtadText.text;
-        [self.challengeDao postChallenge:challenge];
-    }
-    else{
-//    create new evidence for existing challenge
-        NSNumber * challengeid = [NSNumber numberWithInteger:[self.selectedItem.idChallenge integerValue]];
-        NSNumber * userId = [NSNumber numberWithInteger:[[FbSingleton sharedInstance].userLoggedIn.userId integerValue]];
-        [self.challengeDao postChallengeEvidence:challengeid userId:userId mediaUrl:mediaUrl mediaType:mediaType];
     }
 }
 # pragma mark - OAUTH 1.0a STEP 1
@@ -212,9 +181,50 @@
     }];
 }*/
 
+-(void)PostToServer{
+    if(self.userComesFromCreateNewChallengeView){
+        Challenge * challenge = [Challenge new];
+//        @property (strong, nonatomic) NSString *idChallenge;
+//        @property (strong, nonatomic) NSString *title;
+//        @property (strong, nonatomic) NSString *descriptionItem;
+//        @property (strong, nonatomic) NSString *type;
+//        @property (strong, nonatomic) NSString *urlResource;
+//        @property (strong, nonatomic) NSString *urlThumbnail;
+//        @property (strong, nonatomic) NSString *idAuthor;
+//        @property (strong, nonatomic) NSString *nameAuthor;
+//        @property (strong, nonatomic) NSString *creationDate;
+//        @property (strong, nonatomic) NSString *donation;
+//        @property (strong, nonatomic) NSString *idPayPal;
+//        @property (strong, nonatomic) NSString *organization;
+//        @property (strong, nonatomic) NSString *hashtags;
+//        @property (strong, nonatomic) NSString *userStatus;
+//        @property float mount;
+
+        challenge.title = self.createNewChallengeView_title;
+        challenge.descriptionItem = self.createNewChallengeView_description;
+        challenge.type = self.createNewChallengeView_resourceType;
+        challenge.urlResource = self.createNewChallengeView_resourceUrl;
+        challenge.urlThumbnail = self.createNewChallengeView_thumbnailUrl;
+        challenge.idAuthor = [FbSingleton sharedInstance].userLoggedIn.userId;
+        challenge.nameAuthor = [FbSingleton sharedInstance].userLoggedIn.userName;
+        challenge.creationDate = [[NSString alloc] initWithString:[NSDate date].shortFormattedDateString];
+        challenge.donation = self.createNewChallengeView_donationAmount;
+        challenge.idPayPal = self.createNewChallengeView_donationPaypalId;
+        challenge.organization = self.createNewChallengeView_donationOrganization;
+        challenge.hashtags = self.addHashtadText.text;
+        [self.challengeDao postChallenge:challenge];
+    }
+    else{
+//    create new evidence for existing challenge
+        NSNumber * challengeid = [NSNumber numberWithInteger:[self.selectedItem.idChallenge integerValue]];
+        NSNumber * userId = [NSNumber numberWithInteger:[[FbSingleton sharedInstance].userLoggedIn.userId integerValue]];
+        [self.challengeDao postChallengeEvidence:challengeid userId:userId mediaUrl:mediaUrl mediaType:mediaType];
+    }
+}
+
 - (IBAction)addMediaButton:(UIButton *)sender
 {
-//    [self getOAuthRequestToken];
+    [self getOAuthRequestToken];
 //    [self exchangeRequestTokenForAccessToken];
     NSLog(@"Open the Photo gallery to search for the Video/Photo from your phone");
     // Override point for customization after application launch.
@@ -283,13 +293,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     if ([[info objectForKey:@"UIImagePickerControllerMediaType"] isEqualToString:@"public.image"]) {
-        self.typeResource = @"image";
+        mediaType = @"image";
         UIImage *image = info[UIImagePickerControllerOriginalImage];
         NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
         [self dismissViewControllerAnimated:YES completion:nil];
         [self uploadMedia:imageData typeMedia:@"image"];
     }else if([[info objectForKey:@"UIImagePickerControllerMediaType"] isEqualToString:@"public.movie"]) {
-        self.typeResource = @"video";
+        mediaType = @"video";
         NSURL *urlvideo = [info objectForKey:UIImagePickerControllerMediaURL];
         NSString *strUrl = [NSString stringWithFormat:@"%@",urlvideo];
         strUrl = [strUrl substringFromIndex:7];
@@ -318,7 +328,7 @@
         url = [Dropbox createVideoUploadURL];
 //        NSLog(@"url: %@", url);
     }
-    self.urlResource = [NSString stringWithFormat:@"%@", url];
+    mediaUrl = [NSString stringWithFormat:@"%@", url];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"PUT"];
     

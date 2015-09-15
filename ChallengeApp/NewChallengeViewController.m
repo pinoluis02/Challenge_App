@@ -24,12 +24,17 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UploadEvidenceViewController.h"
 
+
+#import "UploadEvidenceViewController.h"
+#import <MobileCoreServices/UTCoreTypes.h>
+#import "Dropbox.h"
+
 enum {
     kSendBufferSize = 32768
 };
 
 NSString * descriptionPlaceholderText = @"[Insert description here ..]";
-@interface NewChallengeViewController () <NSStreamDelegate>
+@interface NewChallengeViewController () <NSStreamDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, NSURLSessionTaskDelegate, ChallengeDelegate>
 {
     MPMoviePlayerController *_player;
 //    IBOutlet  UIImageView *image;
@@ -41,11 +46,18 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     NSString * createNewChallengeView_thumbnailUrl;
     
     BOOL donationViewVisible;
+    NSString * mediaUrl;
+    NSString * mediaType;
+
 }
 
 @property (strong, nonatomic) MPMoviePlayerController *player;
-
+@property ChallengeDao * challengeDao;
 // things for IB
+
+@property (strong, nonatomic) NSString * titleChallenge;
+@property (strong, nonatomic) NSString * descriptionChallenge;
+//@property (strong, nonatomic) NSString * urlVideoDropbox;
 
 @property (nonatomic, strong, readwrite) IBOutlet UITextField * urlText;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -64,7 +76,11 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
 @property (nonatomic, assign, readonly ) uint8_t *         buffer;
 
 @property (weak, nonatomic) IBOutlet UIView *movieView; // this should point to a view where the movie will play
-
+@property (nonatomic, strong) NSURLSessionUploadTask *uploadTask;
+@property (weak, nonatomic) IBOutlet UIProgressView *progress;
+@property (weak, nonatomic) IBOutlet UIView *uploadView;
+@property (nonatomic, strong) NSArray *photoThumbnails;
+@property (nonatomic, strong) NSURLSession *session;
 
 @end
 
@@ -98,6 +114,9 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     [self setTextViewBorder];
     self.donationSummary.hidden = YES;
     self.challengeDescription.text = descriptionPlaceholderText;
+ 
+    self.challengeDao = [[ChallengeDao alloc] init];
+    self.challengeDao.delegate = self;
     
 }
 
@@ -217,11 +236,65 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     
     NSString * segueIdentifier = @"gotoUploadEvidence";
     [self performSegueWithIdentifier:segueIdentifier sender:self];
+    Challenge * challenge = [Challenge new];
+
+    challenge.title = self.challengeTitle.text;
+    challenge.descriptionItem = self.challengeDescription.text;
+    challenge.urlResource = mediaUrl;
+    [self.challengeDao postChallenge:challenge];
 }
+# pragma mark - OAUTH 1.0a STEP 1
+-(void)getOAuthRequestToken
+{
+    // OAUTH Step 1. Get request token.
+    [Dropbox requestTokenWithCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse*) response;
+            if (httpResp.statusCode == 200) {
+                
+                NSString *responseStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                
+                /*
+                 oauth_token The request token that was just authorized. The request token secret isn't sent back.
+                 If the user chooses not to authorize the application,
+                 they will get redirected to the oauth_callback URL with the additional URL query parameter not_approved=true.
+                 */
+                NSDictionary *oauthDict = [Dropbox dictionaryFromOAuthResponseString:responseStr];
+                // save the REQUEST token and secret to use for normal api calls
+                [[NSUserDefaults standardUserDefaults] setObject:oauthDict[oauthTokenKey] forKey:requestToken];
+                [[NSUserDefaults standardUserDefaults] setObject:oauthDict[oauthTokenKeySecret] forKey:requestTokenSecret];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                
+                NSString *authorizationURLWithParams = [NSString stringWithFormat:@"https://www.dropbox.com/1/oauth/authorize?oauth_token=%@&oauth_callback=byteclub://userauthorization",oauthDict[oauthTokenKey]];
+                
+                //                NSString *authorizationURLWithParams = [NSString stringWithFormat:@"https://www.dropbox.com/1/oauth2/authorize?oauth_token=pOhdpi2sdRUAAAAAAABP0aMCdKzztrbRxKhIqTCH3PwXhYmKHQwvf-C2gEcwBUJi&oauth_callback=byteclub://userauthorization"];
+                
+                // escape codes
+                NSString *escapedURL = [authorizationURLWithParams stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                
+                //                [_tokenAlert dismissWithClickedButtonIndex:0 animated:NO];
+                
+                // opens to user auth page in safari
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:escapedURL]];
+                
+            } else {
+                // HANDLE BAD RESPONSE //
+                NSLog(@"unexpected response getting token %@",[NSHTTPURLResponse localizedStringForStatusCode:httpResp.statusCode]);
+            }
+        } else {
+            // ALWAYS HANDLE ERRORS :-] //
+        }
+    }];
+}
+
+/*-(void) didFinishPostChallengeEvidenceWithResult:(NSArray *)resultArray {
+    NSLog(@"didFinishPostChallengeEvidenceWithResult: %lu", [resultArray count]);
+}*/
 
 - (IBAction)ChooseFromGallery:(id)sender
 {
-    NSLog(@"Open the Choose From Gallery");
+/*    NSLog(@"Open the Choose From Gallery");
     
     if([UIImagePickerController isSourceTypeAvailable:
         UIImagePickerControllerSourceTypePhotoLibrary])
@@ -235,12 +308,44 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
         picker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage, nil];
         
         [self presentViewController:picker animated:YES completion:nil];
+    }*/
+//    [self getOAuthRequestToken];
+    //    [self exchangeRequestTokenForAccessToken];
+    NSLog(@"Open the Photo gallery to search for the Video/Photo from your phone");
+    // Override point for customization after application launch.
+    NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:accessToken];
+    NSString *controllerId;
+    if (token) {
+        controllerId = @"TabBar";
+        if([UIImagePickerController isSourceTypeAvailable:
+            UIImagePickerControllerSourceTypePhotoLibrary])
+        {
+            UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+            picker.delegate = self;
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+            picker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage, nil];
+            [self presentViewController:picker animated:YES completion:nil];
+        }
+        
+    }else {
+        controllerId = @"Login";
     }
     
+    if([UIImagePickerController isSourceTypeAvailable:
+        UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        UIImagePickerController *picker= [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+        picker.mediaTypes = [NSArray arrayWithObjects:(NSString *)kUTTypeMovie, (NSString *)kUTTypeImage, nil];
+        [self presentViewController:picker animated:YES completion:nil];
+    }
     NSLog(@"Choose From Gallery Ended");
 }
 
-- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
+/*- (void) imagePickerController: (UIImagePickerController *) picker didFinishPickingMediaWithInfo: (NSDictionary *) info
 {
     NSLog(@"This is the image PickerController");
     
@@ -249,7 +354,7 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     NSLog(@"progressIndicatorView");
-    [self progressIndicatorView];
+//    [self progressIndicatorView];
     self.ChooseFromGallery.hidden = YES;
     
     NSURL *urlvideo = [info objectForKey:UIImagePickerControllerMediaURL];
@@ -285,9 +390,106 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     
     [self startSend:urlString];
 //    [self startSend:urlvideo];
+}*/
+
+#pragma mark - UIImagePickerControllerDelegate methods
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)startSend:(NSString *)filePath
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    if ([[info objectForKey:@"UIImagePickerControllerMediaType"] isEqualToString:@"public.image"]) {
+        mediaType = @"image";
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.6);
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self uploadMedia:imageData typeMedia:@"image"];
+    }else if([[info objectForKey:@"UIImagePickerControllerMediaType"] isEqualToString:@"public.movie"]) {
+        mediaType = @"video";
+        NSURL *urlvideo = [info objectForKey:UIImagePickerControllerMediaURL];
+        NSString *strUrl = [NSString stringWithFormat:@"%@",urlvideo];
+        strUrl = [strUrl substringFromIndex:7];
+        NSData *fileData = [NSData dataWithContentsOfFile:strUrl];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self uploadMedia:fileData typeMedia:@"video"];
+    }
+    
+}
+
+- (void)uploadMedia:(NSData *) fileData typeMedia:(NSString *) type
+{
+    // 1
+    NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+    config.HTTPMaximumConnectionsPerHost = 1;
+    [config setHTTPAdditionalHeaders:@{@"Authorization": [Dropbox apiAuthorizationHeader]}];
+    
+    // 2
+    NSURLSession *upLoadSession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];
+    
+    // for now just create a random file name, dropbox will handle it if we overwrite a file and create a new name..
+    NSURL *url = nil;
+    if ([type isEqualToString:@"image"]) {
+        url = [Dropbox createPhotoUploadURL];
+    } else if ([type isEqualToString:@"video"]) {
+        url = [Dropbox createVideoUploadURL];
+        //        NSLog(@"url: %@", url);
+    }
+    mediaUrl = [NSString stringWithFormat:@"%@", url];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"PUT"];
+    
+    // 3
+    self.uploadTask = [upLoadSession uploadTaskWithRequest:request fromData:fileData];
+    
+    // 4
+    self.uploadView.hidden = NO;
+    //    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [self dismissViewControllerAnimated:NO completion:nil];
+    
+    // 5
+    [_uploadTask resume];
+}
+
+#pragma mark - NSURLSessionTaskDelegate methods
+- (void)URLSession:(NSURLSession *)session
+              task:(NSURLSessionTask *)task
+   didSendBodyData:(int64_t)bytesSent
+    totalBytesSent:(int64_t)totalBytesSent
+totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_progress setProgress:
+         (double)totalBytesSent /
+         (double)totalBytesExpectedToSend animated:YES];
+    });
+}
+
+- (void)URLSession:(NSURLSession *)session
+              task:(NSURLSessionTask *)task
+didCompleteWithError:(NSError *)error
+{
+    // 1
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        _uploadView.hidden = YES;
+        [_progress setProgress:0.5];
+    });
+    
+    if (!error) {
+        // 2
+        // Alert confirmation succesful
+        //        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    } else {
+        
+        
+        // Alert confirmation unsuccesful
+    }
+}
+
+/*- (void)startSend:(NSString *)filePath
 {
     NSLog(@"filePath for file ->%@", filePath);
     
@@ -394,9 +596,9 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     NSLog(@"sendDidStar ended");
     
     [self viewDidLoad];
-}
+}*/
 
--(void)progressIndicatorView
+/*-(void)progressIndicatorView
 {
     //self.Record_button.hidden =YES;
     CGRect UploadProgressFrame = CGRectMake(60, 150, 200,100);
@@ -417,7 +619,7 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     [aProgressView addSubview:progressTitleLabel];
     [aProgressView addSubview:_progressIndicator];
     [self.view addSubview:aProgressView];
-}
+}*/
 
 - (uint8_t *)buffer
 {
@@ -429,4 +631,7 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
     return (self.networkStream != nil);
 }
 
+-(void) didFinishPostChallengeRequestWithResult:(NSArray *)resultArray {
+    NSLog(@"didFinishPostChallengeRequestWithResult");
+}
 @end
