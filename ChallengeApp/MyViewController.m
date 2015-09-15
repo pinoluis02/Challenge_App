@@ -105,6 +105,7 @@
     if([[result objectForKey:@"successful"] isEqualToString:@"No"]){
         [self popAlert:@"Error" msg:[result objectForKey:@"error"]];
     }
+    
 }
 
 #pragma mark - didFinishGetExistUserWithResult from Dao

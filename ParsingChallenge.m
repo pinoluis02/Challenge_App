@@ -85,7 +85,7 @@
 -(NSMutableArray *)getParsingChallengeEvidence:(NSDictionary *) dictonaryJson {
     NSDictionary *evidencesDictionary = [dictonaryJson objectForKey:@"evidences"];
     NSMutableArray *resultArray = [[NSMutableArray alloc]init];
-    NSLog(@"dictonaryJson: %@", dictonaryJson);
+   // NSLog(@"dictonaryJson: %@", dictonaryJson);
     for (NSDictionary *snippet in evidencesDictionary) {
         Challenge *challenge = [Challenge alloc];
         challenge.idChallenge = [[snippet objectForKey:@"challenge"] objectForKey:@"id"];
