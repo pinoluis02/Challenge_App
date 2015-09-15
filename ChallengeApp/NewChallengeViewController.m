@@ -180,7 +180,9 @@ enum {
 
 - (IBAction)submitChallengeButton:(UIButton *)sender
 {
-    NSLog(@"Submit button action pressed");
+    if(!self.challengeTitle.text){
+        return;
+    }
 }
 
 - (IBAction)ChooseFromGallery:(id)sender
