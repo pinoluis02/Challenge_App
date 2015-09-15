@@ -9,6 +9,7 @@
 #import "MasterRootController.h"
 #import "ChallengeTableViewCellFull.h"
 #import "EvidenceTableViewCellFull.h"
+#import "SendChallengeViewController.h"
 
 @interface MasterRootController (){
 bool tabBarVerticalSpaceConstraintFixed;
@@ -92,6 +93,33 @@ bool tabBarVerticalSpaceConstraintFixed;
     if([command isEqualToString:@"Cancel"]){
         self.commandMenuController.itemsInTable = nil;
     }
+    else if([command isEqualToString:@"Share"]){
+        Challenge * challenge;
+        Evidence * evidence;
+        NSString *title, *thumbnailUrl, *description, *videoUrl;
+        if([self.selectedItem class] == [Challenge class]){
+            challenge = self.selectedItem;
+            title = challenge.title;
+            thumbnailUrl = challenge.urlThumbnail;
+            videoUrl = challenge.urlResource;
+            description = challenge.descriptionItem;
+        }else if([self.selectedItem class] == [Evidence class]){
+            evidence = self.selectedItem;
+            challenge = self.selectedItem;
+            title = [[NSString alloc] initWithFormat:@"%@'s evidence", evidence.userName];
+            thumbnailUrl = evidence.videoUrl;
+            videoUrl = evidence.imageUrl;
+            description = evidence.descriptionEvidence;
+        }
+        
+        [[FbSingleton sharedInstance] shareLinkWithURL:videoUrl Title:title Description:description ImageUrl:thumbnailUrl];
+    }
+    else if([command isEqualToString:@"Challenge People"]){
+        self.commandMenuController.itemsInTable = nil;
+        SendChallengeViewController * shareController = [SendChallengeViewController new];
+        [self pushToNavigationController:shareController];
+    }
+
 }
 
 
@@ -112,13 +140,16 @@ bool tabBarVerticalSpaceConstraintFixed;
     else{
         MasterRootController * newRootController = [self.nextRootControllerClass new];
         newRootController.selectedItem = item;
-        self.navigationController.navigationBar.translucent = false;
-        self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
-        [self.navigationController pushViewController:newRootController animated:true];
-        
+        [self pushToNavigationController:newRootController];
     }
 }
 
+-(void)pushToNavigationController:(UIViewController *)controller{
+    self.navigationController.navigationBar.translucent = false;
+    self.navigationController.edgesForExtendedLayout = UIRectEdgeNone;
+    [self.navigationController pushViewController:controller animated:true];
+
+}
 
 -(UIView*)createTableHeaderView: (id)object{
     return nil;
@@ -137,7 +168,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     
     UIView * header = [self createTableHeaderView:self.selectedItem];
     
-    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingExpandedSize].height;
+    CGFloat height = [header systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     CGRect frame = header.frame;
     frame.size.height = height;
     header.frame = frame;

@@ -45,7 +45,7 @@
 -(void) fetchData:(ChallengeTableViewControllerContent)contentType{
 //    NSLog(@"contentType:%@",[self contentypeToString:contentType]);
     
-    BOOL debug = false;
+    BOOL debug = true;
     if(!debug)
     {
         switch (contentType) {
@@ -139,32 +139,32 @@
 
 
 -(void)  didFinishGetAllChallengesWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetAllChallengesWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetAllChallengesWithResult count = %ld", [resultArray count]);
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
     
 }
 
 -(void)  didFinishGetLastChallengesWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetLastChallengesWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetLastChallengesWithResult count = %ld", [resultArray count]);
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
     
 }
 
 -(void)  didFinishGetPopularChallengesWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetPopularChallengesWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetPopularChallengesWithResult count = %ld", [resultArray count]);
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
 }
 
 -(void)  didFinishGetChallengesFromUserWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengesFromUserWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengesFromUserWithResult count = %ld", [resultArray count]);
     
 }
 
 -(void)  didFinishGetChallengesRequestByUserIdWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengesRequestByUserIdWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengesRequestByUserIdWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
@@ -172,12 +172,12 @@
 }
 
 -(void)  didFinishAddChallengeWithResult:(NSError *) error {
-    NSLog(@"didFinishAddChallengeWithResult count = %@", error);
+    //NSLog(@"didFinishAddChallengeWithResult count = %@", error);
     
 }
 
 -(void)  didFinishSearchChallengesWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishSearchChallengesWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishSearchChallengesWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
@@ -186,33 +186,33 @@
 
 // This method returns a list of challenges requests for a given challenge
 -(void)  didFinishGetChallengeRequestsWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengeRequestsWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengeRequestsWithResult count = %ld", [resultArray count]);
     
 }
 
 // This method returns a list of evidences or reponses for a given challenge
 -(void)  didFinishGetChallengesResponsesWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengesResponsesWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengesResponsesWithResult count = %ld", [resultArray count]);
     
 }
 
 -(void)  didFinishAcceptChallengeRequestWithResult:(NSError *) error  {
-    NSLog(@"didFinishAcceptChallengeRequestWithResult count = %@", error);
+    //NSLog(@"didFinishAcceptChallengeRequestWithResult count = %@", error);
     
 }
 
 -(void)  didFinishRejectChallengeRequestWithResult:(NSError *) error {
-    NSLog(@"didFinishRejectChallengeRequestWithResult count = %@", error);
+    //NSLog(@"didFinishRejectChallengeRequestWithResult count = %@", error);
     
 }
 
 -(void)  didFinishAcceptOrRejectChallengeRequestWithResult:(NSError *) error {
-    NSLog(@"didFinishAcceptOrRejectChallengeRequestWithResult count = %@", error);
+    //NSLog(@"didFinishAcceptOrRejectChallengeRequestWithResult count = %@", error);
     
 }
 
 -(void)  didFinishGetChallengesEvidencesByUserIdWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengesEvidencesByUserIdWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengesEvidencesByUserIdWithResult count = %ld", [resultArray count]);
     //    Setting both dummy objects, when model is ready leave only one
     self.challengesArray = resultArray;
      self.tableContentController.itemsArray = self.challengesArray;
@@ -220,19 +220,19 @@
 }
 
 -(void)  didFinishGetChallengesPendingEvidencesByUserIdWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetChallengesPendingEvidencesByUserIdWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetChallengesPendingEvidencesByUserIdWithResult count = %ld", [resultArray count]);
     self.challengesArray = resultArray;
     self.tableContentController.itemsArray = self.challengesArray;
    // [self.tableContentController.tableView reloadData];
 }
 
 -(void) didFinishAddUserWithResult:(NSError *) error {
-    NSLog(@"didFinishAddUserWithResult count = %@", error);
+    //NSLog(@"didFinishAddUserWithResult count = %@", error);
     
 }
 
 -(void)  didFinishGetExistUserWithResult:(NSArray *) resultArray {
-    NSLog(@"didFinishGetExistUserWithResult count = %ld", [resultArray count]);
+    //NSLog(@"didFinishGetExistUserWithResult count = %ld", [resultArray count]);
 }
 
 
