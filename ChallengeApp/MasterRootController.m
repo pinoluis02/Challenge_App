@@ -255,16 +255,16 @@ bool tabBarVerticalSpaceConstraintFixed;
     
     Evidence * item = object;
     EvidenceTableViewCellFull * customCell = [ nibViews objectAtIndex: 0];
-    NSString * loremLipsum = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enm ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+   
     
-    
-    customCell.evidenceDescription.text = loremLipsum;
-    customCell.authorUsername.text = @"Nivardo's";
+    customCell.evidenceDescription.text = item.descriptionEvidence;
+    customCell.authorUsername.text = item.userName;
     customCell.creationDate.text = item.created_at;
     UIImage * image = [UIImage imageNamed:@"missing"];
     if(![item.imageUrl isKindOfClass:[NSNull class]]){
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.  imageUrl]];
-        image = [UIImage imageWithData:imageData];
+         if(imageData != nil)
+             image = [UIImage imageWithData:imageData];
     }
     [customCell.thumbnail setImage:image];
     return  customCell;
@@ -285,7 +285,7 @@ bool tabBarVerticalSpaceConstraintFixed;
     if([item.userStatus isEqualToString:@"unrelated"]){
         dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unrelatedChallengeCommands" ofType:@"plist"]];
     }
-    else if([item.userStatus isEqualToString:@"notified"]){
+    else if([item.userStatus isEqualToString:@"notDecided"]){
         dict=[[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"notificationPendingChallengeCommands" ofType:@"plist"]];
     }
     else if([item.userStatus isEqualToString:@"accepted"]){

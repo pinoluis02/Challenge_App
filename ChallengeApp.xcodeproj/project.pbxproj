@@ -65,6 +65,10 @@
 		049899F71BA79EEC00917F13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0490F4791B9B5D5800318EFB /* main.m */; };
 		049899F91BA7A0AC00917F13 /* ChallengeTableViewCellCompact.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048441BA09547008AA356 /* ChallengeTableViewCellCompact.m */; };
 		049899FA1BA7A0C400917F13 /* ChallengeTableViewCellFull.m in Sources */ = {isa = PBXBuildFile; fileRef = 044048471BA09622008AA356 /* ChallengeTableViewCellFull.m */; };
+		04989A031BA7D2BB00917F13 /* SendChallengeContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04989A011BA7D2BB00917F13 /* SendChallengeContainerViewController.m */; };
+		04989A041BA7D2BB00917F13 /* SendChallengeContainerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04989A021BA7D2BB00917F13 /* SendChallengeContainerViewController.xib */; };
+		04989A091BA7F55C00917F13 /* UploadEvidenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04989A071BA7F55C00917F13 /* UploadEvidenceViewController.m */; };
+		04989A0A1BA7F55C00917F13 /* UploadEvidenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04989A081BA7F55C00917F13 /* UploadEvidenceViewController.xib */; };
 		04B3C10A1BA0818A00A6D81C /* ChallengeTableViewCellCompact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B3C1091BA0818A00A6D81C /* ChallengeTableViewCellCompact.xib */; };
 		04CB5AD41BA3364800C8D232 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5AD31BA3364800C8D232 /* CoreMedia.framework */; };
 		04CB5B111BA340E500C8D232 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CB5B101BA340E500C8D232 /* MediaPlayer.framework */; };
@@ -161,6 +165,12 @@
 		0494FD631BA691AB008EFC3D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		0494FD641BA691AB008EFC3D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		0494FD661BA69476008EFC3D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		04989A001BA7D2BB00917F13 /* SendChallengeContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendChallengeContainerViewController.h; sourceTree = "<group>"; };
+		04989A011BA7D2BB00917F13 /* SendChallengeContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendChallengeContainerViewController.m; sourceTree = "<group>"; };
+		04989A021BA7D2BB00917F13 /* SendChallengeContainerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendChallengeContainerViewController.xib; sourceTree = "<group>"; };
+		04989A061BA7F55C00917F13 /* UploadEvidenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadEvidenceViewController.h; sourceTree = "<group>"; };
+		04989A071BA7F55C00917F13 /* UploadEvidenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadEvidenceViewController.m; sourceTree = "<group>"; };
+		04989A081BA7F55C00917F13 /* UploadEvidenceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadEvidenceViewController.xib; sourceTree = "<group>"; };
 		04B3C1091BA0818A00A6D81C /* ChallengeTableViewCellCompact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChallengeTableViewCellCompact.xib; sourceTree = "<group>"; };
 		04C3C8BF1BA0B5E30048996F /* Challenge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Challenge.h; path = ChallengeApp/Challenge.h; sourceTree = "<group>"; };
 		04C3C8C01BA0B5E30048996F /* Challenge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Challenge.m; path = ChallengeApp/Challenge.m; sourceTree = "<group>"; };
@@ -392,6 +402,7 @@
 		0490F4761B9B5D5800318EFB /* ChallengeApp */ = {
 			isa = PBXGroup;
 			children = (
+				04989A051BA7F51300917F13 /* Upload Evidence */,
 				0492CAA91BA66417001A21DB /* Add Friends to Challenge */,
 				0494FD621BA69197008EFC3D /* Reachability */,
 				04CB5B1C1BA4E0B100C8D232 /* NetworkManager */,
@@ -453,6 +464,9 @@
 		0492CAA91BA66417001A21DB /* Add Friends to Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				04989A021BA7D2BB00917F13 /* SendChallengeContainerViewController.xib */,
+				04989A001BA7D2BB00917F13 /* SendChallengeContainerViewController.h */,
+				04989A011BA7D2BB00917F13 /* SendChallengeContainerViewController.m */,
 				04362F041BA7A730003A7D58 /* SendChallengeViewController.xib */,
 				0473DDB11BA73D0E00102308 /* SendChallengeViewController.h */,
 				0473DDB21BA73D0E00102308 /* SendChallengeViewController.m */,
@@ -470,6 +484,16 @@
 				0494FD641BA691AB008EFC3D /* Reachability.m */,
 			);
 			name = Reachability;
+			sourceTree = "<group>";
+		};
+		04989A051BA7F51300917F13 /* Upload Evidence */ = {
+			isa = PBXGroup;
+			children = (
+				04989A061BA7F55C00917F13 /* UploadEvidenceViewController.h */,
+				04989A071BA7F55C00917F13 /* UploadEvidenceViewController.m */,
+				04989A081BA7F55C00917F13 /* UploadEvidenceViewController.xib */,
+			);
+			name = "Upload Evidence";
 			sourceTree = "<group>";
 		};
 		04C3C8CE1BA0B5EE0048996F /* models */ = {
@@ -711,6 +735,7 @@
 				04F013BD1BA559BD003F2DE8 /* MasterTableViewController.xib in Resources */,
 				04F013C51BA569F9003F2DE8 /* ExpandableTableViewCell.xib in Resources */,
 				0473DDBA1BA73E2600102308 /* SendChallengeCustomeTableViewCell.xib in Resources */,
+				04989A0A1BA7F55C00917F13 /* UploadEvidenceViewController.xib in Resources */,
 				0480B06B1B9F9DCD007E71A2 /* ContactsViewController.xib in Resources */,
 				0490F4861B9B5D5800318EFB /* Main.storyboard in Resources */,
 				044048421BA08D34008AA356 /* ChallengeTableViewCellFull.xib in Resources */,
@@ -724,6 +749,7 @@
 				0455588C1BA0E41E006A4C87 /* MakeDonationViewController.xib in Resources */,
 				0480B05A1B9E0BB7007E71A2 /* MasterRootController.xib in Resources */,
 				046A6D551BA10E3A00488A09 /* UserCommentTableViewCell.xib in Resources */,
+				04989A041BA7D2BB00917F13 /* SendChallengeContainerViewController.xib in Resources */,
 				04F013C11BA55F58003F2DE8 /* data.plist in Resources */,
 				04F013C81BA58320003F2DE8 /* incompleteChallengeCommands.plist in Resources */,
 				04E63E0A1BA5FE1B00A89E2C /* evidenceCommands.plist in Resources */,
@@ -759,6 +785,7 @@
 				049899D71BA79EEC00917F13 /* ParsingChallenge.m in Sources */,
 				049899D81BA79EEC00917F13 /* ChallengeDao.m in Sources */,
 				049899D91BA79EEC00917F13 /* Connection.m in Sources */,
+				04989A091BA7F55C00917F13 /* UploadEvidenceViewController.m in Sources */,
 				049899DA1BA79EEC00917F13 /* JSONParsing.m in Sources */,
 				049899DB1BA79EEC00917F13 /* Comment.m in Sources */,
 				049899DC1BA79EEC00917F13 /* User.m in Sources */,
@@ -780,6 +807,7 @@
 				049899EC1BA79EEC00917F13 /* UserCommentsTableViewController.m in Sources */,
 				049899ED1BA79EEC00917F13 /* UserCommentTableViewCell.m in Sources */,
 				049899EE1BA79EEC00917F13 /* EvidenceTableViewCellFull.m in Sources */,
+				04989A031BA7D2BB00917F13 /* SendChallengeContainerViewController.m in Sources */,
 				049899EF1BA79EEC00917F13 /* EvidenceTableViewCellCompact.m in Sources */,
 				049899F01BA79EEC00917F13 /* NSDate+Utils.m in Sources */,
 				049899F11BA79EEC00917F13 /* ContactsViewController.m in Sources */,

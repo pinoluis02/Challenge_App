@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="efK-Xu-Bwk">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -11,7 +11,7 @@
                 <viewController id="CXS-Hy-Akf" customClass="SendChallengeViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDz-uQ-eeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-429" y="-522"/>
+            <point key="canvasLocation" x="-293" y="-409"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="RPw-cf-Djv">
@@ -60,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maC-sE-Q3u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="394"/>
+            <point key="canvasLocation" x="1169" y="412"/>
         </scene>
         <!--My View Controller-->
         <scene sceneID="zH8-dF-DyU">
@@ -151,7 +151,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VIy-cV-0Kf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-293" y="378"/>
+            <point key="canvasLocation" x="-293" y="412"/>
+        </scene>
+        <!--Upload Evidence View Controller-->
+        <scene sceneID="sFx-fS-z4B">
+            <objects>
+                <viewController id="KYV-PR-a6U" customClass="UploadEvidenceViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTA-Lj-fn6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-293" y="1204"/>
         </scene>
         <!--Send Challenge View Controller-->
         <scene sceneID="f7B-Xt-Fkz">
@@ -189,6 +197,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccR-PP-Ti2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3370" y="1198"/>
+        </scene>
+        <!--Send Challenge Container View Controller-->
+        <scene sceneID="1pt-KX-NVh">
+            <objects>
+                <viewController id="yrB-3h-kxH" customClass="SendChallengeContainerViewController" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pI0-Hr-Xrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="1198"/>
         </scene>
         <!--New Challenge View Controller-->
         <scene sceneID="ZPf-6B-PbR">
@@ -235,7 +251,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0p-hQ-gsT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343" y="1050"/>
+            <point key="canvasLocation" x="-1065" y="412"/>
         </scene>
         <!--contacts-->
         <scene sceneID="JOG-hd-56l">

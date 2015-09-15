@@ -24,11 +24,12 @@
 {
     self = [super init];
     if (self) {
+        self.userLoggedIn = [[FBFriend alloc]init];
         _friendsFbUser  = [[NSArray  alloc]init];
-        _idFbUser       = [[NSString alloc]init];
-        _nameFbUser     = [[NSString alloc]init];
-        _emailFbUser    = [[NSString alloc]init];
-        _urlImageFbUser = [[NSString alloc]init];
+//        _idFbUser       = [[NSString alloc]init];
+//        _nameFbUser     = [[NSString alloc]init];
+//        _emailFbUser    = [[NSString alloc]init];
+//        _urlImageFbUser = [[NSString alloc]init];
     }
     return self;
 }
@@ -53,18 +54,25 @@
             NSMutableArray *arrayOfFriends = [[NSMutableArray alloc]init];
            
             for(NSMutableDictionary *dic in [result objectForKey:@"data"]){
-                NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];
-               // [temp setObject:[dic objectForKey:@"email"] forKey:@"email"];
-                [temp setObject:[dic objectForKey:@"id"] forKey:@"id"];
-                [temp setObject:[dic objectForKey:@"name"] forKey:@"name"];
-                [temp setObject:[[[dic objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"urlImage"];
-                [arrayOfFriends addObject:temp];
+//                NSMutableDictionary *temp = [[NSMutableDictionary alloc]init];
+//               // [temp setObject:[dic objectForKey:@"email"] forKey:@"email"];
+//                [temp setObject:[dic objectForKey:@"id"] forKey:@"id"];
+//                [temp setObject:[dic objectForKey:@"name"] forKey:@"name"];
+//                [temp setObject:[[[dic objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@""];
+                FBFriend *friend = [[FBFriend alloc]init];
+                // [temp setObject:[dic objectForKey:@"email"] forKey:@"email"];
+                friend.userId = [dic objectForKey:@"id"];
+                friend.userName = [dic objectForKey:@"name"];
+                friend.imageURL = [[[dic objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                friend.email = @"";
+                [arrayOfFriends addObject:friend];
             }
             
             [friendRequest setObject:arrayOfFriends forKey:@"data"];
             [friendRequest setObject:@"YES" forKey:@"successful"];
             
-            _friendsFbUser = [friendRequest objectForKey:@"data"];
+           // _friendsFbUser = [friendRequest objectForKey:@"data"];
+            self.friendsFbUser = [friendRequest objectForKey:@"data"];
         }
         else{
             
@@ -96,19 +104,23 @@
             [userInfo setValue:@"YES" forKey:@"successful"];
             
             if ([result objectForKey:@"name"]) {
-                _nameFbUser = [result objectForKey:@"name"];
+               // _nameFbUser = [result objectForKey:@"name"];
+                self.userLoggedIn.userName = [result objectForKey:@"name"];
                 [userInfo setValue:[result objectForKey:@"name"] forKey:@"name"];
             }
             if ([result objectForKey:@"id"]) {
-                _idFbUser = [result objectForKey:@"id"];
+              //  _idFbUser = [result objectForKey:@"id"];
+                self.userLoggedIn.userId = [result objectForKey:@"id"];
                 [userInfo setValue:[result objectForKey:@"id"] forKey:@"id"];
             }
             if ([result objectForKey:@"email"]) {
-                _emailFbUser = [result objectForKey:@"email"];
+               // _emailFbUser = [result objectForKey:@"email"];
+                self.userLoggedIn.email = [result objectForKey:@"email"];
                 [userInfo setValue:[result objectForKey:@"email"] forKey:@"email"];
             }
             if ([result objectForKey:@"picture"]) {
-                _urlImageFbUser = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+               // _urlImageFbUser = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
+                self.userLoggedIn.imageURL = [[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"];
                 [userInfo setValue:[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"] forKey:@"urlImage"];
             }
         }

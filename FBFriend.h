@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString * userId;
 @property (nonatomic, strong) NSString * userName;
 @property (nonatomic, strong) NSString * imageURL;
+@property (nonatomic, strong) NSString * email;
 
 @end

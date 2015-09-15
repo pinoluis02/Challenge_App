@@ -43,7 +43,8 @@
         UIImage * image = [UIImage imageNamed:@"missing"];
         if(![cast.imageUrl isKindOfClass:[NSNull class]]){
             NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:cast.imageUrl]];
-            image = [UIImage imageWithData:imageData];
+            if(imageData != nil)
+                image = [UIImage imageWithData:imageData];
         }
         [customCell.thumbnail setImage:image];
         cell = customCell;

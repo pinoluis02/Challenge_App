@@ -64,7 +64,7 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
 
 @implementation NewChallengeViewController
 {
-    uint8_t                     _buffer[kSendBufferSize];
+    uint8_t _buffer[kSendBufferSize];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

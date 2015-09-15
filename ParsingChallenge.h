@@ -10,6 +10,7 @@
 #import "Challenge.h"
 #import "Message.h"
 #import "Evidence.h"
+#import "MasterRootController.h"
 
 @interface ParsingChallenge : NSObject
 @property (strong, nonatomic) NSString *title;
