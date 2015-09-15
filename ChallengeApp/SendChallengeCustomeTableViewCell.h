@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SendChallengeCustomeTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *userURLimageView;
 
 @property (strong, nonatomic) IBOutlet UILabel *leftLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rightLabel;

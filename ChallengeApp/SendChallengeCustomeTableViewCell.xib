@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDK-U8-o3W">
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDK-U8-o3W">
                         <rect key="frame" x="372" y="24" width="30" height="23"/>
                         <state key="normal" image="RoundUnCheck"/>
                         <state key="selected" image="RoundCheck"/>
@@ -31,10 +31,10 @@
                             <constraint firstAttribute="width" secondItem="ypS-ED-A0U" secondAttribute="height" multiplier="1:1" id="Vnx-es-6wT"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBE-z7-3jg" userLabel="Right Label">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Right Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WBE-z7-3jg" userLabel="Right Label">
                         <rect key="frame" x="268.5" y="27" width="73.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -51,6 +51,7 @@
             <connections>
                 <outlet property="rightLabel" destination="WBE-z7-3jg" id="er4-am-07k"/>
                 <outlet property="selectFriendButton" destination="cDK-U8-o3W" id="q9O-Do-CWx"/>
+                <outlet property="userURLimageView" destination="ypS-ED-A0U" id="xmC-OJ-bUK"/>
             </connections>
             <point key="canvasLocation" x="442" y="398.5"/>
         </tableViewCell>
