@@ -29,10 +29,11 @@
     [self setValuesToArray];
 
     NSString * classNameStr = NSStringFromClass([SendChallengeCustomeTableViewCell class]);
-    [self.tableView registerNib:[UINib nibWithNibName:classNameStr bundle:nil] forCellReuseIdentifier:classNameStr];
-    self.tableView.rowHeight = 110;
+    UINib *cellNib = [UINib nibWithNibName:classNameStr bundle:nil];
+    [self.tableView registerNib: cellNib forCellReuseIdentifier:classNameStr];
+//    self.tableView.rowHeight = 110;
     
-    
+    self.tableView.delegate = self;
     
     [self.tableView reloadData];
     

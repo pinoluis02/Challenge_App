@@ -94,7 +94,25 @@ bool tabBarVerticalSpaceConstraintFixed;
         self.commandMenuController.itemsInTable = nil;
     }
     else if([command isEqualToString:@"Share"]){
-//        [[FbSingleton sharedInstance] shareLinkWithURL:<#(NSString *)#> Title:self.it Description:<#(NSString *)#> ImageUrl:<#(NSString *)#>];
+        Challenge * challenge;
+        Evidence * evidence;
+        NSString *title, *thumbnailUrl, *description, *videoUrl;
+        if([self.selectedItem class] == [Challenge class]){
+            challenge = self.selectedItem;
+            title = challenge.title;
+            thumbnailUrl = challenge.urlThumbnail;
+            videoUrl = challenge.urlResource;
+            description = challenge.descriptionItem;
+        }else if([self.selectedItem class] == [Evidence class]){
+            evidence = self.selectedItem;
+            challenge = self.selectedItem;
+            title = [[NSString alloc] initWithFormat:@"%@'s evidence", evidence.userName];
+            thumbnailUrl = evidence.videoUrl;
+            videoUrl = evidence.imageUrl;
+            description = evidence.descriptionEvidence;
+        }
+        
+        [[FbSingleton sharedInstance] shareLinkWithURL:videoUrl Title:title Description:description ImageUrl:thumbnailUrl];
     }
     else if([command isEqualToString:@"Challenge People"]){
         self.commandMenuController.itemsInTable = nil;

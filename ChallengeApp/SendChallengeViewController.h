@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FbSingleton.h"
 
-@interface SendChallengeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@interface SendChallengeViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong,nonatomic) NSMutableArray * friendArray;
-
 
 @end
