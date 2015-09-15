@@ -18,7 +18,6 @@
 @end
 
 @implementation SendChallengeViewController
-@synthesize items = _items;
 
 - (void)viewDidLoad
 {
@@ -43,18 +42,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (NSArray *)items
-{
-    if (!_items)
-    {
-        NSMutableArray * arr = [NSMutableArray arrayWithCapacity:20];
-        for (NSInteger i=0; i<20; i++)
-            [arr addObject:[NSString stringWithFormat:@"Item%ld", (long)i]];
-        _items = arr;
-    }
-    return _items;
-//    return self.friendArray;
-}
 
 -(void)setValuesToArray
 {
@@ -108,9 +95,18 @@
 {
     NSString * classNameStr = NSStringFromClass([SendChallengeCustomeTableViewCell class]);
     SendChallengeCustomeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:classNameStr];
-   
-    [cell.selectFriendButton addTarget:self action:@selector(actionButton:) forControlEvents: UIControlEventTouchUpInside];
     
+    FBFriend * item = self.friendArray[indexPath.row];
+    if(cell.setUpMark.hidden == false){
+        [cell.checkButton addTarget:self action:@selector(selectFriendButton:) forControlEvents: UIControlEventTouchUpInside];
+         cell.setUpMark.hidden = true;
+    }
+    
+    cell.username.text = item.userName;
+    NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString:item.imageURL]];
+    UIImage * image = [UIImage imageWithData:imageData];
+    cell.profilePicture.image = image;
+    cell.checkButton.tag = indexPath.row;
     return cell;
 }
 
@@ -132,10 +128,22 @@
 //    cell.rightLabel.text = [self.items objectAtIndex:indexPath.row];
 }
 
--(void)actionButton:(id) sender
+- (void)selectFriendButton:(id)sender
 {
-    NSLog(@"Buttons Cell Pressed From View Controller");
-    NSLog(@"%@", sender);
+    UIButton * btn = sender;
+    btn.selected = !btn.isSelected;
+    FBFriend * friend = self.friendArray[btn.tag];
+    if ([btn isSelected])
+    {
+        [btn setImage:[UIImage imageNamed:@"RoundCheck"] forState:UIControlStateSelected];
+        [checkedItems addObject:friend];
+    }
+    else
+    {
+        [btn setImage:[UIImage imageNamed:@"RoundUnCheck"] forState:UIControlStateNormal];
+        [checkedItems removeObject:friend];
+    }
 }
+
 
 @end
