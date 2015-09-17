@@ -437,6 +437,11 @@ NSString * descriptionPlaceholderText = @"[Insert description here ..]";
         //        NSLog(@"url: %@", url);
     }
     mediaUrl = [NSString stringWithFormat:@"%@", url];
+    NSString *namePicture = [mediaUrl substringFromIndex:78];
+//    NSLog(@"namePicture: %@", namePicture);
+    mediaUrl = [NSString stringWithFormat:@"https://dl.dropboxusercontent.com/u/122174667/aplicaciones/challenge_insects/challenge_resource/photos/%@", namePicture];
+    
+    NSLog(@"mediaUrl: %@", mediaUrl);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"PUT"];
     
